@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authorization on Connect</title>
-    <link>https://GenericCPU.github.io/connect-sdk-docs/authorization/</link>
+    <link>https://github.com/GenericCPU/connect-sdk-docs.git/authorization/</link>
     <description>Recent content in Authorization on Connect</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2020 a Hugo theme by [Gethugothemes](https://gethugothemes.com/)</copyright>
     <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="https://GenericCPU.github.io/connect-sdk-docs/authorization/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://github.com/GenericCPU/connect-sdk-docs.git/authorization/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
