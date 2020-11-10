@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <title>Installation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="generator" content="Hugo 0.68.3" />
+  
+  <!-- ** CSS Plugins Needed for the Project ** -->
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://github.com/GenericCPU/connect-sdk-docs.git/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://github.com/GenericCPU/connect-sdk-docs.git/plugins/themify-icons/themify-icons.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://github.com/GenericCPU/connect-sdk-docs.git/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <style>
+  :root{
+    --primary-color:#102a43;
+    --body-color:#f5f5f5;
+    --text-color:#57697a;
+    --text-color-dark:#193148;
+    --white-color:#f5f5f5;
+    --light-color:#f8f9fa;
+    --font-family:Roboto;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link href="https://github.com/GenericCPU/connect-sdk-docs.git/css/style.min.css" rel="stylesheet" media="screen"/>
+  
+<!-- ** JS Plugins Needed for the Project ** -->
+
+<!-- jquiry -->
+<script src="https://github.com/GenericCPU/connect-sdk-docs.git/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://github.com/GenericCPU/connect-sdk-docs.git/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://github.com/GenericCPU/connect-sdk-docs.git/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://github.com/GenericCPU/connect-sdk-docs.git/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+
+  
+
+  <!-- create /layouts/partials/overrides/header.html in your own theme or root directory to add your custom content here -->
+
+
+</head>
+
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/GenericCPU/connect-sdk-docs.git">
+      
+      
+      
+      
+      <img class="img-fluid" height="40" src="https://i.ibb.co/yRSfnfF/connect-logo.png" alt="Connect">
+      
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://handcash-connect-dashboard.web.app/#/">Developer login</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://github.com/GenericCPU/connect-sdk-docs.git/contact">contact</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            docs
+          </a>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="https://github.com/GenericCPU/connect-sdk-docs.git/installation">Installation</a>
+            
+            <a class="dropdown-item" href="https://github.com/GenericCPU/connect-sdk-docs.git/authorization">Authorization</a>
+            
+            <a class="dropdown-item" href="https://github.com/GenericCPU/connect-sdk-docs.git/user-profile">User Profile</a>
+            
+            <a class="dropdown-item" href="https://github.com/GenericCPU/connect-sdk-docs.git/payments">Payments</a>
+            
+            <a class="dropdown-item" href="https://github.com/GenericCPU/connect-sdk-docs.git/encryption">Encryption</a>
+            
+            <a class="dropdown-item" href="https://github.com/GenericCPU/connect-sdk-docs.git/examples">Examples</a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section-sm pb-0">
+  <div class="container">
+    <div class="row">
+      
+      
+      </div>
+      <div class="col-lg-10 center">
+        <div class="p-lg-5 p-4 bg-white">
+          
+          <div class='parent sticky'>
+            <div class='child inline-block-child-top'>
+              <a href="/GenericCPU/connect-sdk-docs.git">
+                <img src="https://i.ibb.co/f0NdNKr/arrow-left-circle.png">
+              </a>
+            </div>
+            <div class='child inline-block-child-bottom'>
+              <h2 class="mb-5">Installation</h2>
+            </div>
+          </div>
+          
+          <div class="content"><h4 id="registration">Registration</h4>
+<p>To get started with Connect, you will need to register your app through the <a href="https://handcash-connect-dashboard.web.app/#/">HandCash developer dashboard</a>.</p>
+<br/>
+<h4 id="permissions">Permissions</h4>
+<p>During the registration, you will be asked to select permissions that will be required by your app. Below are all the available permissions:</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content"><div class="tab-pane" title="Pay">
+  <blockquote>
+<p>Grants access to make payments on the user&rsquo;s behalf</p>
+</blockquote>
+</div>
+<div class="tab-pane" title="Public Profile">
+  <blockquote>
+<p>Grants access to the user&rsquo;s public profile: &lsquo;handle&rsquo;, &lsquo;displayName&rsquo; and &lsquo;avatarUrl&rsquo;.</p>
+</blockquote>
+</div>
+<div class="tab-pane" title="Private Profile">
+  <blockquote>
+<p>Grants access to the user&rsquo;s private profile: &lsquo;email&rsquo; and &lsquo;phoneNumber&rsquo;.</p>
+</blockquote>
+</div>
+<div class="tab-pane" title="Friends">
+  <blockquote>
+<p>Grants access to view the user&rsquo;s friends list.</p>
+</blockquote>
+</div>
+<div class="tab-pane" title="Decrypt &amp; Encrypt">
+  <blockquote>
+<p>Grants access to the encryption/decryption keypair.</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+
+<div class="notices note" ><p><code>PublicProfile</code> is enabled by default for all applications.</p></div>
+
+<h4 id="install--initialize-the-sdk">Install &amp; Initialize the SDK</h4>
+<p>Once registered, install the SDK module to your project:
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content"><div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install --save @handcash/handcash-connect-beta
+</code></pre></div>
+</div>
+</div>
+</div></p>
+<p>Then, import the module:
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content"><div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
+</code></pre></div>
+</div>
+</div>
+</div></p>
+
+
+<div class="notices note" ><p>To interact with Connect, you will need to create an instance of the <code>HandCashCloudAccount</code>. This must be initialized using an <strong>authToken</strong>, which represents the authorization granted by the user to your application.</p></div>
+
+<p>Learn how to obtain the user&rsquo;s <strong>authToken</strong> in the next section.</p>
+</div>
+          
+          <hr/>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://github.com/GenericCPU/connect-sdk-docs.git/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Connect</span></a>
+            
+            
+            <a class="nav nav-next" href="https://github.com/GenericCPU/connect-sdk-docs.git/authorization/"> <span class="d-none d-md-block">Authorization</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 text-md-left text-center">
+       <p class="mb-md-0 mb-4">Copyright © 2020 a Hugo theme by <a href="https://gethugothemes.com/">Gethugothemes</a></p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/handcashapp"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://github.com/GenericCPU/connect-sdk-docs.git/js/script.min.js"></script>
+  </body>
+
+</html>
