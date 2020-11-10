@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/installation/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/authorization/</loc>
+    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/profile/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/payments/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/encryption/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/examples/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/</loc>
+    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/faq/</loc>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://connect-documentation.s3.amazonaws.com/tags/</loc>
+  </url>
+  
+</urlset>
