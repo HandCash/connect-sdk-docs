@@ -1,7 +1,61 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+  <head>
+  <meta charset="utf-8">
+  <title>Assets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="generator" content="Hugo 0.68.3" />
+  
+  <!-- ** CSS Plugins Needed for the Project ** -->
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://genericcpu.github.io/connect-sdk-docs/plugins/bootstrap/bootstrap.min.css">
 
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://genericcpu.github.io/connect-sdk-docs/plugins/themify-icons/themify-icons.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://genericcpu.github.io/connect-sdk-docs/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <style>
+  :root{
+    --primary-color:#102a43;
+    --body-color:#f5f5f5;
+    --text-color:#57697a;
+    --text-color-dark:#193148;
+    --white-color:#f5f5f5;
+    --light-color:#f8f9fa;
+    --font-family:Roboto;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link href="https://genericcpu.github.io/connect-sdk-docs/css/style.min.css" rel="stylesheet" media="screen"/>
+  
+<!-- ** JS Plugins Needed for the Project ** -->
+
+<!-- jquiry -->
+<script src="https://genericcpu.github.io/connect-sdk-docs/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://genericcpu.github.io/connect-sdk-docs/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://genericcpu.github.io/connect-sdk-docs/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://genericcpu.github.io/connect-sdk-docs/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+
+  
+
+  <!-- create /layouts/partials/overrides/header.html in your own theme or root directory to add your custom content here -->
+
+
+</head>
 
   
   <body>
@@ -95,23 +149,357 @@
             </div>
           </div>
           
-          <div class="content"><h4 id="heading"></h4>
+          <div class="content"><h4 id="overview">Overview</h4>
+<p>While integrating Connect into your app, you may want to take advantage of some assets such as colors, buttons, or images.</p>
+<br/>
+<h4 id="login">Login</h4>
+<p>When prompting your users to login with Connect, you can use the following button:</p>
+<br/>
 <head>
 	<meta charset="utf-8">
-
-	<title>HandCash Connect Button</title>
-	<meta name="description" content="This is a placeholder page for the HandCash Connect Button">
-	<meta name="author" content="HandCash Labs SL">
-
 	<link rel="stylesheet" href="css/styles.css">
-	
-
 </head>
 
 <body>
 	<div id="connectButton" app-id="123-456">Connect with HandCash</div>
 	<script type="text/javascript" src="js/connect_button.js"></script>
 </body>
+<hr>
+<br/>
+<p>To add this button into your app, use the following html, js, and css:</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content"><div class="tab-pane" title="HTML">
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#6ab825;font-weight:bold">head</span>&gt;
+	&lt;<span style="color:#6ab825;font-weight:bold">meta</span> <span style="color:#bbb">charset</span>=<span style="color:#ed9d13">&#34;utf-8&#34;</span>&gt;
+	&lt;<span style="color:#6ab825;font-weight:bold">link</span> <span style="color:#bbb">rel</span>=<span style="color:#ed9d13">&#34;stylesheet&#34;</span> <span style="color:#bbb">href</span>=<span style="color:#ed9d13">&#34;css/styles.css&#34;</span>&gt;
+&lt;/<span style="color:#6ab825;font-weight:bold">head</span>&gt;
+&lt;<span style="color:#6ab825;font-weight:bold">body</span>&gt;
+	&lt;<span style="color:#6ab825;font-weight:bold">div</span> <span style="color:#bbb">id</span>=<span style="color:#ed9d13">&#34;connectButton&#34;</span> <span style="color:#bbb">app-id</span>=<span style="color:#ed9d13">&#34;123-456&#34;</span>&gt;Connect with HandCash&lt;/<span style="color:#6ab825;font-weight:bold">div</span>&gt;
+	&lt;<span style="color:#6ab825;font-weight:bold">script</span> <span style="color:#bbb">type</span>=<span style="color:#ed9d13">&#34;text/javascript&#34;</span> <span style="color:#bbb">src</span>=<span style="color:#ed9d13">&#34;js/connect_button.js&#34;</span>&gt;&lt;/<span style="color:#6ab825;font-weight:bold">script</span>&gt;
+&lt;/<span style="color:#6ab825;font-weight:bold">body</span>&gt;
+</code></pre></div>
+</div>
+<div class="tab-pane" title="JavaScript">
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#24909d">document</span>.write(<span style="color:#ed9d13">&#39;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://handcash.io/resources/connectbutton/css/style.css&#34;/&gt;&#39;</span>);
+<span style="color:#6ab825;font-weight:bold">const</span> connectButton = <span style="color:#24909d">document</span>.getElementById(<span style="color:#ed9d13">&#39;connectButton&#39;</span>);
+<span style="color:#6ab825;font-weight:bold">const</span> appId = connectButton.getAttribute(<span style="color:#ed9d13">&#39;app-id&#39;</span>);
+<span style="color:#6ab825;font-weight:bold">function</span> connectWithHandCash() {
+    location.href = <span style="color:#ed9d13">&#39;https://handcash.io?appId=&#39;</span> + appId;
+}
+console.log(connectButton);
+connectButton.addEventListener(<span style="color:#ed9d13">&#39;click&#39;</span>, connectWithHandCash, <span style="color:#6ab825;font-weight:bold">false</span>);
+</code></pre></div>
+</div>
+<div class="tab-pane" title="CSS">
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#6ab825;font-weight:bold">charset</span> <span style="color:#ed9d13">&#34;UTF-8&#34;</span>;
+@<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#6ab825;font-weight:bold">url</span>(<span style="color:#ed9d13">&#39;https://fonts.googleapis.com/css2?family=Poppins:wght@500&amp;display=swap&#39;</span>);
+#<span style="color:#447fcf;text-decoration:underline">connectButton</span>{
+	<span style="color:#6ab825;font-weight:bold">font-family</span>: <span style="color:#ed9d13">&#39;Poppins&#39;</span>, <span style="color:#6ab825;font-weight:bold">sans-serif</span>;
+	<span style="color:#6ab825;font-weight:bold">box-shadow</span>: <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">1</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">3</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#24909d">hsla</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">.15</span>);
+	<span style="color:#6ab825;font-weight:bold">background-image</span>: <span style="color:#24909d">linear-gradient</span>(<span style="color:#3677a9">#38CB7C</span>, <span style="color:#3677a9">#1CB462</span>);
+	<span style="color:#6ab825;font-weight:bold">border-radius</span>: <span style="color:#3677a9">8</span><span style="color:#6ab825;font-weight:bold">px</span>;
+	<span style="color:#6ab825;font-weight:bold">display</span>:<span style="color:#6ab825;font-weight:bold">inline</span>-<span style="color:#6ab825;font-weight:bold">block</span>;
+	<span style="color:#6ab825;font-weight:bold">text-align</span>: <span style="color:#6ab825;font-weight:bold">center</span>;
+	<span style="color:#6ab825;font-weight:bold">cursor</span>:<span style="color:#6ab825;font-weight:bold">pointer</span>;
+	<span style="color:#6ab825;font-weight:bold">color</span>:<span style="color:#3677a9">#ffffff</span>;
+	<span style="color:#6ab825;font-weight:bold">font-size</span>:<span style="color:#3677a9">16</span><span style="color:#6ab825;font-weight:bold">px</span>;
+	<span style="color:#6ab825;font-weight:bold">font-weight</span>:<span style="color:#3677a9">500</span>;
+	<span style="color:#6ab825;font-weight:bold">padding</span>:<span style="color:#3677a9">16</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">24</span><span style="color:#6ab825;font-weight:bold">px</span>;
+	<span style="color:#6ab825;font-weight:bold">text-decoration</span>:<span style="color:#6ab825;font-weight:bold">none</span>;
+	<span style="color:#6ab825;font-weight:bold">transition</span>: <span style="color:#3677a9">0.3</span><span style="color:#6ab825;font-weight:bold">s</span>;
+	<span style="color:#6ab825;font-weight:bold">width</span>: <span style="color:#3677a9">100</span><span style="color:#6ab825;font-weight:bold">%</span>;
+	<span style="color:#6ab825;font-weight:bold">max-width</span>: <span style="color:#3677a9">320</span><span style="color:#6ab825;font-weight:bold">px</span>;
+	<span style="color:#6ab825;font-weight:bold">vertical-align</span>: <span style="color:#6ab825;font-weight:bold">middle</span>;
+	<span style="color:#6ab825;font-weight:bold">letter-spacing</span>: <span style="color:#3677a9">0.5</span><span style="color:#6ab825;font-weight:bold">px</span>;
+}
+#<span style="color:#447fcf;text-decoration:underline">connectButton</span>:<span style="color:#ffa500">before</span> {
+	<span style="color:#6ab825;font-weight:bold">background</span>: <span style="color:#24909d">url</span>(<span style="color:#ffa500">https://handcash.io/resources/handcash_white_icon.svg</span>) <span style="color:#6ab825;font-weight:bold">no-repeat</span> <span style="color:#6ab825;font-weight:bold">scroll</span> <span style="color:#6ab825;font-weight:bold">center</span> <span style="color:#6ab825;font-weight:bold">center</span> / <span style="color:#3677a9">100</span><span style="color:#6ab825;font-weight:bold">%</span> <span style="color:#6ab825;font-weight:bold">auto</span> <span style="color:#24909d">rgba</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span>);
+    <span style="color:#6ab825;font-weight:bold">content</span>: <span style="color:#ed9d13">&#34;&#34;</span>;
+    <span style="color:#6ab825;font-weight:bold">display</span>: <span style="color:#6ab825;font-weight:bold">inline</span>-<span style="color:#6ab825;font-weight:bold">block</span>;
+    <span style="color:#6ab825;font-weight:bold">color</span>: <span style="color:#3677a9">#fff</span>;
+    <span style="color:#6ab825;font-weight:bold">height</span>: <span style="color:#3677a9">20</span><span style="color:#6ab825;font-weight:bold">px</span>;
+    <span style="color:#6ab825;font-weight:bold">margin-right</span>: <span style="color:#3677a9">12</span><span style="color:#6ab825;font-weight:bold">px</span>;
+    <span style="color:#6ab825;font-weight:bold">margin-bottom</span>: <span style="color:#3677a9">1</span><span style="color:#6ab825;font-weight:bold">px</span>;
+    <span style="color:#6ab825;font-weight:bold">position</span>: <span style="color:#6ab825;font-weight:bold">relative</span>;
+    <span style="color:#6ab825;font-weight:bold">vertical-align</span>: <span style="color:#6ab825;font-weight:bold">middle</span>;
+    <span style="color:#6ab825;font-weight:bold">width</span>: <span style="color:#3677a9">20</span><span style="color:#6ab825;font-weight:bold">px</span>;
+}
+#<span style="color:#447fcf;text-decoration:underline">connectButton</span>:<span style="color:#ffa500">hover</span> {
+	<span style="color:#6ab825;font-weight:bold">background-image</span>: <span style="color:#24909d">linear-gradient</span>(<span style="color:#3677a9">#31C475</span>, <span style="color:#3677a9">#16B15D</span>);
+	<span style="color:#6ab825;font-weight:bold">top</span>:<span style="color:#3677a9">1</span><span style="color:#6ab825;font-weight:bold">px</span>;
+	<span style="color:#6ab825;font-weight:bold">box-shadow</span>: <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">3</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">6</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#24909d">hsla</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">.15</span>);
+}
+#<span style="color:#447fcf;text-decoration:underline">connectButton</span>:<span style="color:#ffa500">active</span> {
+	<span style="color:#6ab825;font-weight:bold">background-image</span>: <span style="color:#24909d">linear-gradient</span>(<span style="color:#3677a9">#38CB7C</span>, <span style="color:#3677a9">#1CB462</span>);
+	<span style="color:#6ab825;font-weight:bold">position</span>:<span style="color:#6ab825;font-weight:bold">relative</span>;
+	<span style="color:#6ab825;font-weight:bold">top</span>:<span style="color:#3677a9">1</span><span style="color:#6ab825;font-weight:bold">px</span>;
+	<span style="color:#6ab825;font-weight:bold">box-shadow</span>: <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#24909d">hsla</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">.15</span>);
+}
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>You may also download the complete zip here: <a href="./handcash_connect_button.zip">Download</a></p>
+<br/>
+<h4 id="colors">Colors</h4>
+<p>Below is a collection of our brand colors, please feel free to use these as you see fit:</p>
+</br>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+.cards {
+ 
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    
+    grid-auto-rows: auto;
+    
+    grid-gap: 1rem;
+  
+ }
+  </style>
+</head>
+
+<div class="cards">
+    
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .card {
+    border: 2px solid #e7e7e7;
+      
+    border-radius: 4px;
+      
+    padding: .5rem;
+    
+  }
+  </style>
+</head>
+
+<body>
+  <div class="card" style="background-color
+  :#F5F5F5">
+    <div class="container">
+      <h4 style="background-color:#F5F5F5"><b>Background Grey</b></h4> 
+      <p>#F5F5F5</p> 
+    </div>
+  </div>
+  
+  </body>
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .card {
+    border: 2px solid #e7e7e7;
+      
+    border-radius: 4px;
+      
+    padding: .5rem;
+    
+  }
+  </style>
+</head>
+
+<body>
+  <div class="card" style="background-color
+  :#38CB7C">
+    <div class="container">
+      <h4 style="background-color:#38CB7C"><b>Primary Color</b></h4> 
+      <p>#38CB7C</p> 
+    </div>
+  </div>
+  
+  </body>
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .card {
+    border: 2px solid #e7e7e7;
+      
+    border-radius: 4px;
+      
+    padding: .5rem;
+    
+  }
+  </style>
+</head>
+
+<body>
+  <div class="card" style="background-color
+  :#4C86FF">
+    <div class="container">
+      <h4 style="background-color:#4C86FF"><b>Info Blue</b></h4> 
+      <p>#4C86FF</p> 
+    </div>
+  </div>
+  
+  </body>
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .card {
+    border: 2px solid #e7e7e7;
+      
+    border-radius: 4px;
+      
+    padding: .5rem;
+    
+  }
+  </style>
+</head>
+
+<body>
+  <div class="card" style="background-color
+  :#FF5252">
+    <div class="container">
+      <h4 style="background-color:#FF5252"><b>Alert Red</b></h4> 
+      <p>#FF5252</p> 
+    </div>
+  </div>
+  
+  </body>
+
+</div>
+</br>
+<h4 id="images">Images</h4>
+<p>Below is a collection of image assets, you may use these anywhere you&rsquo;d like:</p>
+</br>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+.cards {
+ 
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    
+    grid-auto-rows: auto;
+    
+    grid-gap: 1rem;
+  
+ }
+  </style>
+</head>
+
+<div class="cards">
+    
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .imagecard {
+    max-height: 100px;
+    background-color: lightgrey;
+    border: 0.5px solid #e7e7e7;
+  }
+  </style>
+</head>
+
+<img class="imagecard" src="handcash_connect.png" alt="image">
+
+
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .imagecard {
+    max-height: 100px;
+    background-color: lightgrey;
+    border: 0.5px solid #e7e7e7;
+  }
+  </style>
+</head>
+
+<img class="imagecard" src="handcash-icon-1024.png" alt="image">
+
+
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .imagecard {
+    max-height: 100px;
+    background-color: lightgrey;
+    border: 0.5px solid #e7e7e7;
+  }
+  </style>
+</head>
+
+<img class="imagecard" src="handcash_logo_color.png" alt="image">
+
+
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .imagecard {
+    max-height: 100px;
+    background-color: lightgrey;
+    border: 0.5px solid #e7e7e7;
+  }
+  </style>
+</head>
+
+<img class="imagecard" src="handcashlogowhite.png" alt="image">
+
+
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .imagecard {
+    max-height: 100px;
+    background-color: lightgrey;
+    border: 0.5px solid #e7e7e7;
+  }
+  </style>
+</head>
+
+<img class="imagecard" src="handcash-white-wide.png" alt="image">
+
+
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .imagecard {
+    max-height: 100px;
+    background-color: lightgrey;
+    border: 0.5px solid #e7e7e7;
+  }
+  </style>
+</head>
+
+<img class="imagecard" src="ic_stat_handcash_notification.png" alt="image">
+
+
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .imagecard {
+    max-height: 100px;
+    background-color: lightgrey;
+    border: 0.5px solid #e7e7e7;
+  }
+  </style>
+</head>
+
+<img class="imagecard" src="round-handcash-logo.png" alt="image">
+
+
+
+</div>
 </div>
           
           <hr/>
