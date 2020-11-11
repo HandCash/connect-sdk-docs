@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Connect</title>
-    <link>localhost:1313/connect-sdk-docs/categories/</link>
+    <link>https://genericcpu.github.io/connect-sdk-docs/categories/</link>
     <description>Recent content in Categories on Connect</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2020 a Hugo theme by [Gethugothemes](https://gethugothemes.com/)</copyright>
     
-	<atom:link href="localhost:1313/connect-sdk-docs/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://genericcpu.github.io/connect-sdk-docs/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

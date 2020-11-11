@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Encrypt &amp; Decrypt on Connect</title>
-    <link>localhost:1313/connect-sdk-docs/encryption/</link>
+    <link>https://genericcpu.github.io/connect-sdk-docs/encryption/</link>
     <description>Recent content in Encrypt &amp; Decrypt on Connect</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2020 a Hugo theme by [Gethugothemes](https://gethugothemes.com/)</copyright>
     <lastBuildDate>Thu, 27 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="localhost:1313/connect-sdk-docs/encryption/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://genericcpu.github.io/connect-sdk-docs/encryption/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
