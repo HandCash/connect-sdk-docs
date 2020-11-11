@@ -3,54 +3,59 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/installation/</loc>
+    <loc>localhost:1313/connect-sdk-docs/installation/</loc>
     <lastmod>2018-12-27T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/authorization/</loc>
+    <loc>localhost:1313/connect-sdk-docs/authorization/</loc>
     <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/profile/</loc>
+    <loc>localhost:1313/connect-sdk-docs/profile/</loc>
     <lastmod>2018-12-27T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/payments/</loc>
+    <loc>localhost:1313/connect-sdk-docs/payments/</loc>
     <lastmod>2018-12-27T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/encryption/</loc>
+    <loc>localhost:1313/connect-sdk-docs/encryption/</loc>
     <lastmod>2018-12-27T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/examples/</loc>
-    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/</loc>
+    <loc>localhost:1313/connect-sdk-docs/assets/</loc>
     <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/categories/</loc>
+    <loc>localhost:1313/connect-sdk-docs/examples/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/faq/</loc>
+    <loc>localhost:1313/connect-sdk-docs/</loc>
+    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/contact/</loc>
+    <loc>localhost:1313/connect-sdk-docs/categories/</loc>
   </url>
   
   <url>
-    <loc>https://GenericCPU.github.io/connect-sdk-docs/tags/</loc>
+    <loc>localhost:1313/connect-sdk-docs/faq/</loc>
+  </url>
+  
+  <url>
+    <loc>localhost:1313/connect-sdk-docs/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>localhost:1313/connect-sdk-docs/tags/</loc>
   </url>
   
 </urlset>

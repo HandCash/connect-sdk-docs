@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Profile on Connect</title>
-    <link>localhost:1313/connect-sdk-docs/profile/</link>
-    <description>Recent content in Profile on Connect</description>
+    <title>Assets on Connect</title>
+    <link>localhost:1313/connect-sdk-docs/assets/</link>
+    <description>Recent content in Assets on Connect</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2020 a Hugo theme by [Gethugothemes](https://gethugothemes.com/)</copyright>
-    <lastBuildDate>Thu, 27 Dec 2018 11:02:05 +0600</lastBuildDate>
+    <lastBuildDate>Fri, 28 Dec 2018 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="localhost:1313/connect-sdk-docs/profile/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="localhost:1313/connect-sdk-docs/assets/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
