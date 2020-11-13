@@ -33,6 +33,21 @@
   </url>
   
   <url>
+    <loc>https://handcash.github.io/connect-sdk-docs/data-signing/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://handcash.github.io/connect-sdk-docs/promise-payments/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://handcash.github.io/connect-sdk-docs/payment-escrows/</loc>
+    <lastmod>2018-12-27T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://handcash.github.io/connect-sdk-docs/examples/</loc>
     <lastmod>2018-12-27T11:02:05+06:00</lastmod>
   </url>
