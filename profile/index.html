@@ -203,13 +203,11 @@ console.log(privateProfile);
 </div>
 </div>
 <h4 id="spendable-balance">Spendable Balance</h4>
-<p>You may fetch the user&rsquo;s <strong>spendable balance</strong> with the <code>getSpendableBalance</code> function.</p>
 
 
-<div class="notices info" ><p>Connect users have a global limit for how much they&rsquo;re willing to spend on apps, <strong>&lsquo;spendable balance&rsquo;</strong> is the amount they have left before reaching that limit.
-</br></br>
-<em>The default limit is <code>10USD</code>.</em></p></div>
+<div class="notices note" ><p>This feature requires the <strong><code>Pay</code></strong> permission.</p></div>
 
+<p>You can fetch the user&rsquo;s <strong>spendable balance</strong> with the <code>getSpendableBalance</code> function.</p>
 
 
 <div class="code-tabs">
@@ -231,7 +229,10 @@ console.log(balance);
 </div>
 
 
-<div class="notices note" ><p>This feature requires the <code>Pay</code> permission. Otherwise you will receive an error.</p></div>
+<div class="notices info" ><p>HandCash users have a global limit for how much they&rsquo;re willing to spend on apps, <strong>&lsquo;spendable balance&rsquo;</strong> is the amount left before reaching that limit:
+</br></br>
+<img src="connect-limit.png" alt="connect-limit">
+<em>The default limit is <code>10USD</code>.</em></p></div>
 
 <p>You can also customize the currency conversion options by passing the currency code through the function (if not provided, it will return the user&rsquo;s prefered currency by default).
 
@@ -285,10 +286,6 @@ console.log(friends);
 </div>
 </div>
 </div>
-
-
-<div class="notices note" ><p>This feature requires the <code>Friends</code> permission. Otherwise you will receive an error.</p></div>
-
 </div>
           
           <hr/>
