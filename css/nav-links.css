@@ -3,14 +3,14 @@
 }
 
 .nav-tabs {
-    background-color: #2b2c2c !important;
+    background-color: #35469C !important;
     border-left: none;
     color: #f5f5f5 !important;
-    border-bottom-color: #5d5f5f;
+    border-bottom-color: #4353a7;
 }
 
 .nav-item {
-    border-right-color: #5d5f5f !important;
+    border-right-color: #4353a7 !important;
 }
 
 .nav-item a {
