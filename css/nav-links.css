@@ -11,3 +11,20 @@
 .nav-item {
     border-right: none !important;
 }
+
+.note {
+    margin: 1rem 0 !important;
+}
+
+.tip {
+    margin: 1rem 0 !important;
+}
+
+.info {
+    margin: 1rem 0 !important;
+}
+
+.h4, h4 {
+    padding-bottom: 1rem !important;
+    padding-top: 0.5rem !important;
+}
