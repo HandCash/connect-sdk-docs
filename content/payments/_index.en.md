@@ -109,7 +109,7 @@ Below is a video walkthrough illustrating a demo implementation of the simple pa
 
 #### Attach Data
 
-With the SDK, you can alse attach public data to payments. This data is uploaded to an public and immutable blockchain, meaning it cannot be modified or deleted. This can be used as a data timestamping service, and can lend transparency to your platform.
+With the SDK, you can alse attach public data to payments. This data is uploaded to a public and immutable blockchain, meaning it cannot be modified or deleted. This can be used as a data timestamping service, and can lend transparency to your platform.
 
 <br/>
 

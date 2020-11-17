@@ -32,9 +32,9 @@ The below snippet shows how to encrypt a message between the user and the app:
    {{% tab "NodeJS" %}}
 ```javascript
 const {HandCashCloudAccount} = require('@handcash/handcash-connect-beta');
-const cloudAccount = HandCashCloudAccount.fromAuthToken(token);
 const {PublicKey} = require('bsv');
 const ECIES = require('bsv/ecies');
+const cloudAccount = HandCashCloudAccount.fromAuthToken(token);
 const {publicKey} = await cloudAccount.profile.getEncryptionKeypair();
 const ecPublicKey = PublicKey.fromString(publicKey);
 const plainText = 'hello!';

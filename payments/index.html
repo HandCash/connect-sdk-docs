@@ -30,6 +30,8 @@
     --font-family:Roboto;
   }
   </style>
+  <link rel="stylesheet" type="text/css" href="https://handcash.github.io/connect-sdk-docs/css/nav-links.css" />
+
 
 <!-- Main Stylesheet -->
 
@@ -159,7 +161,7 @@
   <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
 <span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
 <span style="color:#6ab825;font-weight:bold">const</span> paymentParameters = {
-    description: <span style="color:#ed9d13">&#34;Hold my beer!🍺&#34;</span>,
+    description: <span style="color:#ed9d13">&#34;Like comment #123145512&#34;</span>,
     appAction: <span style="color:#ed9d13">&#34;like&#34;</span>,
     payments: [
         { destination: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>, sendAmount: <span style="color:#3677a9">0.25</span> },
@@ -170,7 +172,7 @@ console.log(paymentResult);
 </code></pre></div><p><strong>Output:</strong></p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
   transactionId: <span style="color:#ed9d13">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
-  note: <span style="color:#ed9d13">&#39;Hold my beer!🍺&#39;</span>,
+  note: <span style="color:#ed9d13">&#39;Like comment #123145512&#39;</span>,
   type: <span style="color:#ed9d13">&#39;send&#39;</span>,
   time: <span style="color:#3677a9">1604958667</span>,
   satoshiFees: <span style="color:#3677a9">113</span>,
@@ -228,11 +230,11 @@ console.log(paymentResult);
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content"><div class="tab-pane" title="NodeJS">
   <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> paymentParameters = {
-    description: <span style="color:#ed9d13">&#34;Hold my beer!🍺&#34;</span>,
-    appAction: <span style="color:#ed9d13">&#34;like&#34;</span>,
+    description: <span style="color:#ed9d13">&#34;Tip group #23421555&#34;</span>,
+    appAction: <span style="color:#ed9d13">&#34;tip-group&#34;</span>,
     payments: [
         { to: <span style="color:#ed9d13">&#39;eyeone&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>, amount: <span style="color:#3677a9">0.25</span> },
-        { to: <span style="color:#ed9d13">&#39;eyeone@moneybutton.com&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;EUR&#39;</span>, amount: <span style="color:#3677a9">0.25</span> },
+        { to: <span style="color:#ed9d13">&#39;cryptokang@moneybutton.com&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;EUR&#39;</span>, amount: <span style="color:#3677a9">0.25</span> },
         { to: <span style="color:#ed9d13">&#39;131xrWSKXHbhucFPTfZqnxF8ZhjpMxJH7K&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;SAT&#39;</span>, amount: <span style="color:#3677a9">50000</span> },
     ]
 };
@@ -254,7 +256,7 @@ console.log(paymentResult);
 </div>
 </div>
 <h4 id="attach-data">Attach Data</h4>
-<p>With the SDK, you can alse attach public data to payments. This data is uploaded to an public and immutable blockchain, meaning it cannot be modified or deleted. This can be used as a data timestamping service, and can lend transparency to your platform.</p>
+<p>With the SDK, you can alse attach public data to payments. This data is uploaded to a public and immutable blockchain, meaning it cannot be modified or deleted. This can be used as a data timestamping service, and can lend transparency to your platform.</p>
 <br/>
 <p>You may attach data in the following formats:</p>
 
@@ -284,8 +286,7 @@ console.log(paymentResult);
   <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
 <span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
 <span style="color:#6ab825;font-weight:bold">const</span> paymentParameters = {
-    description: <span style="color:#ed9d13">&#34;Hold my beer!🍺&#34;</span>,
-    appAction: <span style="color:#ed9d13">&#34;like&#34;</span>,
+    appAction: <span style="color:#ed9d13">&#34;publish&#34;</span>,
     payments: [
         { destination: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>, sendAmount: <span style="color:#3677a9">0.25</span> },
     ]
@@ -296,7 +297,6 @@ console.log(paymentResult);
 </code></pre></div><p><strong>Output:</strong></p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
   transactionId: <span style="color:#ed9d13">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
-  note: <span style="color:#ed9d13">&#39;Hold my beer!🍺&#39;</span>,
   type: <span style="color:#ed9d13">&#39;send&#39;</span>,
   time: <span style="color:#3677a9">1604958667</span>,
   satoshiFees: <span style="color:#3677a9">113</span>,
@@ -313,7 +313,7 @@ console.log(paymentResult);
     }
   ],
   attachments: [ { value: [<span style="color:#24909d">Object</span>], format: <span style="color:#ed9d13">&#39;json&#39;</span> } ],
-  appAction: <span style="color:#ed9d13">&#39;like&#39;</span>
+  appAction: <span style="color:#ed9d13">&#39;publish&#39;</span>
 }
 </code></pre></div>
 </div>
@@ -331,7 +331,6 @@ console.log(paymentResult)
 </code></pre></div><p><strong>Output:</strong></p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
   transactionId: <span style="color:#ed9d13">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
-  note: <span style="color:#ed9d13">&#39;Hold my beer!🍺&#39;</span>,
   type: <span style="color:#ed9d13">&#39;send&#39;</span>,
   time: <span style="color:#3677a9">1604958667</span>,
   satoshiFees: <span style="color:#3677a9">113</span>,
@@ -348,7 +347,7 @@ console.log(paymentResult)
     }
   ],
   attachments: [ { value: [<span style="color:#24909d">Object</span>], format: <span style="color:#ed9d13">&#39;json&#39;</span> } ],
-  appAction: <span style="color:#ed9d13">&#39;like&#39;</span>
+  appAction: <span style="color:#ed9d13">&#39;publish&#39;</span>
 }
 </code></pre></div>
 </div>

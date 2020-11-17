@@ -30,6 +30,8 @@
     --font-family:Roboto;
   }
   </style>
+  <link rel="stylesheet" type="text/css" href="https://handcash.github.io/connect-sdk-docs/css/nav-links.css" />
+
 
 <!-- Main Stylesheet -->
 
@@ -183,8 +185,7 @@
 </code></pre></div>
 </div>
 <div class="tab-pane" title="JavaScript">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#24909d">document</span>.write(<span style="color:#ed9d13">&#39;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://handcash.io/resources/connectbutton/css/style.css&#34;/&gt;&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> connectButton = <span style="color:#24909d">document</span>.getElementById(<span style="color:#ed9d13">&#39;connectButton&#39;</span>);
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> connectButton = <span style="color:#24909d">document</span>.getElementById(<span style="color:#ed9d13">&#39;connectButton&#39;</span>);
 <span style="color:#6ab825;font-weight:bold">const</span> appId = connectButton.getAttribute(<span style="color:#ed9d13">&#39;app-id&#39;</span>);
 <span style="color:#6ab825;font-weight:bold">function</span> connectWithHandCash() {
     location.href = <span style="color:#ed9d13">&#39;https://app.handcash.io?appId=&#39;</span> + appId;
