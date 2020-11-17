@@ -39,7 +39,16 @@
     background: #38CB7C !important;
 }
 
+.text-primary {
+    color: #193148 !important;
+}
 
 .btn-primary {
     background-color: #38CB7C !important;
+}
+
+.pagination a {
+
+    color: #193148 !important;
+
 }
