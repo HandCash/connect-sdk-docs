@@ -157,39 +157,58 @@
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
-<span style="color:#6ab825;font-weight:bold">const</span> paymentParameters = {
-    description: <span style="color:#ed9d13">&#34;Like comment #123145512&#34;</span>,
-    appAction: <span style="color:#ed9d13">&#34;like&#34;</span>,
-    payments: [
-        { destination: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>, sendAmount: <span style="color:#3677a9">0.25</span> },
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashCloudAccount</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect-beta&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Like comment #123145512&#34;</span>,
+    <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;like&#34;</span>,
+    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [
+        { <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>, <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span> },
     ]
 };
-<span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await cloudAccount.wallet.pay(paymentParameters);
-console.log(paymentResult);
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-  transactionId: <span style="color:#ed9d13">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
-  note: <span style="color:#ed9d13">&#39;Like comment #123145512&#39;</span>,
-  type: <span style="color:#ed9d13">&#39;send&#39;</span>,
-  time: <span style="color:#3677a9">1604958667</span>,
-  satoshiFees: <span style="color:#3677a9">113</span>,
-  satoshiAmount: <span style="color:#3677a9">15555</span>,
-  fiatExchangeRate: <span style="color:#3677a9">160.74284545024352</span>,
-  fiatCurrencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>,
-  participants: [
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">paymentParameters</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">paymentResult</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#a6e22e">transactionId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
+  <span style="color:#a6e22e">note</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Like comment #123145512&#39;</span>,
+  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;send&#39;</span>,
+  <span style="color:#a6e22e">time</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1604958667</span>,
+  <span style="color:#a6e22e">satoshiFees</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">113</span>,
+  <span style="color:#a6e22e">satoshiAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15555</span>,
+  <span style="color:#a6e22e">fiatExchangeRate</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">160.74284545024352</span>,
+  <span style="color:#a6e22e">fiatCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>,
+  <span style="color:#a6e22e">participants</span><span style="color:#f92672">:</span> [
     {
-      type: <span style="color:#ed9d13">&#39;user&#39;</span>,
-      alias: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>,
-      displayName: <span style="color:#ed9d13">&#39;Nose two&#39;</span>,
-      profilePictureUrl: <span style="color:#ed9d13">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1574787300/gntqxv6ed7sacwpfwumj.jpg&#39;</span>,
-      responseNote: <span style="color:#ed9d13">&#39;&#39;</span>
+      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user&#39;</span>,
+      <span style="color:#a6e22e">alias</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>,
+      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Nose two&#39;</span>,
+      <span style="color:#a6e22e">profilePictureUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1574787300/gntqxv6ed7sacwpfwumj.jpg&#39;</span>,
+      <span style="color:#a6e22e">responseNote</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
     }
   ],
-  attachments: [],
-  appAction: <span style="color:#ed9d13">&#39;like&#39;</span>
+  <span style="color:#a6e22e">attachments</span><span style="color:#f92672">:</span> [],
+  <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;like&#39;</span>
 }
 </code></pre></div>
 </div>
@@ -205,20 +224,30 @@ console.log(paymentResult);
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="Handles">
+  <div class="tab-content">
+    
+
+<div class="tab-pane" title="Handles">
   <blockquote>
 <p>Example: <code>eyeone</code> <br/> Recommended for sending money to another HandCash user.</p>
 </blockquote>
+
 </div>
+    
+
 <div class="tab-pane" title="Paymails">
   <blockquote>
 <p>Example: <code>name@moneybutton.io</code>, <code>name@relayx.io</code>, <code>etc...</code> <br/>  Recommended for sending money to another services.</p>
 </blockquote>
+
 </div>
+    
+
 <div class="tab-pane" title="P2PKH Addresses">
   <blockquote>
 <p>Example: <code>1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2</code> <br/> Recommended for sending money to a custom addresses.</p>
 </blockquote>
+
 </div>
 </div>
 </div>
@@ -228,14 +257,17 @@ console.log(paymentResult);
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> paymentParameters = {
-    description: <span style="color:#ed9d13">&#34;Tip group #23421555&#34;</span>,
-    appAction: <span style="color:#ed9d13">&#34;tip-group&#34;</span>,
-    payments: [
-        { to: <span style="color:#ed9d13">&#39;eyeone&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>, amount: <span style="color:#3677a9">0.25</span> },
-        { to: <span style="color:#ed9d13">&#39;cryptokang@moneybutton.com&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;EUR&#39;</span>, amount: <span style="color:#3677a9">0.25</span> },
-        { to: <span style="color:#ed9d13">&#39;131xrWSKXHbhucFPTfZqnxF8ZhjpMxJH7K&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;SAT&#39;</span>, amount: <span style="color:#3677a9">50000</span> },
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Tip group #23421555&#34;</span>,
+    <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tip-group&#34;</span>,
+    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [
+        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;eyeone&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span> },
+        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;cryptokang@moneybutton.com&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;EUR&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span> },
+        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;131xrWSKXHbhucFPTfZqnxF8ZhjpMxJH7K&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SAT&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50000</span> },
     ]
 };
 </code></pre></div>
@@ -248,10 +280,14 @@ console.log(paymentResult);
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
   <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/ZRrJZq2HfIw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
+
 </div>
 </div>
 </div>
@@ -263,16 +299,23 @@ console.log(paymentResult);
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="Base64">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">attachment: { format: <span style="color:#ed9d13">&#39;base64&#39;</span>, value: <span style="color:#ed9d13">&#39;ABEiM0RVZneImQCqu8zd7v8=&#39;</span> }
+  <div class="tab-content">
+    
+
+<div class="tab-pane" title="Base64">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;base64&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ABEiM0RVZneImQCqu8zd7v8=&#39;</span> }
 </code></pre></div>
 </div>
+    
+
 <div class="tab-pane" title="HEX">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">attachment: { format: <span style="color:#ed9d13">&#39;hex&#39;</span>, value: <span style="color:#ed9d13">&#39;0011223344556677889900AABBCCDDEEFF&#39;</span> }
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hex&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0011223344556677889900AABBCCDDEEFF&#39;</span> }
 </code></pre></div>
 </div>
+    
+
 <div class="tab-pane" title="JSON">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">attachment: { format: <span style="color:#ed9d13">&#39;json&#39;</span>, value: {<span style="color:#ed9d13">&#34;param1&#34;</span>: <span style="color:#ed9d13">&#34;value1&#34;</span>, <span style="color:#ed9d13">&#34;param2&#34;</span>: <span style="color:#ed9d13">&#34;value2&#34;</span>} }
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#34;param1&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value1&#34;</span>, <span style="color:#e6db74">&#34;param2&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value2&#34;</span>} }
 </code></pre></div>
 </div>
 </div>
@@ -282,38 +325,56 @@ console.log(paymentResult);
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
-<span style="color:#6ab825;font-weight:bold">const</span> paymentParameters = {
-    appAction: <span style="color:#ed9d13">&#34;publish&#34;</span>,
-    payments: [
-        { destination: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>, sendAmount: <span style="color:#3677a9">0.25</span> },
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashCloudAccount</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect-beta&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;publish&#34;</span>,
+    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [
+        { <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>, <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span> },
     ]
-    attachment: { format: <span style="color:#ed9d13">&#39;json&#39;</span>, value: {<span style="color:#ed9d13">&#34;param1&#34;</span>: <span style="color:#ed9d13">&#34;value1&#34;</span>, <span style="color:#ed9d13">&#34;param2&#34;</span>: <span style="color:#ed9d13">&#34;value2&#34;</span>} },
+    <span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#34;param1&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value1&#34;</span>, <span style="color:#e6db74">&#34;param2&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value2&#34;</span>} },
 };
-<span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await cloudAccount.wallet.pay(paymentParameters);
-console.log(paymentResult);
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-  transactionId: <span style="color:#ed9d13">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
-  type: <span style="color:#ed9d13">&#39;send&#39;</span>,
-  time: <span style="color:#3677a9">1604958667</span>,
-  satoshiFees: <span style="color:#3677a9">113</span>,
-  satoshiAmount: <span style="color:#3677a9">15555</span>,
-  fiatExchangeRate: <span style="color:#3677a9">160.74284545024352</span>,
-  fiatCurrencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>,
-  participants: [
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">paymentParameters</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">paymentResult</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#a6e22e">transactionId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
+  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;send&#39;</span>,
+  <span style="color:#a6e22e">time</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1604958667</span>,
+  <span style="color:#a6e22e">satoshiFees</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">113</span>,
+  <span style="color:#a6e22e">satoshiAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15555</span>,
+  <span style="color:#a6e22e">fiatExchangeRate</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">160.74284545024352</span>,
+  <span style="color:#a6e22e">fiatCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>,
+  <span style="color:#a6e22e">participants</span><span style="color:#f92672">:</span> [
     {
-      type: <span style="color:#ed9d13">&#39;user&#39;</span>,
-      alias: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>,
-      displayName: <span style="color:#ed9d13">&#39;Nose two&#39;</span>,
-      profilePictureUrl: <span style="color:#ed9d13">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1574787300/gntqxv6ed7sacwpfwumj.jpg&#39;</span>,
-      responseNote: <span style="color:#ed9d13">&#39;&#39;</span>
+      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user&#39;</span>,
+      <span style="color:#a6e22e">alias</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>,
+      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Nose two&#39;</span>,
+      <span style="color:#a6e22e">profilePictureUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1574787300/gntqxv6ed7sacwpfwumj.jpg&#39;</span>,
+      <span style="color:#a6e22e">responseNote</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
     }
   ],
-  attachments: [ { value: [<span style="color:#24909d">Object</span>], format: <span style="color:#ed9d13">&#39;json&#39;</span> } ],
-  appAction: <span style="color:#ed9d13">&#39;publish&#39;</span>
+  <span style="color:#a6e22e">attachments</span><span style="color:#f92672">:</span> [ { <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> [Object], <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span> } ],
+  <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;publish&#39;</span>
 }
 </code></pre></div>
 </div>
@@ -325,29 +386,46 @@ console.log(paymentResult);
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await cloudAccount.wallet.getPayment(<span style="color:#ed9d13">&#34;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#34;</span>)
-console.log(paymentResult)
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-  transactionId: <span style="color:#ed9d13">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
-  type: <span style="color:#ed9d13">&#39;send&#39;</span>,
-  time: <span style="color:#3677a9">1604958667</span>,
-  satoshiFees: <span style="color:#3677a9">113</span>,
-  satoshiAmount: <span style="color:#3677a9">15555</span>,
-  fiatExchangeRate: <span style="color:#3677a9">160.74284545024352</span>,
-  fiatCurrencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>,
-  participants: [
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">getPayment</span>(<span style="color:#e6db74">&#34;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#34;</span>)
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">paymentResult</span>)
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#a6e22e">transactionId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#39;</span>,
+  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;send&#39;</span>,
+  <span style="color:#a6e22e">time</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1604958667</span>,
+  <span style="color:#a6e22e">satoshiFees</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">113</span>,
+  <span style="color:#a6e22e">satoshiAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15555</span>,
+  <span style="color:#a6e22e">fiatExchangeRate</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">160.74284545024352</span>,
+  <span style="color:#a6e22e">fiatCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>,
+  <span style="color:#a6e22e">participants</span><span style="color:#f92672">:</span> [
     {
-      type: <span style="color:#ed9d13">&#39;user&#39;</span>,
-      alias: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>,
-      displayName: <span style="color:#ed9d13">&#39;Nose two&#39;</span>,
-      profilePictureUrl: <span style="color:#ed9d13">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1574787300/gntqxv6ed7sacwpfwumj.jpg&#39;</span>,
-      responseNote: <span style="color:#ed9d13">&#39;&#39;</span>
+      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user&#39;</span>,
+      <span style="color:#a6e22e">alias</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>,
+      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Nose two&#39;</span>,
+      <span style="color:#a6e22e">profilePictureUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1574787300/gntqxv6ed7sacwpfwumj.jpg&#39;</span>,
+      <span style="color:#a6e22e">responseNote</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
     }
   ],
-  attachments: [ { value: [<span style="color:#24909d">Object</span>], format: <span style="color:#ed9d13">&#39;json&#39;</span> } ],
-  appAction: <span style="color:#ed9d13">&#39;publish&#39;</span>
+  <span style="color:#a6e22e">attachments</span><span style="color:#f92672">:</span> [ { <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> [Object], <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span> } ],
+  <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;publish&#39;</span>
 }
 </code></pre></div>
 </div>
@@ -359,10 +437,14 @@ console.log(paymentResult)
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
   <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/CGiZc2kSDmk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
+
 </div>
 </div>
 </div>

@@ -170,18 +170,39 @@ This can be used by the developer to encrypt data, without requiring any custody
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> {HandCashCloudAccount} = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> {PublicKey} = require(<span style="color:#ed9d13">&#39;bsv&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> ECIES = require(<span style="color:#ed9d13">&#39;bsv/ecies&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = HandCashCloudAccount.fromAuthToken(token);
-<span style="color:#6ab825;font-weight:bold">const</span> {publicKey} = await cloudAccount.profile.getEncryptionKeypair();
-<span style="color:#6ab825;font-weight:bold">const</span> ecPublicKey = PublicKey.fromString(publicKey);
-<span style="color:#6ab825;font-weight:bold">const</span> plainText = <span style="color:#ed9d13">&#39;hello!&#39;</span>;
-<span style="color:#6ab825;font-weight:bold">const</span> encryptedBuffer = ECIES().publicKey(ecPublicKey).encrypt(plainText);
-console.log(encryptedBuffer.toString(<span style="color:#ed9d13">&#39;base64&#39;</span>));
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">QklFMQPg/OQVAP3NgDAHicFFeXh5jGVVpBrCO811JgzH89c1NGhjPXQXg8hJnWolfhLZiKee91hqqXmazZC0luy3BaV4gL0r/o+yXfmU8583UfiYQA==
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashCloudAccount</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect-beta&#39;</span>);  
+<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">PublicKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ECIES</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv/ecies&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+
+<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">publicKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ecPublicKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">PublicKey</span>.<span style="color:#a6e22e">fromString</span>(<span style="color:#a6e22e">publicKey</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">plainText</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello!&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encryptedBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>().<span style="color:#a6e22e">publicKey</span>(<span style="color:#a6e22e">ecPublicKey</span>).<span style="color:#a6e22e">encrypt</span>(<span style="color:#a6e22e">plainText</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">encryptedBuffer</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;base64&#39;</span>));
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">QklFMQPg</span><span style="color:#f92672">/</span><span style="color:#a6e22e">OQVAP3NgDAHicFFeXh5jGVVpBrCO811JgzH89c1NGhjPXQXg8hJnWolfhLZiKee91hqqXmazZC0luy3BaV4gL0r</span><span style="color:#f92672">/</span><span style="color:#a6e22e">o</span><span style="color:#f92672">+</span><span style="color:#a6e22e">yXfmU8583UfiYQA</span><span style="color:#f92672">==</span>
 </code></pre></div>
 </div>
 </div>
@@ -191,18 +212,38 @@ console.log(encryptedBuffer.toString(<span style="color:#ed9d13">&#39;base64&#39
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> {HandCashCloudAccount, Environments} = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> {PrivateKey} = require(<span style="color:#ed9d13">&#39;bsv&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> ECIES = require(<span style="color:#ed9d13">&#39;bsv/ecies&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = HandCashCloudAccount.fromAuthToken(token);
-<span style="color:#6ab825;font-weight:bold">const</span> {privateKey} = await cloudAccount.profile.getEncryptionKeypair();
-<span style="color:#6ab825;font-weight:bold">const</span> ecPrivateKey = PrivateKey.fromWIF(privateKey);
-<span style="color:#6ab825;font-weight:bold">const</span> encryptedBuffer = Buffer.from(<span style="color:#ed9d13">&#39;QklFMQPg/OQVAP3NgDAHicFFeXh5jGVVpBrCO811JgzH89c1NGhjPXQXg8hJnWolfhLZiKee91hqqXmazZC0luy3BaV4gL0r/o+yXfmU8583UfiYQA==&#39;</span>, <span style="color:#ed9d13">&#39;base64&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> decryptedBuffer = ECIES().privateKey(ecPrivateKey).decrypt(encryptedBuffer);
-console.log(decryptedBuffer.toString(<span style="color:#ed9d13">&#39;utf8&#39;</span>));
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">hello!
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashCloudAccount</span>, <span style="color:#a6e22e">Environments</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect-beta&#39;</span>);
+<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">PrivateKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ECIES</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv/ecies&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+
+<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">privateKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ecPrivateKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">PrivateKey</span>.<span style="color:#a6e22e">fromWIF</span>(<span style="color:#a6e22e">privateKey</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encryptedBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#e6db74">&#39;QklFMQPg/OQVAP3NgDAHicFFeXh5jGVVpBrCO811JgzH89c1NGhjPXQXg8hJnWolfhLZiKee91hqqXmazZC0luy3BaV4gL0r/o+yXfmU8583UfiYQA==&#39;</span>, <span style="color:#e6db74">&#39;base64&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decryptedBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>().<span style="color:#a6e22e">privateKey</span>(<span style="color:#a6e22e">ecPrivateKey</span>).<span style="color:#a6e22e">decrypt</span>(<span style="color:#a6e22e">encryptedBuffer</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">decryptedBuffer</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;utf8&#39;</span>));
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">hello</span><span style="color:#f92672">!</span>
 </code></pre></div>
 </div>
 </div>

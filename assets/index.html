@@ -173,75 +173,85 @@
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="HTML">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#6ab825;font-weight:bold">head</span>&gt;
-	&lt;<span style="color:#6ab825;font-weight:bold">meta</span> <span style="color:#bbb">charset</span>=<span style="color:#ed9d13">&#34;utf-8&#34;</span>&gt;
-	&lt;<span style="color:#6ab825;font-weight:bold">link</span> <span style="color:#bbb">rel</span>=<span style="color:#ed9d13">&#34;stylesheet&#34;</span> <span style="color:#bbb">href</span>=<span style="color:#ed9d13">&#34;css/styles.css&#34;</span>&gt;
-&lt;/<span style="color:#6ab825;font-weight:bold">head</span>&gt;
-&lt;<span style="color:#6ab825;font-weight:bold">body</span>&gt;
-	&lt;<span style="color:#6ab825;font-weight:bold">div</span> <span style="color:#bbb">id</span>=<span style="color:#ed9d13">&#34;connectButton&#34;</span> <span style="color:#bbb">app-id</span>=<span style="color:#ed9d13">&#34;123-456&#34;</span>&gt;Connect with HandCash&lt;/<span style="color:#6ab825;font-weight:bold">div</span>&gt;
-	&lt;<span style="color:#6ab825;font-weight:bold">script</span> <span style="color:#bbb">type</span>=<span style="color:#ed9d13">&#34;text/javascript&#34;</span> <span style="color:#bbb">src</span>=<span style="color:#ed9d13">&#34;js/connect_button.js&#34;</span>&gt;&lt;/<span style="color:#6ab825;font-weight:bold">script</span>&gt;
-&lt;/<span style="color:#6ab825;font-weight:bold">body</span>&gt;
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="HTML">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+	&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+	&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/styles.css&#34;</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;connectButton&#34;</span> <span style="color:#a6e22e">app-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;123-456&#34;</span>&gt;Connect with HandCash&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/connect_button.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
 </code></pre></div>
 </div>
+      
+
 <div class="tab-pane" title="JavaScript">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> connectButton = <span style="color:#24909d">document</span>.getElementById(<span style="color:#ed9d13">&#39;connectButton&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> appId = connectButton.getAttribute(<span style="color:#ed9d13">&#39;app-id&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">function</span> connectWithHandCash() {
-    location.href = <span style="color:#ed9d13">&#39;https://app.handcash.io?appId=&#39;</span> + appId;
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">connectButton</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;connectButton&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">connectButton</span>.<span style="color:#a6e22e">getAttribute</span>(<span style="color:#e6db74">&#39;app-id&#39;</span>);
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">connectWithHandCash</span>() {
+    <span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://app.handcash.io?appId=&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">appId</span>;
 }
-console.log(connectButton);
-connectButton.addEventListener(<span style="color:#ed9d13">&#39;click&#39;</span>, connectWithHandCash, <span style="color:#6ab825;font-weight:bold">false</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">connectButton</span>);
+
+<span style="color:#a6e22e">connectButton</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#a6e22e">connectWithHandCash</span>, <span style="color:#66d9ef">false</span>);
 </code></pre></div>
 </div>
+         
+
 <div class="tab-pane" title="CSS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#6ab825;font-weight:bold">charset</span> <span style="color:#ed9d13">&#34;UTF-8&#34;</span>;
-@<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#6ab825;font-weight:bold">url</span>(<span style="color:#ed9d13">&#39;https://fonts.googleapis.com/css2?family=Poppins:wght@500&amp;display=swap&#39;</span>);
-#<span style="color:#447fcf;text-decoration:underline">connectButton</span>{
-	<span style="color:#6ab825">-webkit-</span><span style="color:#6ab825;font-weight:bold">user-select</span>: <span style="color:#6ab825;font-weight:bold">none</span>; <span style="color:#999;font-style:italic">/* Safari */</span>        
-	<span style="color:#6ab825">-moz-</span><span style="color:#6ab825;font-weight:bold">user-select</span>: <span style="color:#6ab825;font-weight:bold">none</span>; <span style="color:#999;font-style:italic">/* Firefox */</span>
-	<span style="color:#6ab825">-ms-</span><span style="color:#6ab825;font-weight:bold">user-select</span>: <span style="color:#6ab825;font-weight:bold">none</span>; <span style="color:#999;font-style:italic">/* IE10+/Edge */</span>
-	<span style="color:#6ab825;font-weight:bold">user-select</span>: <span style="color:#6ab825;font-weight:bold">none</span>; <span style="color:#999;font-style:italic">/* Standard */</span>
-	<span style="color:#6ab825;font-weight:bold">font-family</span>: <span style="color:#ed9d13">&#39;Poppins&#39;</span>, <span style="color:#6ab825;font-weight:bold">sans-serif</span>;
-	<span style="color:#6ab825;font-weight:bold">box-shadow</span>: <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">1</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">3</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#24909d">hsla</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">.15</span>);
-	<span style="color:#6ab825;font-weight:bold">background-image</span>: <span style="color:#24909d">linear-gradient</span>(<span style="color:#3677a9">#38CB7C</span>, <span style="color:#3677a9">#1CB462</span>);
-	<span style="color:#6ab825;font-weight:bold">border-radius</span>: <span style="color:#3677a9">8</span><span style="color:#6ab825;font-weight:bold">px</span>;
-	<span style="color:#6ab825;font-weight:bold">display</span>:<span style="color:#6ab825;font-weight:bold">inline</span>-<span style="color:#6ab825;font-weight:bold">block</span>;
-	<span style="color:#6ab825;font-weight:bold">text-align</span>: <span style="color:#6ab825;font-weight:bold">center</span>;
-	<span style="color:#6ab825;font-weight:bold">cursor</span>:<span style="color:#6ab825;font-weight:bold">pointer</span>;
-	<span style="color:#6ab825;font-weight:bold">color</span>:<span style="color:#3677a9">#ffffff</span>;
-	<span style="color:#6ab825;font-weight:bold">font-size</span>:<span style="color:#3677a9">16</span><span style="color:#6ab825;font-weight:bold">px</span>;
-	<span style="color:#6ab825;font-weight:bold">font-weight</span>:<span style="color:#3677a9">500</span>;
-	<span style="color:#6ab825;font-weight:bold">padding</span>:<span style="color:#3677a9">16</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">24</span><span style="color:#6ab825;font-weight:bold">px</span>;
-	<span style="color:#6ab825;font-weight:bold">text-decoration</span>:<span style="color:#6ab825;font-weight:bold">none</span>;
-	<span style="color:#6ab825;font-weight:bold">transition</span>: <span style="color:#3677a9">0.3</span><span style="color:#6ab825;font-weight:bold">s</span>;
-	<span style="color:#6ab825;font-weight:bold">width</span>: <span style="color:#3677a9">100</span><span style="color:#6ab825;font-weight:bold">%</span>;
-	<span style="color:#6ab825;font-weight:bold">max-width</span>: <span style="color:#3677a9">320</span><span style="color:#6ab825;font-weight:bold">px</span>;
-	<span style="color:#6ab825;font-weight:bold">vertical-align</span>: <span style="color:#6ab825;font-weight:bold">middle</span>;
-	<span style="color:#6ab825;font-weight:bold">letter-spacing</span>: <span style="color:#3677a9">0.5</span><span style="color:#6ab825;font-weight:bold">px</span>;
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">charset</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span>;
+@<span style="color:#66d9ef">import</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;https://fonts.googleapis.com/css2?family=Poppins:wght@500&amp;display=swap&#39;</span><span style="color:#f92672">)</span>;
+#connectButton{
+	<span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">user-select</span>: <span style="color:#66d9ef">none</span>; <span style="color:#75715e">/* Safari */</span>        
+	<span style="color:#66d9ef">-moz-</span><span style="color:#66d9ef">user-select</span>: <span style="color:#66d9ef">none</span>; <span style="color:#75715e">/* Firefox */</span>
+	<span style="color:#66d9ef">-ms-</span><span style="color:#66d9ef">user-select</span>: <span style="color:#66d9ef">none</span>; <span style="color:#75715e">/* IE10+/Edge */</span>
+	<span style="color:#66d9ef">user-select</span>: <span style="color:#66d9ef">none</span>; <span style="color:#75715e">/* Standard */</span>
+	<span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#39;Poppins&#39;</span>, <span style="color:#66d9ef">sans-serif</span>;
+	<span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">3</span><span style="color:#66d9ef">px</span> hsla(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">.15</span>);
+	<span style="color:#66d9ef">background-image</span>: linear-gradient(<span style="color:#ae81ff">#38CB7C</span>, <span style="color:#ae81ff">#1CB462</span>);
+	<span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
+	<span style="color:#66d9ef">display</span>:<span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+	<span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+	<span style="color:#66d9ef">cursor</span>:<span style="color:#66d9ef">pointer</span>;
+	<span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#ffffff</span>;
+	<span style="color:#66d9ef">font-size</span>:<span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+	<span style="color:#66d9ef">font-weight</span>:<span style="color:#ae81ff">500</span>;
+	<span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">24</span><span style="color:#66d9ef">px</span>;
+	<span style="color:#66d9ef">text-decoration</span>:<span style="color:#66d9ef">none</span>;
+	<span style="color:#66d9ef">transition</span>: <span style="color:#ae81ff">0.3</span><span style="color:#66d9ef">s</span>;
+	<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+	<span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">320</span><span style="color:#66d9ef">px</span>;
+	<span style="color:#66d9ef">vertical-align</span>: <span style="color:#66d9ef">middle</span>;
+	<span style="color:#66d9ef">letter-spacing</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">px</span>;
 }
-#<span style="color:#447fcf;text-decoration:underline">connectButton</span>:<span style="color:#ffa500">before</span> {
-	<span style="color:#6ab825;font-weight:bold">background</span>: <span style="color:#24909d">url</span>(<span style="color:#ffa500">https://handcash.io/resources/handcash_white_icon.svg</span>) <span style="color:#6ab825;font-weight:bold">no-repeat</span> <span style="color:#6ab825;font-weight:bold">scroll</span> <span style="color:#6ab825;font-weight:bold">center</span> <span style="color:#6ab825;font-weight:bold">center</span> / <span style="color:#3677a9">100</span><span style="color:#6ab825;font-weight:bold">%</span> <span style="color:#6ab825;font-weight:bold">auto</span> <span style="color:#24909d">rgba</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span>);
-    <span style="color:#6ab825;font-weight:bold">content</span>: <span style="color:#ed9d13">&#34;&#34;</span>;
-    <span style="color:#6ab825;font-weight:bold">display</span>: <span style="color:#6ab825;font-weight:bold">inline</span>-<span style="color:#6ab825;font-weight:bold">block</span>;
-    <span style="color:#6ab825;font-weight:bold">color</span>: <span style="color:#3677a9">#fff</span>;
-    <span style="color:#6ab825;font-weight:bold">height</span>: <span style="color:#3677a9">20</span><span style="color:#6ab825;font-weight:bold">px</span>;
-    <span style="color:#6ab825;font-weight:bold">margin-right</span>: <span style="color:#3677a9">12</span><span style="color:#6ab825;font-weight:bold">px</span>;
-    <span style="color:#6ab825;font-weight:bold">margin-bottom</span>: <span style="color:#3677a9">1</span><span style="color:#6ab825;font-weight:bold">px</span>;
-    <span style="color:#6ab825;font-weight:bold">position</span>: <span style="color:#6ab825;font-weight:bold">relative</span>;
-    <span style="color:#6ab825;font-weight:bold">vertical-align</span>: <span style="color:#6ab825;font-weight:bold">middle</span>;
-    <span style="color:#6ab825;font-weight:bold">width</span>: <span style="color:#3677a9">20</span><span style="color:#6ab825;font-weight:bold">px</span>;
+#connectButton:<span style="color:#a6e22e">before</span> {
+	<span style="color:#66d9ef">background</span>: url(<span style="color:#e6db74">https://handcash.io/resources/handcash_white_icon.svg</span>) <span style="color:#66d9ef">no-repeat</span> <span style="color:#66d9ef">scroll</span> <span style="color:#66d9ef">center</span> <span style="color:#66d9ef">center</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span> <span style="color:#66d9ef">auto</span> rgba(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;&#34;</span>;
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+    <span style="color:#66d9ef">vertical-align</span>: <span style="color:#66d9ef">middle</span>;
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
 }
-#<span style="color:#447fcf;text-decoration:underline">connectButton</span>:<span style="color:#ffa500">hover</span> {
-	<span style="color:#6ab825;font-weight:bold">background-image</span>: <span style="color:#24909d">linear-gradient</span>(<span style="color:#3677a9">#31C475</span>, <span style="color:#3677a9">#16B15D</span>);
-	<span style="color:#6ab825;font-weight:bold">top</span>:<span style="color:#3677a9">1</span><span style="color:#6ab825;font-weight:bold">px</span>;
-	<span style="color:#6ab825;font-weight:bold">box-shadow</span>: <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">3</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">6</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#24909d">hsla</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">.15</span>);
+#connectButton:<span style="color:#a6e22e">hover</span> {
+	<span style="color:#66d9ef">background-image</span>: linear-gradient(<span style="color:#ae81ff">#31C475</span>, <span style="color:#ae81ff">#16B15D</span>);
+	<span style="color:#66d9ef">top</span>:<span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span>;
+	<span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">3</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span> hsla(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">.15</span>);
 }
-#<span style="color:#447fcf;text-decoration:underline">connectButton</span>:<span style="color:#ffa500">active</span> {
-	<span style="color:#6ab825;font-weight:bold">background-image</span>: <span style="color:#24909d">linear-gradient</span>(<span style="color:#3677a9">#38CB7C</span>, <span style="color:#3677a9">#1CB462</span>);
-	<span style="color:#6ab825;font-weight:bold">position</span>:<span style="color:#6ab825;font-weight:bold">relative</span>;
-	<span style="color:#6ab825;font-weight:bold">top</span>:<span style="color:#3677a9">1</span><span style="color:#6ab825;font-weight:bold">px</span>;
-	<span style="color:#6ab825;font-weight:bold">box-shadow</span>: <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">px</span> <span style="color:#24909d">hsla</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">0</span><span style="color:#6ab825;font-weight:bold">%</span>, <span style="color:#3677a9">.15</span>);
+#connectButton:<span style="color:#a6e22e">active</span> {
+	<span style="color:#66d9ef">background-image</span>: linear-gradient(<span style="color:#ae81ff">#38CB7C</span>, <span style="color:#ae81ff">#1CB462</span>);
+	<span style="color:#66d9ef">position</span>:<span style="color:#66d9ef">relative</span>;
+	<span style="color:#66d9ef">top</span>:<span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span>;
+	<span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> hsla(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">.15</span>);
 }
 </code></pre></div>
 </div>

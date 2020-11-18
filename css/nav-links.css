@@ -1,4 +1,4 @@
-.nav-link {
+.nav-link {    
     padding: 2px 10px 2px 10px ;
 }
 
@@ -13,7 +13,7 @@
     border-right-color: #35469C !important;
 }
 
-.nav-item a {
+.nav-item a {    
     color: #f5f5f5 !important;
 }
 
@@ -51,4 +51,23 @@
 
     color: #193148 !important;
 
+}
+
+blockquote {
+    border-left: 2px solid #38CB7C !important;
+}
+
+.notices.info p {
+    border-top: 30px solid #38CB7C !important;
+    background: #d3ffe7 !important;
+}
+
+.notices.tip p {
+    border-top: 30px solid #35469C !important;
+    background: #d7ddfd!important;
+}
+
+.notices.note p {
+    border-top: 30px solid #4C86ff !important;
+    background: #dae6ff!important;
 }

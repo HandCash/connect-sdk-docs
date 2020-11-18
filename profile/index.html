@@ -159,46 +159,67 @@
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
-<span style="color:#6ab825;font-weight:bold">const</span> currentProfile = await cloudAccount.profile.getCurrentProfile();
-console.log(currentProfile);
-<span style="color:#999;font-style:italic">// Extract public or private proile from currentProfile;
-</span><span style="color:#999;font-style:italic"></span><span style="color:#6ab825;font-weight:bold">const</span> {publicProfile, privateProfile} = currentProfile;
-console.log(publicProfile);
-console.log(privateProfile);
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#999;font-style:italic">// Full profile
-</span><span style="color:#999;font-style:italic"></span>{
-   publicProfile: {
-      id: <span style="color:#ed9d13">&#34;5f15c31c3c177d003028eb97&#34;</span>,
-      handle: <span style="color:#ed9d13">&#34;stuk_91&#34;</span>,
-      paymail: <span style="color:#ed9d13">&#34;BrandonIAE@internal.handcash.io&#34;</span>,
-      displayName: <span style="color:#ed9d13">&#34;Steven Urban K.&#34;</span>,
-      avatarUrl: <span style="color:#ed9d13">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
-      localCurrencyCode: <span style="color:#ed9d13">&#34;USD&#34;</span>,
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashCloudAccount</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect-beta&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+
+<span style="color:#75715e">// Fetch and log the entire profile
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentProfile</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getCurrentProfile</span>();
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">currentProfile</span>);
+
+<span style="color:#75715e">// Extract public or private profile from currentProfile;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">publicProfile</span>, <span style="color:#a6e22e">privateProfile</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">currentProfile</span>;
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">publicProfile</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">privateProfile</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Full profile
+</span><span style="color:#75715e"></span>{
+   <span style="color:#a6e22e">publicProfile</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5f15c31c3c177d003028eb97&#34;</span>,
+      <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stuk_91&#34;</span>,
+      <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;BrandonIAE@internal.handcash.io&#34;</span>,
+      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Steven Urban K.&#34;</span>,
+      <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
+      <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;USD&#34;</span>,
    },
-   privateProfile: { 
-      phoneNumber: <span style="color:#ed9d13">&#34;+11234567891&#34;</span>,
-      email: <span style="color:#ed9d13">&#34;StevenUrban1234@gmail.com&#34;</span> 
+   <span style="color:#a6e22e">privateProfile</span><span style="color:#f92672">:</span> { 
+      <span style="color:#a6e22e">phoneNumber</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;+11234567891&#34;</span>,
+      <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;StevenUrban1234@gmail.com&#34;</span> 
    }
 }
-<span style="color:#999;font-style:italic">// Public profile 
-</span><span style="color:#999;font-style:italic"></span>{
-   id: <span style="color:#ed9d13">&#34;5f15c31c3c177d003028eb97&#34;</span>,
-   handle: <span style="color:#ed9d13">&#34;stuk_91&#34;</span>,
-   paymail: <span style="color:#ed9d13">&#34;BrandonIAE@internal.handcash.io&#34;</span>,
-   displayName: <span style="color:#ed9d13">&#34;Steven Urban K.&#34;</span>,
-   avatarUrl: <span style="color:#ed9d13">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
-   localCurrencyCode: <span style="color:#ed9d13">&#34;USD&#34;</span>,
+<span style="color:#75715e">// Public profile 
+</span><span style="color:#75715e"></span>{
+   <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5f15c31c3c177d003028eb97&#34;</span>,
+   <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stuk_91&#34;</span>,
+   <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;BrandonIAE@internal.handcash.io&#34;</span>,
+   <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Steven Urban K.&#34;</span>,
+   <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
+   <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;USD&#34;</span>,
 },
-<span style="color:#999;font-style:italic">// Private profile 
-</span><span style="color:#999;font-style:italic"></span>{ 
-   phoneNumber: <span style="color:#ed9d13">&#34;+11234567891&#34;</span>,
-   email: <span style="color:#ed9d13">&#34;StevenUrban1234@gmail.com&#34;</span> 
+<span style="color:#75715e">// Private profile 
+</span><span style="color:#75715e"></span>{ 
+   <span style="color:#a6e22e">phoneNumber</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;+11234567891&#34;</span>,
+   <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;StevenUrban1234@gmail.com&#34;</span> 
 }
-<p></code></pre></div></p>
+
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -212,16 +233,34 @@ console.log(privateProfile);
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
-<span style="color:#6ab825;font-weight:bold">var</span> balance = await cloudAccount.wallet.getSpendableBalance();
-console.log(balance);
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-  spendableSatoshiBalance: <span style="color:#3677a9">1260000</span>,
-  spendableFiatBalance: <span style="color:#3677a9">2.96</span>,
-  currencyCode: <span style="color:#ed9d13">&#39;CAD&#39;</span>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashCloudAccount</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect-beta&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">balance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">getSpendableBalance</span>();
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">balance</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#a6e22e">spendableSatoshiBalance</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1260000</span>,
+  <span style="color:#a6e22e">spendableFiatBalance</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2.96</span>,
+  <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CAD&#39;</span>
 }
 </code></pre></div>
 </div>
@@ -229,26 +268,43 @@ console.log(balance);
 </div>
 
 
-<div class="notices info" ><p>HandCash users have a global limit for how much they&rsquo;re willing to spend on apps, <strong>&lsquo;spendable balance&rsquo;</strong> is the amount left before reaching that limit:
-</br></br>
-<img src="connect-limit.png" alt="connect-limit">
+<div class="notices info" ><p>HandCash users have a global limit for how much they&rsquo;re willing to spend on apps, <strong>&lsquo;spendable balance&rsquo;</strong> is the amount left before reaching that limit:<br />
+</br></br><br />
+<img src="connect-limit.png" alt="connect-limit" /><br />
 <em>The default limit is <code>10USD</code>.</em></p></div>
 
-<p>You can also customize the currency conversion options by passing the currency code through the function (if not provided, it will return the user&rsquo;s prefered currency by default).
+<p>You can also customize the currency conversion options by passing the currency code through the function (if not provided, it will return the user&rsquo;s prefered currency by default).<br />
 
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">var</span> balance = await cloudAccount.wallet.getSpendableBalance(<span style="color:#ed9d13">&#34;USD&#34;</span>);
-console.log(balance);
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-  spendableSatoshiBalance: <span style="color:#3677a9">1260000</span>,
-  spendableFiatBalance: <span style="color:#3677a9">2.03</span>,
-  currencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">balance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">getSpendableBalance</span>(<span style="color:#e6db74">&#34;USD&#34;</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">balance</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#a6e22e">spendableSatoshiBalance</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1260000</span>,
+  <span style="color:#a6e22e">spendableFiatBalance</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2.03</span>,
+  <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>
 }
-<p></code></pre></div></p>
+</code></pre></div>
 </div>
 </div>
 </div></p>
@@ -262,28 +318,46 @@ console.log(balance);
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
-<span style="color:#6ab825;font-weight:bold">const</span> friends = await cloudAccount.profile.getFriends();
-console.log(friends);
-</code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">[
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashCloudAccount</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect-beta&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">friends</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getFriends</span>();
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">friends</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">[
   {
-    id: <span style="color:#ed9d13">&#39;5fa2d0ebab7c740c9e7b3ecb&#39;</span>,
-    handle: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>,
-    paymail: <span style="color:#ed9d13">&#39;nosetwo@internal.handcash.io&#39;</span>,
-    displayName: <span style="color:#ed9d13">&#39;Nose two&#39;</span>,
-    avatarUrl: <span style="color:#ed9d13">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1574787300/gntqxv6ed7sacwpfwumj.jpg&#39;</span>,
-    localCurrencyCode: <span style="color:#ed9d13">&#39;EUR&#39;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;5fa2d0ebab7c740c9e7b3ecb&#39;</span>,
+    <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>,
+    <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo@internal.handcash.io&#39;</span>,
+    <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Nose two&#39;</span>,
+    <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1574787300/gntqxv6ed7sacwpfwumj.jpg&#39;</span>,
+    <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;EUR&#39;</span>
   },
   {
-    id: <span style="color:#ed9d13">&#39;5f64dfbd7549610022d2861b&#39;</span>,
-    handle: <span style="color:#ed9d13">&#39;rjseibane&#39;</span>,
-    paymail: <span style="color:#ed9d13">&#39;rjseibane@internal.handcash.io&#39;</span>,
-    displayName: <span style="color:#ed9d13">&#39;Rafa JS&#39;</span>,
-    avatarUrl: <span style="color:#ed9d13">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1584356800/hprcfwdasenpnrqei3uz.jpg&#39;</span>,
-    localCurrencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;5f64dfbd7549610022d2861b&#39;</span>,
+    <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;rjseibane&#39;</span>,
+    <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;rjseibane@internal.handcash.io&#39;</span>,
+    <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Rafa JS&#39;</span>,
+    <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://res.cloudinary.com/hk7jbd3jh/image/upload/v1584356800/hprcfwdasenpnrqei3uz.jpg&#39;</span>,
+    <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>
   }
 ]
 </code></pre></div>
