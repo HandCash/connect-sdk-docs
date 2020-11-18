@@ -53,6 +53,10 @@
 
 }
 
+.dropdown-menu a {
+    color: #193148 !important;
+}
+
 blockquote {
     border-left: 2px solid #38CB7C !important;
 }
