@@ -431,6 +431,22 @@ p.permission {
 </div>
 <hr>
 </br>
+<p>Specify Environment (default is &lsquo;prod&rsquo; for production):</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">env</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Environments</span>[<span style="color:#960050;background-color:#1e0010">‘</span><span style="color:#a6e22e">beta</span><span style="color:#960050;background-color:#1e0010">’</span>];
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr>
+</br>
 <p>Generate the oauth url:</p>
 
 
@@ -440,7 +456,7 @@ p.permission {
    
 
 <div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">redirectionLoginUrl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">AppAuthorization</span>.<span style="color:#a6e22e">getRedirectionLoginUrl</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>);
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">redirectionLoginUrl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">AppAuthorization</span>.<span style="color:#a6e22e">getRedirectionLoginUrl</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>, <span style="color:#a6e22e">env</span>);
 </code></pre></div>
 </div>
 </div>
@@ -456,7 +472,7 @@ p.permission {
    
 
 <div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">authToken</span>);
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">HandCashCloudAccount</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">authToken</span>, <span style="color:#a6e22e">env</span>);
 </code></pre></div>
 </div>
 </div>
