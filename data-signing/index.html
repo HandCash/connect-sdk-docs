@@ -176,9 +176,8 @@
 <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">PublicKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv&#39;</span>);
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
-<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">publicKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Sign this message!!!&#34;</span>
 
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Sign this message!!!&#34;</span>
 <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicKey</span>, <span style="color:#a6e22e">signature</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">signData</span>({
     <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">message</span>,
     <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;utf-8&#39;</span>
