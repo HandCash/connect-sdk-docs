@@ -151,10 +151,89 @@
             </div>
           </div>
           
-          <div class="content">
+          <div class="content"><h4 id="data-signing">Data Signing</h4>
+<p>HandCash users can sign data using a public key.</p>
+<br/>
+<p>This can be used by the developer to issue a public record of the user&rsquo;s intent to publish.</p>
 
-<div class="notices note" ><p>Comming soon!</p></div>
 
+<div class="notices note" ><p>This feature requires the <code>Data Signing</code> permission. Otherwise you will receive an error.</p></div>
+
+<hr>
+<br>
+<h4 id="sign-data">Sign data</h4>
+<p>Sign a public message using the code example below:</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Message</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv/message&#39;</span>);
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">PublicKey</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Sign this message!!!&#34;</span>
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicKey</span>, <span style="color:#a6e22e">signature</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">signData</span>({
+    <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">message</span>,
+    <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;utf-8&#39;</span>
+})
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">verified</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Message</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">PublicKey</span>(<span style="color:#a6e22e">publicKey</span>).<span style="color:#a6e22e">toAddress</span>(), <span style="color:#a6e22e">signature</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">verified</span>)
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">true</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Verify a public signature with the following:</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Message</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv/message&#39;</span>);
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicKey</span>, <span style="color:#a6e22e">signature</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">signData</span>({
+    <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">message</span>,
+    <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;utf-8&#39;</span>
+})
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">verified</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Message</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">PublicKey</span>(<span style="color:#a6e22e">publicKey</span>).<span style="color:#a6e22e">toAddress</span>(), <span style="color:#a6e22e">signature</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">verified</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">true</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 </div>
           
           <hr/>
