@@ -181,18 +181,28 @@
     <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">message</span>,
     <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;utf-8&#39;</span>
 })
-</code></pre></div><p>Verify a public signature with the following:</p>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Verify a public signature with the following:</p>
+
+
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content">
+   
+
 <div class="tab-pane" title="NodeJS">
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">PublicKey</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv&#39;</span>)
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Message</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv/message&#39;</span>);
-<p><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">verified</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Message</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">PublicKey</span>(<span style="color:#a6e22e">publicKey</span>).<span style="color:#a6e22e">toAddress</span>(), <span style="color:#a6e22e">signature</span>);</p>
-<p><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">verified</span>);<br />
-</code></pre></div><head><br />
-<meta charset="utf-8"><br />
-<link rel="stylesheet" href="css/styles.css"></p>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">verified</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Message</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">PublicKey</span>(<span style="color:#a6e22e">publicKey</span>).<span style="color:#a6e22e">toAddress</span>(), <span style="color:#a6e22e">signature</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">verified</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
   <style>
   .output-paragraph {
     background-color: var(--primary-color);
@@ -208,9 +218,6 @@
 </code></pre></div>
 </div>
 </div>
-</div>
-
-</div></div>
 </div>
 </div>
           
