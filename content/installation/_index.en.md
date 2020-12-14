@@ -45,7 +45,7 @@ Once registered, install the SDK module to your project:
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```bash
-npm install --save @handcash/handcash-connect-beta
+npm install --save @handcash/handcash-connect
 ```
   {{% /tab %}}
 {{% /tabs %}}
@@ -55,7 +55,7 @@ Then, import the module:
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```javascript
-const {HandCashConnect} = require('@handcash/handcash-connect-beta');
+const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('5fbe19d9088ee710cf8fc614'); 
 ```
   {{% /tab %}}

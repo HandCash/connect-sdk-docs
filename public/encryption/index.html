@@ -169,7 +169,7 @@ This can be used by the developer to encrypt data, without requiring any custody
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> {HandCashCloudAccount} = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> {HandCashCloudAccount} = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect&#39;</span>);
 <span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = HandCashCloudAccount.fromAuthToken(token);
 <span style="color:#6ab825;font-weight:bold">const</span> {PublicKey} = require(<span style="color:#ed9d13">&#39;bsv&#39;</span>);
 <span style="color:#6ab825;font-weight:bold">const</span> ECIES = require(<span style="color:#ed9d13">&#39;bsv/ecies&#39;</span>);
@@ -190,7 +190,7 @@ console.log(encryptedBuffer.toString(<span style="color:#ed9d13">&#39;base64&#39
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> {HandCashCloudAccount, Environments} = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect-beta&#39;</span>);
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> {HandCashCloudAccount, Environments} = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect&#39;</span>);
 <span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = HandCashCloudAccount.fromAuthToken(token);
 <span style="color:#6ab825;font-weight:bold">const</span> {PrivateKey} = require(<span style="color:#ed9d13">&#39;bsv&#39;</span>);
 <span style="color:#6ab825;font-weight:bold">const</span> ECIES = require(<span style="color:#ed9d13">&#39;bsv/ecies&#39;</span>);

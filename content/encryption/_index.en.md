@@ -31,7 +31,7 @@ The below snippet shows how to encrypt a message between the user and the app:
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```javascript
-const {HandCashCloudAccount} = require('@handcash/handcash-connect-beta');
+const {HandCashCloudAccount} = require('@handcash/handcash-connect');
 const {PublicKey} = require('bsv');
 const ECIES = require('bsv/ecies');
 const cloudAccount = HandCashCloudAccount.fromAuthToken(token);
@@ -54,7 +54,7 @@ On the other hand, you may decrypt a message with the following:
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```javascript
-const {HandCashCloudAccount, Environments} = require('@handcash/handcash-connect-beta');
+const {HandCashCloudAccount, Environments} = require('@handcash/handcash-connect');
 const cloudAccount = HandCashCloudAccount.fromAuthToken(token);
 const {PrivateKey} = require('bsv');
 const ECIES = require('bsv/ecies');
