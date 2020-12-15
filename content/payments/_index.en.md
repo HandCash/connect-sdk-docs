@@ -18,7 +18,7 @@ HandCash Connect enables you to construct and execute transactions on behalf of 
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const cloudAccount = handCashConnect.getAccountFromAuthToken(token);
+const cloudAccount = await handCashConnect.getAccountFromAuthToken(token);
 const paymentParameters = {
     description: "Hold my beer!🍺",
     appAction: "like",
@@ -146,7 +146,7 @@ To attach data, add an `attachment` field to your **payment parameters**:
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const cloudAccount = handCashConnect.getAccountFromAuthToken(token);
+const cloudAccount = await handCashConnect.getAccountFromAuthToken(token);
 const paymentParameters = {
     description: "Hold my beer!🍺",
     appAction: "like",

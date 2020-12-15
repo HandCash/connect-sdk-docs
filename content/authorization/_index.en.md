@@ -49,7 +49,7 @@ const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>');
 
 // Use this field to redirect the user to the HandCash authorization screen.
-const redirectionLoginUrl = handCashConnect.getRedirectionUrl();
+const redirectionLoginUrl = await handCashConnect.getRedirectionUrl();
 ```
    {{% /tab %}}
 {{% /tabs %}}
