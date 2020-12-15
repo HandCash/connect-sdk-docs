@@ -56,7 +56,7 @@ Then, import the module:
    {{% tab "NodeJS" %}}
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
-const handCashConnect = new HandCashConnect('5fbe19d9088ee710cf8fc614'); 
+const handCashConnect = new HandCashConnect('<app-id>'); 
 ```
   {{% /tab %}}
 {{% /tabs %}}

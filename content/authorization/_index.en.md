@@ -45,9 +45,11 @@ To connect with a user, generate a **redirection url** using the SDK:
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```javascript
-const { AppAuthorization } = require('@handcash/handcash-connect');
-const redirectionLoginUrl = AppAuthorization.getRedirectionLoginUrl('<your-app-id>');
+const {HandCashConnect} = require('@handcash/handcash-connect');
+const handCashConnect = new HandCashConnect('<app-id>');
+
 // Use this field to redirect the user to the HandCash authorization screen.
+const redirectionLoginUrl = handCashConnect.getRedirectionUrl();
 ```
    {{% /tab %}}
 {{% /tabs %}}
