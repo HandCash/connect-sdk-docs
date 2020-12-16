@@ -226,7 +226,7 @@
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;225369676E2074686973206D65737361676521212122&#39;</span>;
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">message</span>).<span style="color:#a6e22e">toString</span>())
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">verified</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Message</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">PublicKey</span>(<span style="color:#a6e22e">publicKey</span>).<span style="color:#a6e22e">toAddress</span>(), <span style="color:#a6e22e">signature</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">verified</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Message</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">message</span>, <span style="color:#e6db74">&#39;hex&#39;</span>), <span style="color:#a6e22e">PublicKey</span>(<span style="color:#a6e22e">publicKey</span>).<span style="color:#a6e22e">toAddress</span>(), <span style="color:#a6e22e">signature</span>);
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">verified</span>);
 </code></pre></div><head>
 	<meta charset="utf-8">
