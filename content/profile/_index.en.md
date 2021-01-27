@@ -21,9 +21,9 @@ The `profile.getCurrentProfile` function will return both objects if applicable,
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const cloudAccount = await handCashConnect.getAccountFromAuthToken(token);
-const currentProfile = await cloudAccount.profile.getCurrentProfile();
-const {publicProfile, privateProfile} = await cloudAccount.profile.getCurrentProfile();  
+const account = await handCashConnect.getAccountFromAuthToken(token);
+const currentProfile = await account.profile.getCurrentProfile();
+const {publicProfile, privateProfile} = await account.profile.getCurrentProfile();  
 // Log the ouput
 console.log(currentProfile);
 console.log(publicProfile);
@@ -75,8 +75,8 @@ You may fetch the user's spendable balance by using the `getSpendableBalance` fu
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const cloudAccount = await handCashConnect.getAccountFromAuthToken(token);
-var balance = await cloudAccount.wallet.getSpendableBalance();
+const account = await handCashConnect.getAccountFromAuthToken(token);
+var balance = await account.wallet.getSpendableBalance();
 console.log(balance);
 ```
 
@@ -100,7 +100,7 @@ You can also customize the currency conversion options by passing the currency c
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```javascript
-var balance = await cloudAccount.wallet.getSpendableBalance("USD");
+var balance = await account.wallet.getSpendableBalance("USD");
 console.log(balance);
 ```
 
@@ -128,8 +128,8 @@ Return a list of friends, each including their own public profile.
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const cloudAccount = await handCashConnect.getAccountFromAuthToken(token);
-const friends = await cloudAccount.profile.getFriends();
+const account = await handCashConnect.getAccountFromAuthToken(token);
+const friends = await account.profile.getFriends();
 console.log(friends);
 ```
 

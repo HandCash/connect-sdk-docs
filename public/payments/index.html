@@ -156,8 +156,8 @@
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashaccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect&#39;</span>);
+<span style="color:#6ab825;font-weight:bold">const</span> account = await HandCashaccount.fromAuthToken(token);
 <span style="color:#6ab825;font-weight:bold">const</span> paymentParameters = {
     description: <span style="color:#ed9d13">&#34;Hold my beer!🍺&#34;</span>,
     appAction: <span style="color:#ed9d13">&#34;like&#34;</span>,
@@ -165,7 +165,7 @@
         { destination: <span style="color:#ed9d13">&#39;nosetwo&#39;</span>, currencyCode: <span style="color:#ed9d13">&#39;USD&#39;</span>, sendAmount: <span style="color:#3677a9">0.25</span> },
     ]
 };
-<span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await cloudAccount.wallet.pay(paymentParameters);
+<span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await account.wallet.pay(paymentParameters);
 console.log(paymentResult);
 </code></pre></div><p><strong>Output:</strong></p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
@@ -281,8 +281,8 @@ console.log(paymentResult);
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashCloudAccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#6ab825;font-weight:bold">const</span> cloudAccount = await HandCashCloudAccount.fromAuthToken(token);
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> { HandCashaccount } = require(<span style="color:#ed9d13">&#39;@handcash/handcash-connect&#39;</span>);
+<span style="color:#6ab825;font-weight:bold">const</span> account = await HandCashaccount.fromAuthToken(token);
 <span style="color:#6ab825;font-weight:bold">const</span> paymentParameters = {
     description: <span style="color:#ed9d13">&#34;Hold my beer!🍺&#34;</span>,
     appAction: <span style="color:#ed9d13">&#34;like&#34;</span>,
@@ -291,7 +291,7 @@ console.log(paymentResult);
     ]
     attachment: { format: <span style="color:#ed9d13">&#39;json&#39;</span>, value: {<span style="color:#ed9d13">&#34;param1&#34;</span>: <span style="color:#ed9d13">&#34;value1&#34;</span>, <span style="color:#ed9d13">&#34;param2&#34;</span>: <span style="color:#ed9d13">&#34;value2&#34;</span>} },
 };
-<span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await cloudAccount.wallet.pay(paymentParameters);
+<span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await account.wallet.pay(paymentParameters);
 console.log(paymentResult);
 </code></pre></div><p><strong>Output:</strong></p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
@@ -326,7 +326,7 @@ console.log(paymentResult);
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await cloudAccount.wallet.getPayment(<span style="color:#ed9d13">&#34;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#34;</span>)
+  <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6ab825;font-weight:bold">const</span> paymentResult = await account.wallet.getPayment(<span style="color:#ed9d13">&#34;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#34;</span>)
 console.log(paymentResult)
 </code></pre></div><p><strong>Output:</strong></p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{

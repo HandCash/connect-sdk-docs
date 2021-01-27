@@ -64,7 +64,7 @@ const handCashConnect = new HandCashConnect('<app-id>');
 
 
 {{< notice note >}}
-To interact with Connect, you will need to create an instance of the `HandCashCloudAccount`. This must be initialized using an **authToken**, which represents the authorization granted by the user to your application.
+To interact with Connect, you will need to create an instance of the `HandCashaccount`. This must be initialized using an **authToken**, which represents the authorization granted by the user to your application.
 {{</ notice >}}
 
 Learn how to obtain the user's **authToken** in the next section.

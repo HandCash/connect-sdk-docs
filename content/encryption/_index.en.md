@@ -31,11 +31,11 @@ The below snippet shows how to encrypt a message between the user and the app:
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```javascript
-const {HandCashCloudAccount} = require('@handcash/handcash-connect');
+const {HandCashaccount} = require('@handcash/handcash-connect');
 const {PublicKey} = require('bsv');
 const ECIES = require('bsv/ecies');
-const cloudAccount = await handCashCloudAccount.fromAuthToken(token);
-const {publicKey} = await cloudAccount.profile.getEncryptionKeypair();
+const account = await handCashaccount.fromAuthToken(token);
+const {publicKey} = await account.profile.getEncryptionKeypair();
 const ecPublicKey = PublicKey.fromString(publicKey);
 const plainText = 'hello!';
 const encryptedBuffer = ECIES().publicKey(ecPublicKey).encrypt(plainText);
@@ -54,11 +54,11 @@ On the other hand, you may decrypt a message with the following:
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```javascript
-const {HandCashCloudAccount, Environments} = require('@handcash/handcash-connect');
-const cloudAccount = await handCashCloudAccount.fromAuthToken(token);
+const {HandCashaccount, Environments} = require('@handcash/handcash-connect');
+const account = await handCashaccount.fromAuthToken(token);
 const {PrivateKey} = require('bsv');
 const ECIES = require('bsv/ecies');
-const {privateKey} = await cloudAccount.profile.getEncryptionKeypair();
+const {privateKey} = await account.profile.getEncryptionKeypair();
 const ecPrivateKey = PrivateKey.fromWIF(privateKey);
 const encryptedBuffer = Buffer.from('QklFMQPg/OQVAP3NgDAHicFFeXh5jGVVpBrCO811JgzH89c1NGhjPXQXg8hJnWolfhLZiKee91hqqXmazZC0luy3BaV4gL0r/o+yXfmU8583UfiYQA==', 'base64');
 const decryptedBuffer = ECIES().privateKey(ecPrivateKey).decrypt(encryptedBuffer);

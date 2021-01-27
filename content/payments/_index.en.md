@@ -18,7 +18,7 @@ HandCash Connect enables you to construct and execute transactions on behalf of 
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const cloudAccount = await handCashConnect.getAccountFromAuthToken(token);
+const account = await handCashConnect.getAccountFromAuthToken(token);
 const paymentParameters = {
     description: "Hold my beer!🍺",
     appAction: "like",
@@ -26,7 +26,7 @@ const paymentParameters = {
         { destination: 'nosetwo', currencyCode: 'USD', sendAmount: 0.25 },
     ]
 };
-const paymentResult = await cloudAccount.wallet.pay(paymentParameters);
+const paymentResult = await account.wallet.pay(paymentParameters);
 console.log(paymentResult);
 ```
 
@@ -146,7 +146,7 @@ To attach data, add an `attachment` field to your **payment parameters**:
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const cloudAccount = await handCashConnect.getAccountFromAuthToken(token);
+const account = await handCashConnect.getAccountFromAuthToken(token);
 const paymentParameters = {
     description: "Hold my beer!🍺",
     appAction: "like",
@@ -155,7 +155,7 @@ const paymentParameters = {
     ]
     attachment: { format: 'json', value: {"param1": "value1", "param2": "value2"} },
 };
-const paymentResult = await cloudAccount.wallet.pay(paymentParameters);
+const paymentResult = await account.wallet.pay(paymentParameters);
 console.log(paymentResult);
 ```
 
@@ -195,7 +195,7 @@ You may use the SDK to fetch information about a transaction, using the **transa
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 ```javascript
-const paymentResult = await cloudAccount.wallet.getPayment("4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043")
+const paymentResult = await account.wallet.getPayment("4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043")
 console.log(paymentResult)
 ```
 
