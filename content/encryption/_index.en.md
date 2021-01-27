@@ -34,7 +34,7 @@ The below snippet shows how to encrypt a message between the user and the app:
 const {HandCashaccount} = require('@handcash/handcash-connect');
 const {PublicKey} = require('bsv');
 const ECIES = require('bsv/ecies');
-const account = await handCashaccount.fromAuthToken(token);
+const account = handCashaccount.fromAuthToken(token);
 const {publicKey} = await account.profile.getEncryptionKeypair();
 const ecPublicKey = PublicKey.fromString(publicKey);
 const plainText = 'hello!';
@@ -55,7 +55,7 @@ On the other hand, you may decrypt a message with the following:
    {{% tab "NodeJS" %}}
 ```javascript
 const {HandCashaccount, Environments} = require('@handcash/handcash-connect');
-const account = await handCashaccount.fromAuthToken(token);
+const account = handCashaccount.fromAuthToken(token);
 const {PrivateKey} = require('bsv');
 const ECIES = require('bsv/ecies');
 const {privateKey} = await account.profile.getEncryptionKeypair();

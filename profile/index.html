@@ -166,7 +166,7 @@
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>); 
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
 
 <span style="color:#75715e">// Fetch and log the entire profile
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentProfile</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getCurrentProfile</span>();
@@ -243,7 +243,7 @@
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>); 
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">balance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">getSpendableBalance</span>();
 
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">balance</span>);
@@ -331,7 +331,7 @@
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>); 
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">friends</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getFriends</span>();
 
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">friends</span>);

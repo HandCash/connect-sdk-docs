@@ -21,7 +21,7 @@ The `profile.getCurrentProfile` function will return both objects if applicable,
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const account = await handCashConnect.getAccountFromAuthToken(token);
+const account = handCashConnect.getAccountFromAuthToken(token);
 const currentProfile = await account.profile.getCurrentProfile();
 const {publicProfile, privateProfile} = await account.profile.getCurrentProfile();  
 // Log the ouput
@@ -75,7 +75,7 @@ You may fetch the user's spendable balance by using the `getSpendableBalance` fu
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const account = await handCashConnect.getAccountFromAuthToken(token);
+const account = handCashConnect.getAccountFromAuthToken(token);
 var balance = await account.wallet.getSpendableBalance();
 console.log(balance);
 ```
@@ -128,7 +128,7 @@ Return a list of friends, each including their own public profile.
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect('<app-id>'); 
-const account = await handCashConnect.getAccountFromAuthToken(token);
+const account = handCashConnect.getAccountFromAuthToken(token);
 const friends = await account.profile.getFriends();
 console.log(friends);
 ```
