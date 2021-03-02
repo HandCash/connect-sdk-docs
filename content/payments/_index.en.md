@@ -102,6 +102,10 @@ const paymentParameters = {
 
 Below is a video walkthrough illustrating a demo implementation of the simple payments and multi-recipient payments:
 
+{{< notice info >}}
+Some of the code in the video may be outdated, please refer to the documentation for up to date code.
+{{</ notice >}}
+
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 {{< youtube ZRrJZq2HfIw >}}
@@ -231,6 +235,9 @@ console.log(paymentResult)
 
 Below is a video walkthrough illustrating a demo implementation of transactions with data attached:
 
+{{< notice info >}}
+Some of the code in the video may be outdated, please refer to the documentation for up to date code.
+{{</ notice >}}
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 {{< youtube CGiZc2kSDmk >}}

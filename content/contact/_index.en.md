@@ -3,4 +3,4 @@ title: "Got Any Questions"
 draft: false
 ---
 
-Submit a request at [HandCash Support](https://support.handcash.io/).
+Please reach our lead Connect agent [b.cryderman@handcash.io](b.cryderman@handcash.io).

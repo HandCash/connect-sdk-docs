@@ -187,4 +187,8 @@ Markdown | Less | Pretty
 
 ##### Youtube video
 
+{{< notice info >}}
+Some of the code in the video may be outdated, please refer to the documentation for up to date code.
+{{</ notice >}}
+
 {{< youtube C0DPdy98e4c >}}

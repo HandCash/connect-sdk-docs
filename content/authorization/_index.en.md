@@ -76,6 +76,10 @@ At this point, you may use the **authToken** to view and spend on behalf of the 
 
 Below is a video walkthrough illustrating a demo implementation of the authentication process:
 
+{{< notice info >}}
+Some of the code in the video may be outdated, please refer to the documentation for up to date code.
+{{</ notice >}}
+
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 {{< youtube Zk9-hqQFzic >}}
