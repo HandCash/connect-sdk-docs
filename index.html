@@ -186,24 +186,6 @@
 						},
 						
 						{
-							value: "Payment Streams",
-							label: "<p> Comming soon!\n </p>",
-							url:"https:\/\/docs.handcash.dev\/payment-streams\/"
-						},
-						
-						{
-							value: "Payment Escrows",
-							label: "<p> Comming soon!\n </p>",
-							url:"https:\/\/docs.handcash.dev\/payment-escrows\/"
-						},
-						
-						{
-							value: "Examples",
-							label: "<p> Under Construction!\n </p>",
-							url:"https:\/\/docs.handcash.dev\/examples\/"
-						},
-						
-						{
 							value: "Errors",
 							label: "<p>Overview While using the sdk, you may run into an error. Usually this is caused by an invalid parameter in your implementation.\nHere is an example of one error you may run into:\n{ \x26#39;httpStatusCode\x26#39;: 401, \x26#39;message\x26#39;: \x26#39;Invalid destination provided\x26#39;, \x26#39;info\x26#39;: { unknowns: [ \x26#39;moffdd\x26#39; ] } } \nTo learn more about these and how to solve them, review the error messages below.\n Payment Errors:   .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Spend limit violation\nStatus code: 409\n  Error code: spend_limit_violation\n  Example: { \x22message\x22: \x22Request exceeds users global connect spend limit.\x22 }\n  What happened? The user has reached their Connect limit. Prompt the user to increase their Connect limit from within the HandCash app.\n     .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Insufficient funds\nStatus code: 409\n  Error code: \n  Example: { \x22message\x22: \x22Insufficient funds.\x22 }\n  What happened? The user account does not hold enough funds to process the transaction. Prompt the user to top up thier account.\n     .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Invalid parameters\nStatus code: 400\n  Error code: \n  Example: { \x22message\x22: \x22Request contains invalid parameters\x22 }\n  What happened? You\x26#39;ve provided an invalid parameter. Check `info` from the response to find our which one.\n     .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Invalid destination\nStatus code: 409\n  Error code: \n  Example: { \x22message\x22: \x22Invalid destination provided\x22 }\n  What happened? The handle, paymail or address you provided is invalid. Ensure the destination you\x26#39;re providing is a valid one.\n     .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Non-TSS wallet\nStatus code: 401\n  Error code: \n  Example: { \x22message\x22: \x22Wallet is not TSS type\x22 }\n  What happened? This user has not migrated their wallet to HandCash 2.5.\n    Other Errors:   .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Invalid transaction query\nStatus code: 409\n  Error code: \n  Example: { \x22message\x22: \x22This app didn\x26#39;t create the requested transaction\x22 }\n  What happened? You are requesting a transaction made by a different app.\n     .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Missing permission\nStatus code: 401\n  Error code: \n  Example: { \x22message\x22: \x22Permission not established\x22 }\n  What happened? You are trying to use a feature that requires a permission not yet granted to you by this user.\n     .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Missing authorization\nStatus code: 401\n  Error code: \n  Example: { \x22message\x22: \x22Missing authorization\x22 }\n  What happened? The authorization token is missing or is no longer valid.\n    HandCash Cloud Errors: If you recieve an error code with status code 5xx this is an error on the our end.\nHere is an example:\n{ \x26#39;httpStatusCode\x26#39;: 503, \x26#39;message\x26#39;: \x26#39;External service not available\x26#39;, \x26#39;serviceName\x26#39;: \x26#39;\x26#39; \x26#39;info\x26#39;: { } } \nIf you recieve any error with status code 5xx, please get in touch with a HandCash Connect representative to resolve it.\n   .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    External service unavailable\nStatus code: 503\n  Error code: \n  Example: { \x22message\x22: \x22External service not available\x22 }\n  What happened? We are having difficulties connecting to an external service, and are unable to proccess your request.\n     .output-paragraph { border-radius: 15px 15px 0px 0px; margin-right: -2px; background-color: #ff5252; color: #f5f5f5 !important; padding-left: 5px; padding-top: 7px; font-size: medium; text-align: center; padding-bottom: 10px; } .error-border { margin: auto; border-radius: 15px 15px 15px 15px; border: 1.5px solid #e7e7e7; background: var(--light-color); } .why-border { font-size: medium; margin-left: 4rem; margin-right: 5rem; } .title h5 { display: inline; }    Missing authorization\nStatus code: 500\n  Error code: \n  Example: { \x22message\x22: \x22Internal server error\x22 }\n  What happened? HandCash has experienced an internal server error, and is unable to process your request.\n   </p>",
 							url:"https:\/\/docs.handcash.dev\/errors\/"
@@ -321,30 +303,6 @@
             <i class="ti-pencil-alt icon text-primary d-block mb-4"></i>
             </img><h3 class="mb-3 mt-0">Data Signing</h3>
             <p class="mb-0">Publicly sign a transaction</p>
-          </a>
-        </div>
-        
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <a href="https://docs.handcash.dev/payment-streams/" class="px-4 py-5 bg-white shadow text-center d-block match-height">
-            <i class="ti-control-play icon text-primary d-block mb-4"></i>
-            </img><h3 class="mb-3 mt-0">Payment Streams</h3>
-            <p class="mb-0">(Coming Soon)</p>
-          </a>
-        </div>
-        
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <a href="https://docs.handcash.dev/payment-escrows/" class="px-4 py-5 bg-white shadow text-center d-block match-height">
-            <i class="ti-receipt icon text-primary d-block mb-4"></i>
-            </img><h3 class="mb-3 mt-0">Payment Escrows</h3>
-            <p class="mb-0">(Coming Soon)</p>
-          </a>
-        </div>
-        
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <a href="https://docs.handcash.dev/examples/" class="px-4 py-5 bg-white shadow text-center d-block match-height">
-            <i class="ti-layout-list-thumb icon text-primary d-block mb-4"></i>
-            </img><h3 class="mb-3 mt-0">Examples</h3>
-            <p class="mb-0">Explore Connect in a real world scenario</p>
           </a>
         </div>
         
