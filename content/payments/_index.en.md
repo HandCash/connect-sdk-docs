@@ -13,6 +13,11 @@ weight: 4
 
 HandCash Connect enables you to construct and execute transactions on behalf of your connected users. This can be done by passing **payment parameters** through the `wallet.pay` function:
 
+{{< notice note >}}
+For payments we recommend the Duro, or `DUR`. As Duro is equal to 500 Satoshi, or 0.000005 BSV.
+**Read more about duro at [duro.money](https://duro.money).**
+{{</ notice >}}
+
  {{% tabs %}}
    {{% tab "NodeJS" %}}
 
@@ -90,9 +95,9 @@ const paymentParameters = {
     description: "Hold my beer!🍺",
     appAction: "like",
     payments: [
-        { to: 'eyeone', currencyCode: 'USD', amount: 0.25 },
+        { to: 'eyeone', currencyCode: 'DUR', amount: 1 },
         { to: 'eyeone@moneybutton.com', currencyCode: 'EUR', amount: 0.25 },
-        { to: '131xrWSKXHbhucFPTfZqnxF8ZhjpMxJH7K', currencyCode: 'SAT', amount: 50000 },
+        { to: '131xrWSKXHbhucFPTfZqnxF8ZhjpMxJH7K', currencyCode: 'USD', amount: 0.25 },
     ]
 };
 ```
@@ -156,7 +161,7 @@ const paymentParameters = {
     description: "Hold my beer!🍺",
     appAction: "like",
     payments: [
-        { destination: 'nosetwo', currencyCode: 'USD', sendAmount: 0.25 },
+        { destination: 'nosetwo', currencyCode: 'DUR', sendAmount: 200 },
     ]
     attachment: { format: 'json', value: {"param1": "value1", "param2": "value2"} },
 };
@@ -173,7 +178,7 @@ console.log(paymentResult);
   type: 'send',
   time: 1604958667,
   satoshiFees: 113,
-  satoshiAmount: 15555,
+  satoshiAmount: 10000,
   fiatExchangeRate: 160.74284545024352,
   fiatCurrencyCode: 'USD',
   participants: [
@@ -213,7 +218,7 @@ console.log(paymentResult)
   type: 'send',
   time: 1604958667,
   satoshiFees: 113,
-  satoshiAmount: 15555,
+  satoshiAmount: 10000,
   fiatExchangeRate: 160.74284545024352,
   fiatCurrencyCode: 'USD',
   participants: [
