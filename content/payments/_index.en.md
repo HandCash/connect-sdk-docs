@@ -15,7 +15,7 @@ HandCash Connect enables you to construct and execute transactions on behalf of 
 
 {{< notice note >}}
 For payments we recommend the Duro, or `DUR`. As Duro is equal to 500 Satoshi, or 0.000005 BSV.
-**Read more about duro at [duro.money](https://duro.money).**
+**Read more about [duro](duro).**
 {{</ notice >}}
 
  {{% tabs %}}
