@@ -7,6 +7,7 @@ type : "docs"
 weight: 4
 ---
 
+
 #### Simple Payments
 
 
@@ -23,7 +24,7 @@ const paymentParameters = {
     description: "Hold my beer!🍺",
     appAction: "like",
     payments: [
-        { destination: 'nosetwo', currencyCode: 'USD', sendAmount: 0.25 },
+        { destination: 'nosetwo', currencyCode: 'DUR', sendAmount: 25 },
     ]
 };
 const paymentResult = await account.wallet.pay(paymentParameters);
@@ -39,7 +40,7 @@ console.log(paymentResult);
   type: 'send',
   time: 1604958667,
   satoshiFees: 113,
-  satoshiAmount: 15555,
+  satoshiAmount: 12500,
   fiatExchangeRate: 160.74284545024352,
   fiatCurrencyCode: 'USD',
   participants: [
@@ -246,7 +247,13 @@ Some of the code in the video may be outdated, please refer to the documentation
 
 #### Supported Currencies
 
-Connect supports the following currencies conversions:
+The Duro is a universal currency for apps and games:
+
+| Currency Code     | Currency Name | Description                    |
+| ----------------- | ------------- | ------------------------------ |
+| DUR               | Duro          | 1 duro = 500 satoshis          |
+
+Connect also supports the following currencies conversions:
 
 <br/>
 
