@@ -30,8 +30,7 @@ console.log(publicProfile);
 console.log(privateProfile);
 ```
 
-**Output:**
-```javascript
+{{< output >}}```javascript
 // Full profile
 {
    publicProfile: {
@@ -80,8 +79,7 @@ var balance = await account.wallet.getSpendableBalance();
 console.log(balance);
 ```
 
-**Output:**
-```javascript
+{{< output >}}```javascript
 {
   spendableSatoshiBalance: 1260000,
   spendableFiatBalance: 2.96,
@@ -104,8 +102,7 @@ var balance = await account.wallet.getSpendableBalance("USD");
 console.log(balance);
 ```
 
-**Output:**
-```javascript
+{{< output >}}```javascript
 {
   spendableSatoshiBalance: 1260000,
   spendableFiatBalance: 2.03,
@@ -133,8 +130,7 @@ const friends = await account.profile.getFriends();
 console.log(friends);
 ```
 
-**Output:**
-```javascript
+{{< output >}}```javascript
 [
   {
     id: '5fa2d0ebab7c740c9e7b3ecb',

@@ -42,8 +42,7 @@ const encryptedBuffer = ECIES().publicKey(ecPublicKey).encrypt(plainText);
 console.log(encryptedBuffer.toString('base64'));
 ```
 
-**Output:**
-```javascript
+{{< output >}}```javascript
 QklFMQPg/OQVAP3NgDAHicFFeXh5jGVVpBrCO811JgzH89c1NGhjPXQXg8hJnWolfhLZiKee91hqqXmazZC0luy3BaV4gL0r/o+yXfmU8583UfiYQA==
 ```
    {{% /tab %}}
@@ -64,8 +63,7 @@ const encryptedBuffer = Buffer.from('QklFMQPg/OQVAP3NgDAHicFFeXh5jGVVpBrCO811Jgz
 const decryptedBuffer = ECIES().privateKey(ecPrivateKey).decrypt(encryptedBuffer);
 console.log(decryptedBuffer.toString('utf8'));
 ```
-**Output:**
-```javascript
+{{< output >}}```javascript
 hello!
 ```
    {{% /tab %}}

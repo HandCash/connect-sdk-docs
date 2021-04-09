@@ -15,7 +15,7 @@ HandCash Connect enables you to construct and execute transactions on behalf of 
 
 {{< notice note >}}
 For payments we recommend the Duro, or `DUR`. As Duro is equal to 500 Satoshi, or 0.000005 BSV.
-**Read more about [duro](duro).**
+**Read more about [duro](../duro).**
 {{</ notice >}}
 
  {{% tabs %}}
@@ -36,7 +36,7 @@ const paymentResult = await account.wallet.pay(paymentParameters);
 console.log(paymentResult);
 ```
 
-**Output:**
+{{< output >}}
 
 ```javascript
 {
@@ -169,7 +169,7 @@ const paymentResult = await account.wallet.pay(paymentParameters);
 console.log(paymentResult);
 ```
 
-**Output:**
+{{< output >}}
 
 ```javascript
 {
@@ -209,7 +209,7 @@ const paymentResult = await account.wallet.getPayment("4c7b7cdc18702bb1a09c75a47
 console.log(paymentResult)
 ```
 
-**Output:**
+{{< output >}}
 
 ```javascript
 {
@@ -257,6 +257,8 @@ The Duro is a universal currency for apps and games:
 | Currency Code     | Currency Name | Description                    |
 | ----------------- | ------------- | ------------------------------ |
 | DUR               | Duro          | 1 duro = 500 satoshis          |
+
+<br/>
 
 Connect also supports the following currencies conversions:
 
