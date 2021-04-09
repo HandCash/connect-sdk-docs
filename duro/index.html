@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
   <meta charset="utf-8">
-  <title>Authorization</title>
+  <title>Duro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="generator" content="Hugo 0.68.3" />
   
@@ -147,116 +147,26 @@
               </a>
             </div>
             <div class='child inline-block-child-bottom'>
-              <h2 class="mb-5">Authorization</h2>
+              <h2 class="mb-5">Duro</h2>
             </div>
           </div>
           
-          <div class="content"><h4 id="overview">Overview</h4>
-<p>Below are the steps each user will need to follow in order to connect with your app:</p>
-<br/>
-<p><img src="handcash-connect-auth-flow.png" alt="HandCash Authorization Flow" /></p>
-<ol>
-<li>The user will click a <strong>redirection url</strong> from within your app, redirecting them to the HandCash web app, or the HandCash native app.</li>
-</ol>
+          <div class="content"><h4 id="the-duro">The Duro</h4>
+<p>The Duro is a new unit of account for Bitcoin, it is equivelant to 500 Satoshi or 0.000005 BSV.</p>
+<p>View the video below to learn more<br />
 
-
-<div class="notices tip" ><p>To generate the <strong>redirection url</strong> your <strong>App ID</strong> will be required. Find your <strong>App ID</strong> by viewing your application inside the HandCash <a href="https://dashboard.handcash.io">developer dashboard</a>:</br><br />
-<img src="dashboard-id.png" alt="app-id" /></p></div>
-
-<ol start="2">
-<li>The user will sign in to HandCash. If they don&rsquo;t have an account already, they will be prompted to register.</li>
-</ol>
-<br/>
-<ol start="3">
-<li>HandCash will ask the user if they would like to grant permissions to your app.</li>
-</ol>
-<br/>
-<ol start="4">
-<li>The user can <strong>accept</strong> or <strong>decline</strong> access to the your app.</li>
-</ol>
-<br/>
-<blockquote>
-<p>Accept  →  Authorization Success URL.</p>
-<p>Decline  →  Authorization Failed URL.</p>
-</blockquote>
-<br/>
-<ol start="5">
-<li>HandCash will then redirect the user back to the your app.</li>
-</ol>
-
-
-<div class="notices info" ><p>While redirecting, an <strong>authToken</strong> query parameter will be added to the request: <br/> <code>&lt;auth-success-url&gt;?authToken=&lt;token&gt;</code></p></div>
-
-<hr>
-<br>
-<h4 id="your-app-authorization">Your App Authorization</h4>
-<p>To connect with a user, generate a <strong>redirection url</strong> using the SDK:<br />
-
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content">
-   
-
-<div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>);
-
-<span style="color:#75715e">// Use this field to redirect the user to the HandCash authorization screen.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">redirectionLoginUrl</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getRedirectionUrl</span>();
-</code></pre></div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/FyTJdmi3-u8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
-</div>
-</div></p>
-<p>Users will recognize the HandCash brand if you attach the url to this button; full source code can be found in our <a href="../assets/">assets page</a>:</p>
-<br/>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-	<div id="connectButton" app-id="123-456">Connect with HandCash</div>
-	<script type="text/javascript" src="js/connect_button.js"></script>
-</body>
-<br/>
-<br/>
-<p>The user will be redirected to the <strong>HandCash app</strong> and will be asked to grant your app permissions.</p>
-<br>
-<p>Once the user selects <strong>accept</strong> or <strong>decline</strong>, they will be redirected back your app&rsquo;s <strong>Authorization Success URL</strong> or <strong>Authorization Failed URL</strong>.</p>
-<br/>
-<p>While redirecting, an <strong>authToken</strong> query parameter will be added to the request:</p>
-<blockquote>
-<p><code>&lt;auth-success-url&gt;?authToken=&lt;token&gt;</code></p>
-</blockquote>
-
-
-<div class="notices tip" ><p>Any extra query parameters provided will be added to the <code>&lt;auth-success-url&gt;</code>. <br/> Ex: <code>&lt;auth-success-url&gt;?authToken=&lt;token&gt;?</code></p></div>
-
-<p>At this point, you may use the <strong>authToken</strong> to view and spend on behalf of the user.</p>
-<hr>
-<br>
-<h4 id="video-walkthrough">Video Walkthrough</h4>
-<p>Below is a video walkthrough illustrating a demo implementation of the authentication process:</p>
-
-
-<div class="notices info" ><p>Some of the code in the video may be outdated, please refer to the documentation for up to date code.</p></div>
-
-
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content">
-   
-
-<div class="tab-pane" title="NodeJS">
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/Zk9-hqQFzic" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-</div>
-</div>
-</div>
+</p>
+<p>The Duro is an optional setting for users.</p>
+<p><img src="duro-menu.png" alt="duro-menu" /></p>
+<p>You may choose to use Duros universally or you can enable it based on the user&rsquo;s preferences.</p>
+<p>View (Public Profile)[profile] for more details on this setting.</p>
+<h4 id="format">Format</h4>
+<p>The character for Duro is Đ.</p>
+<p>When displaying Duro you will want to display as such:</p>
+<p><code>&lt;amount&gt; Đ</code> (i.e. <code>500 Đ</code>)</p>
 </div>
           
           <hr/>
@@ -305,6 +215,38 @@
             
             
             
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
 
             
@@ -433,44 +375,12 @@
             
             
             
-            
-            
-            
-            
 
             
+            <a class="nav nav-prev" href="https://docs.handcash.dev/profile/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Profile</span></a>
             
             
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
-
-            
-            <a class="nav nav-prev" href="https://docs.handcash.dev/installation/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Installation</span></a>
-            
-            
-            <a class="nav nav-next" href="https://docs.handcash.dev/profile/"> <span class="d-none d-md-block">Profile</span><i class="ti-arrow-right ml-2"></i></a>
+            <a class="nav nav-next" href="https://docs.handcash.dev/payments/"> <span class="d-none d-md-block">Payments</span><i class="ti-arrow-right ml-2"></i></a>
             
           </nav>
         </div>
