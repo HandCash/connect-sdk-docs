@@ -167,7 +167,7 @@ This can be used by the developer to encrypt data, without requiring any custody
 <h4 id="user-to-app">User-to-App</h4>
 <p>User-to-App is an schema that allows both the user and the app to decrypt messages.</p>
 <br/>
-<p>The below snippet shows how to encrypt a message between the user and the app:</p>
+<p>The below snippet shows how to encrypt and decrypt a message with the user encryption key:</p>
 
 
 <div class="code-tabs">
@@ -176,21 +176,21 @@ This can be used by the developer to encrypt data, without requiring any custody
    
 
 <div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>); 
-<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">PublicKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ECIES</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv/ecies&#39;</span>);
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ECIES</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;electrum-ecies&#39;</span>);
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashConnect</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">accessKey</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&#39;</span>, {
+   <span style="color:#a6e22e">apiEndpoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://iae.cloud.handcash.io&#39;</span>,
+   <span style="color:#a6e22e">clientUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://iae-app.handcash.io&#39;</span>,
+});
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
-
-<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">publicKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ecPublicKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">PublicKey</span>.<span style="color:#a6e22e">fromString</span>(<span style="color:#a6e22e">publicKey</span>);
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">plainText</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello!&#39;</span>;
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encryptedBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>().<span style="color:#a6e22e">publicKey</span>(<span style="color:#a6e22e">ecPublicKey</span>).<span style="color:#a6e22e">encrypt</span>(<span style="color:#a6e22e">plainText</span>);
-
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">encryptedBuffer</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;base64&#39;</span>));
+(<span style="color:#a6e22e">async</span> () =&gt; {
+   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handcashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">accessKey</span>);
+   <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicKey</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
+   <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">privateKey</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
+   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encryption</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>.<span style="color:#a6e22e">encrypt</span>(<span style="color:#e6db74">&#39;Hello&#39;</span>, <span style="color:#a6e22e">publicKey</span>);
+   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decryptedResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>.<span style="color:#a6e22e">decrypt</span>(<span style="color:#a6e22e">encryption</span>, <span style="color:#a6e22e">privateKey</span>);
+   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">decryptedResult</span>.<span style="color:#a6e22e">toString</span>());
+})();
 </code></pre></div><head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/styles.css">
@@ -205,48 +205,7 @@ This can be used by the developer to encrypt data, without requiring any custody
 <body>
    <p class="output-paragraph"><strong> Output:</strong></p> 
 </body>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">QklFMQPg</span><span style="color:#f92672">/</span><span style="color:#a6e22e">OQVAP3NgDAHicFFeXh5jGVVpBrCO811JgzH89c1NGhjPXQXg8hJnWolfhLZiKee91hqqXmazZC0luy3BaV4gL0r</span><span style="color:#f92672">/</span><span style="color:#a6e22e">o</span><span style="color:#f92672">+</span><span style="color:#a6e22e">yXfmU8583UfiYQA</span><span style="color:#f92672">==</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<p>On the other hand, you may decrypt a message with the following:</p>
-
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content">
-   
-
-<div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashaccount</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">PrivateKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ECIES</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bsv/ecies&#39;</span>);
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
-
-<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">privateKey</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ecPrivateKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">PrivateKey</span>.<span style="color:#a6e22e">fromWIF</span>(<span style="color:#a6e22e">privateKey</span>);
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encryptedBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#e6db74">&#39;QklFMQPg/OQVAP3NgDAHicFFeXh5jGVVpBrCO811JgzH89c1NGhjPXQXg8hJnWolfhLZiKee91hqqXmazZC0luy3BaV4gL0r/o+yXfmU8583UfiYQA==&#39;</span>, <span style="color:#e6db74">&#39;base64&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decryptedBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>().<span style="color:#a6e22e">privateKey</span>(<span style="color:#a6e22e">ecPrivateKey</span>).<span style="color:#a6e22e">decrypt</span>(<span style="color:#a6e22e">encryptedBuffer</span>);
-
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">decryptedBuffer</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;utf8&#39;</span>));
-</code></pre></div><head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/styles.css">
-  <style>
-  .output-paragraph {
-    background-color: var(--primary-color);
-    color: #f5f5f5 !important;
-    padding-left: 10px;
-  }
-  </style>
-</head>
-<body>
-   <p class="output-paragraph"><strong> Output:</strong></p> 
-</body>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">hello</span><span style="color:#f92672">!</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Hello</span>
 </code></pre></div>
 </div>
 </div>
