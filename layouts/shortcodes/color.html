@@ -1,0 +1,27 @@
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .card-color {
+    border: 2px solid #e7e7e7;
+    border-radius: 4px;
+      
+    padding: .5rem;
+    
+  }
+  .white-text{
+    color: #f5f5f5 !important;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="card-color" style="background-color
+  :{{.Get `color`}}">
+    <div class="container">
+      <h4 class="white-text" style="background-color:{{.Get `color`}}"><b>{{.Get `label`}}</b></h4> 
+      <p class="white-text">{{.Get `color`}}</p> 
+    </div>
+  </div>
+  
+  </body>

@@ -1,0 +1,193 @@
+################################# Default configuration ###################
+# provide your domain here
+baseURL = "https://docs.handcash.dev/"
+# theme
+theme = "dot"
+themesDir = "./themes"
+# site title
+title = "Connect Docs"
+# disable language
+disableLanguages = []
+# google analytics
+googleAnalytics = "" # paste your analytics ID here. (Ex: UA-123-45)
+# unsafe html
+
+[markup]
+  [markup.goldmark.renderer]
+    hardWraps = true
+    xhtml = true
+    unsafe = true
+
+############################# Default Parameters ##########################
+[params]
+# logo is for all page
+logo = "images/connect_logo_text.png"
+# logo white is for homepage logo, you can use colorful logo too...
+logo_white = "images/logo.png"
+# when logo is empty, it will shown your site title
+
+# customize color
+primary_color = "#35469C"
+accent_color = "#38CB7C"
+body_color = "#f5f5f5"
+text_color = "#57697a"
+text_color_dark = "#193148"
+white_color = "#f5f5f5"
+light_color = "#f8f9fa"
+
+# font family
+font_family = "roboto" # Choose font family from : https://fonts.google.com/
+
+# contact form action
+contact_form_action = "#" # contact form works with : https://formspree.io
+
+
+############################## social links ##############################
+
+[[params.social]]
+icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
+link = "https://twitter.com/handcashconnect"
+  
+
+################################ English Language ######################
+[Languages.en]
+languageName = "En"
+languageCode = "en-us"
+weight = 1
+copyright = ""
+
+# banner
+[Languages.en.params.banner]
+title = "The Connect SDK"
+subtitle = "Learn more about the HandCash Connect SDK"
+bg_image = "images/banner.jpg"
+placeholder = "Search our documentation"
+
+# call to action
+[Languages.en.params.cta]
+enable = true
+title = "Have a question?"
+content = "Contact a HandCash Connect representative."
+# call to action button
+[Languages.en.params.cta.button]
+enable = true
+label = "get in touch"
+link = "contact"
+
+
+################## english navigation #################
+[[Languages.en.menu.main]]
+name = "Developer login"
+url = "https://dashboard.handcash.dev"
+weight = 1
+
+[[Languages.en.menu.main]]
+name = "contact"
+url = "contact"
+weight = 2
+
+# Dropdown menu
+[[Languages.en.menu.main]]
+weight = 3
+name = "docs"
+hasChildren = true
+
+  [[Languages.en.menu.main]]
+  parent = "docs"
+  name = "Installation"
+  url = "installation"
+  weight = 1
+
+  [[Languages.en.menu.main]]
+  parent = "docs"
+  name = "Authorization"
+  url = "authorization"
+  weight = 2
+
+  [[Languages.en.menu.main]]
+  parent = "docs"
+  name = "User Profile"
+  url = "user-profile"
+  weight = 3
+
+  [[Languages.en.menu.main]]
+  parent = "docs"
+  name = "Payments"
+  url = "payments"
+  weight = 4
+
+  [[Languages.en.menu.main]]
+  parent = "docs"
+  name = "Encryption"
+  url = "encryption"
+  weight = 5  
+
+  [[Languages.en.menu.main]]
+  parent = "docs"
+  name = "Examples"
+  url = "examples"
+  weight = 6
+
+
+################## AWS Config #################
+[deployment]
+# By default, files are uploaded in an arbitrary order.
+# Files that match the regular expressions in the "Order" list
+# will be uploaded first, in the listed order.
+order = [".jpg$", ".gif$"]
+
+
+[[deployment.targets]]
+# An arbitrary name for this target.
+name = "connect-documentation"
+# The Go Cloud Development Kit URL to deploy to. Examples:
+# GCS; see https://gocloud.dev/howto/blob/#gcs
+# URL = "gs://<Bucket Name>"
+
+# S3; see https://gocloud.dev/howto/blob/#s3
+# For S3-compatible endpoints, see https://gocloud.dev/howto/blob/#s3-compatible
+URL = "s3://connect-documentation?region=us-east-1"
+
+# Azure Blob Storage; see https://gocloud.dev/howto/blob/#azure
+# URL = "azblob://$web"
+
+# You can use a "prefix=" query parameter to target a subfolder of the bucket:
+# URL = "gs://<Bucket Name>?prefix=a/subfolder/"
+
+# If you are using a CloudFront CDN, deploy will invalidate the cache as needed.
+#cloudFrontDistributionID = <ID>
+
+# Optionally, you can include or exclude specific files.
+# See https://godoc.org/github.com/gobwas/glob#Glob for the glob pattern syntax.
+# If non-empty, the pattern is matched against the local path.
+# All paths are matched against in their filepath.ToSlash form.
+# If exclude is non-empty, and a local or remote file's path matches it, that file is not synced.
+# If include is non-empty, and a local or remote file's path does not match it, that file is not synced.
+# As a result, local files that don't pass the include/exclude filters are not uploaded to remote,
+# and remote files that don't pass the include/exclude filters are not deleted.
+# include = "**.html" # would only include files with ".html" suffix
+# exclude = "**.{jpg, png}" # would exclude files with ".jpg" or ".png" suffix
+
+
+# [[deployment.matchers]] configure behavior for files that match the Pattern.
+# Samples:
+
+[[deployment.matchers]]
+#  Cache static assets for 1 year.
+pattern = "^.+\\.(js|css|svg|ttf)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
+
+[[deployment.matchers]]
+pattern = "^.+\\.(html|xml|json)$"
+gzip = true
+
+[build]
+  noJSConfigInAssets = false
+  useResourceCacheWhen = "fallback"
+  writeStats = false

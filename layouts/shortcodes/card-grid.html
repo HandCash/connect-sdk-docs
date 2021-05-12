@@ -1,0 +1,24 @@
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+.cards-{{.Get `w`}} {
+  
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fill, minmax({{.Get `w`}}, 1fr));
+    
+    grid-auto-rows: auto;
+    
+    grid-gap: 1rem;
+    padding: 20px;
+    background-color: white;
+    border: 0.5px solid #e7e7e7;
+  
+ }
+  </style>
+</head>
+
+<div class="cards-{{.Get `w`}}">
+    {{.Inner}}
+</div>
