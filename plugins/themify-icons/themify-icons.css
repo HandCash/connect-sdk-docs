@@ -236,6 +236,10 @@
   content: "\e634";
 }
 
+.duro:before {
+  content: "\e999";
+}
+
 .ti-heart-broken:before {
   content: "\e635";
 }
