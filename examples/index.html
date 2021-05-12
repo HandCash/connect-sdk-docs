@@ -339,36 +339,6 @@
 </div>
 </div>
 </div>
-<h4 id="get-friends-1">Get Friends</h4>
-
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content">
-   
-
-<div class="tab-pane" title="Display Profile Information">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// returns user&#39;s information
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">getFriends</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
-
-  <span style="color:#75715e">// fetch the authenticated user and their profile
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">friends</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getFriends</span>()
-
-  <span style="color:#75715e">// print it out
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">friends</span>)
-
-  <span style="color:#75715e">// display public profile
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;friends&#39;</span>, {
-    <span style="color:#a6e22e">friends</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">friends</span>,
-    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/friends&#39;</span>
-  }) 
-}
-</code></pre></div>
-</div>
-</div>
-</div>
 <h4 id="multiparty-payment">MultiParty Payment</h4>
 <p>Sending a multiparty payment given a request with authenticated user, and transaction parametars.</p>
 
