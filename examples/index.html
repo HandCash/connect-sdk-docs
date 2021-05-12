@@ -151,10 +151,409 @@
             </div>
           </div>
           
-          <div class="content">
+          <div class="content"><h4 id="wrench-app">Wrench App</h4>
+<p>Wrench App is the official sample app for HandCash Connect. It demonstrates each function of the SDK. All code can be found in the Github Page, and specific code implementations are provided below.</p>
+</br>
+<p>Wrench app is live! So you can connect your handcash account and try it out here:<br />
+<a href="https://wrenchapp.org">wrenchapp.org</a></p>
+</br>
 
-<div class="notices note" ><p>Under Construction!</p></div>
 
+<div class="notices note" ><p>The goal of these examples are to highlight how the SDK is used inside the controller functions in WrenchApp. There are imports, router functions, view rendering and an express server which are not shown here. </br></br> To get a complete view of the implementation please view the full source code.</p></div>
+
+<h4 id="authentication">Authentication</h4>
+<p>Supply the redirect url and register the auth token through the redirect endpoint.</p>
+<p>
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="Supply Auth Redirect">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// login page
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">getLoginLink</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+
+  <span style="color:#75715e">// fetch authentication url using the SDK
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">redirectUrl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getRedirectionUrl</span>();
+  
+  <span style="color:#75715e">// return page with a login button
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;index&#39;</span>, {
+    <span style="color:#a6e22e">redirectUrl</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">redirectUrl</span>,
+    <span style="color:#a6e22e">docTitle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Login&#39;</span>,
+    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>
+  })
+};
+</code></pre></div>
+</div>
+ </div>
+</div><br />
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="Save Authentication Token">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// authenticate
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">getAuthenticate</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+
+  <span style="color:#75715e">// create a user upon a new login
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">authToken</span>;
+
+  <span style="color:#75715e">// get user profile, and save alias to the user 
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">authToken</span>);
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicProfile</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getCurrentProfile</span>()
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">publicProfile</span>.<span style="color:#a6e22e">id</span>
+
+  <span style="color:#75715e">// check if the user exists, if not create a new one
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findOne</span>({<span style="color:#a6e22e">handcashId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handcashId</span>})
+  <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">user</span>){
+    <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">User</span>();
+    <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">handcashId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handcashId</span>
+  }
+
+  <span style="color:#75715e">// update authToken
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">authToken</span>
+  
+  <span style="color:#75715e">// save user
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">save</span>();
+
+  <span style="color:#75715e">// generating a jwt
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">generateAuthToken</span>();
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">redirect</span>(<span style="color:#e6db74">&#39;/auth/dashboard&#39;</span>); 
+};
+</code></pre></div>
+</div>
+</div>
+</div></p>
+<h4 id="profile-information">Profile Information</h4>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="Display Profile Information">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// returns user&#39;s information
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">getProfile</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+
+  <span style="color:#75715e">// fetch the authenticated user and their profile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicProfile</span>, <span style="color:#a6e22e">privateProfile</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getCurrentProfile</span>();
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">spendableBalance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">getSpendableBalance</span>()
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">permissions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getPermissions</span>()
+  <span style="color:#75715e">// print it out
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// display public profile
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;profile&#39;</span>, {
+    <span style="color:#a6e22e">publicProfile</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">publicProfile</span>,
+    <span style="color:#a6e22e">privateProfile</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">privateProfile</span>,
+    <span style="color:#a6e22e">spendableBalance</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">spendableBalance</span>,
+    <span style="color:#a6e22e">permissions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">permissions</span>,
+    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/profile&#39;</span>
+  }) 
+}
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="get-friends">Get Friends</h4>
+<p>Fetch a list of friends</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="Display Profile Information">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// returns user&#39;s information
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">getFriends</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+
+  <span style="color:#75715e">// fetch the authenticated user and their profile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">friends</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getFriends</span>()
+
+  <span style="color:#75715e">// print it out
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">friends</span>)
+
+  <span style="color:#75715e">// display public profile
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;friends&#39;</span>, {
+    <span style="color:#a6e22e">friends</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">friends</span>,
+    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/friends&#39;</span>
+  }) 
+}
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="simple-payment">Simple Payment</h4>
+<p>Sending a simple payment given a request with authenticated user, and transaction parametars.</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="Simple Payment">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// sends a transaction on behalf of the user
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">sendTransaction</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+
+    <span style="color:#75715e">// fetch the authenticated user and their profile
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
+
+    <span style="color:#75715e">// define parameters 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handle</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">parseHandle</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">handle</span>)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">amount</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">amount</span>)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">note</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">note</span>
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currencyCode</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;DUR&#39;</span>
+
+    <span style="color:#75715e">// construct the payment
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
+        <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">note</span>,
+        <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span>
+        [
+            {
+            <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handle</span>,
+            <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currencyCode</span>,
+            <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">amount</span>,
+            },
+        ],
+    };
+
+    <span style="color:#75715e">// make the payment
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payment</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">paymentParameters</span>).<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span> =&gt; {<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>)})
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">payment</span>)
+
+    <span style="color:#75715e">// display public profile with the recent transaction
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">redirect</span>(<span style="color:#e6db74">&#34;/auth/get-transaction?txid=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">payment</span>.<span style="color:#a6e22e">transactionId</span>)
+}
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="get-friends-1">Get Friends</h4>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="Display Profile Information">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// returns user&#39;s information
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">getFriends</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+
+  <span style="color:#75715e">// fetch the authenticated user and their profile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">friends</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getFriends</span>()
+
+  <span style="color:#75715e">// print it out
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">friends</span>)
+
+  <span style="color:#75715e">// display public profile
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;friends&#39;</span>, {
+    <span style="color:#a6e22e">friends</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">friends</span>,
+    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/friends&#39;</span>
+  }) 
+}
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="multiparty-payment">MultiParty Payment</h4>
+<p>Sending a multiparty payment given a request with authenticated user, and transaction parametars.</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="MultiParty Payment">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">sendMultisendTransaction</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;here&#34;</span>)
+  <span style="color:#75715e">// fetch the authenticated user and their profile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
+
+  <span style="color:#75715e">// define parameters 
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">parseHandleArray</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">handles</span>)
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">amount</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">amount</span>)
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">note</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">note</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currencyCode</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;DUR&#39;</span>
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payments</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handles</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">handle</span> =&gt; {<span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handle</span>,
+    <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currencyCode</span>,
+    <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">amount</span>
+  }})
+
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">payments</span>)
+  <span style="color:#75715e">// configure the payment
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">note</span>,
+    <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;test-multi-send&#34;</span>,
+    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">payments</span>
+  };
+
+  <span style="color:#75715e">// make the payment
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payment</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">paymentParameters</span>)
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">payment</span>)
+
+  <span style="color:#75715e">// display public profile with the recent transaction
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">redirect</span>(<span style="color:#e6db74">&#34;/auth/get-transaction?txid=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">payment</span>.<span style="color:#a6e22e">transactionId</span>)
+}
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="data-attachment-transaction">Data Attachment Transaction</h4>
+<p>Sending a data transactino given a request with authenticated user, and some data.</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="MultiParty Payment">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// sends a transaction on behalf of the user
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">sendDataTransaction</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+
+  <span style="color:#75715e">// fetch the authenticated user and their profile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicProfile</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getCurrentProfile</span>()
+
+  <span style="color:#75715e">// define parameters 
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handle</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">publicProfile</span>.<span style="color:#a6e22e">handle</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">amount</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">500</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">note</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Posting data to the chain&#39;</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ConvertStringToHex</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">text</span>)
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>)
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currencyCode</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SAT&#39;</span>
+
+  <span style="color:#75715e">// construct the payment
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">note</span>,
+    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span>
+      [
+        {
+          <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handle</span>,
+          <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currencyCode</span>,
+          <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">amount</span>,
+        },
+      ],
+
+    <span style="color:#75715e">//attachment: { format: &#39;base64&#39;, value: &#39;ABEiM0RVZneImQCqu8zd7v8=&#39; },
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hex&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span> },
+  };
+
+  <span style="color:#75715e">// make the payment
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payment</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">paymentParameters</span>).<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>))
+
+  <span style="color:#75715e">// display public profile with the recent transaction
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">redirect</span>(<span style="color:#e6db74">&#34;/auth/get-transaction?txid=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">payment</span>.<span style="color:#a6e22e">transactionId</span>)
+}
+
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="encrypting-data">Encrypting Data</h4>
+<p>Encrypting data with user&rsquo;s encryption key</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="MultiParty Payment">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// sends a transaction on behalf of the user
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">postEncrypt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+
+  <span style="color:#75715e">// fetch the authenticated user and their profile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
+
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicKey</span>, <span style="color:#a6e22e">privateKey</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">publicKey</span>);
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ecPrivateKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">PrivateKey</span>.<span style="color:#a6e22e">fromWIF</span>(<span style="color:#a6e22e">privateKey</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ecPublicKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">PublicKey</span>.<span style="color:#a6e22e">fromString</span>(<span style="color:#a6e22e">publicKey</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">plainText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">encryptText</span>;
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encryptedBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>().<span style="color:#a6e22e">publicKey</span>(<span style="color:#a6e22e">ecPublicKey</span>).<span style="color:#a6e22e">encrypt</span>(<span style="color:#a6e22e">plainText</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">encryptedBuffer</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;base64&#39;</span>));
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decryptedBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>().<span style="color:#a6e22e">privateKey</span>(<span style="color:#a6e22e">ecPrivateKey</span>).<span style="color:#a6e22e">decrypt</span>(<span style="color:#a6e22e">encryptedBuffer</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">decryptedBuffer</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;utf8&#39;</span>));
+
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">assert</span>(<span style="color:#a6e22e">decryptedBuffer</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;utf8&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#a6e22e">plainText</span>);
+
+  <span style="color:#75715e">// display public profile with the recent transaction
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;encryption&#39;</span>, {
+    <span style="color:#a6e22e">encryptionDetails</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">ecPrivateKey</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ecPrivateKey</span>,
+      <span style="color:#a6e22e">ecPublicKey</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ecPublicKey</span>,
+      <span style="color:#a6e22e">plainText</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">plainText</span>,
+      <span style="color:#a6e22e">encryptedBuffer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">encryptedBuffer</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;hex&#39;</span>),
+      <span style="color:#a6e22e">decryptedBuffer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">decryptedBuffer</span>
+    },
+    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/encryption&#39;</span>
+  })
+}
+
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="fetching-transaction">Fetching Transaction</h4>
+<p>Fetching a payment that the user has previously made with your app.</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="MultiParty Payment">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// sends a transaction on behalf of the user
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">getTransaction</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+
+  <span style="color:#75715e">// fetch the authenticated user and their profile
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">_id</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">connectAuthToken</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">getPayment</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">txid</span>)
+ 
+  <span style="color:#a6e22e">paymentResult</span>.<span style="color:#a6e22e">attachments</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">paymentResult</span>.<span style="color:#a6e22e">attachments</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">attachment</span> =&gt; {
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">attachment</span>.<span style="color:#a6e22e">format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;hex&#39;</span>) 
+      <span style="color:#a6e22e">attachment</span>.<span style="color:#a6e22e">hexValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ConvertHexToString</span>(<span style="color:#a6e22e">attachment</span>.<span style="color:#a6e22e">value</span>)
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">attachment</span>
+  })
+  
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">paymentResult</span>)
+  
+  <span style="color:#75715e">// display public profile with the recent transaction
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;transaction&#39;</span>, {
+    <span style="color:#a6e22e">tx</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">paymentResult</span>,
+    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/transaction&#39;</span>
+  })
+}
+</code></pre></div>
+</div>
+</div>
+</div>
 </div>
           
           <hr/>
@@ -315,22 +714,6 @@
             
             
             
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
 
             
@@ -397,7 +780,7 @@
             
 
             
-            <a class="nav nav-prev" href="https://docs.handcash.dev/payment-escrows/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Payment Escrows</span></a>
+            <a class="nav nav-prev" href="https://docs.handcash.dev/data-signing/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Data Signing</span></a>
             
             
             <a class="nav nav-next" href="https://docs.handcash.dev/errors/"> <span class="d-none d-md-block">Errors</span><i class="ti-arrow-right ml-2"></i></a>
