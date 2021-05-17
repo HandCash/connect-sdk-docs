@@ -16,7 +16,7 @@ Wrench App is the official sample app for HandCash Connect. It demonstrates each
 </br>
 
 Wrench app is live! So you can connect your handcash account and try it out here:
-[wrenchapp.org](https://wrenchapp.org)
+[Wrench App](https://wrenchapp.herokuapp.com)
 
 </br>
 
@@ -83,7 +83,7 @@ module.exports.getAuthenticate = async (req, res, next) => {
     {{%/ tab %}}
 {{< /tabs >}}
 
-#### Profile Information
+#### Profile
 
  {{< tabs >}}
    {{% tab "Display Profile Information" %}}
@@ -112,12 +112,12 @@ module.exports.getProfile = async (req, res) => {
     {{%/ tab %}}
 {{< /tabs >}}
 
-#### Get Friends
+#### Friends
 
 Fetch a list of friends
 
  {{< tabs >}}
-   {{% tab "Display Profile Information" %}}
+   {{% tab "Display Friends List" %}}
 ```javascript
 // returns user's information
 module.exports.getFriends = async (req, res) => {
@@ -141,7 +141,7 @@ module.exports.getFriends = async (req, res) => {
 {{< /tabs >}}
 
 
-#### Simple Payment
+#### Payment
 
 Sending a simple payment given a request with authenticated user, and transaction parametars.
 
@@ -186,7 +186,7 @@ module.exports.sendTransaction = async (req, res, next) => {
 {{< /tabs >}}
 
 
-#### MultiParty Payment
+#### MultiPayment
 
 Sending a multiparty payment given a request with authenticated user, and transaction parametars.
 
@@ -230,12 +230,12 @@ module.exports.sendMultisendTransaction = async (req, res, next) => {
     {{%/ tab %}}
 {{< /tabs >}}
 
-#### Data Attachment Transaction
+#### Data
 
 Sending a data transactino given a request with authenticated user, and some data.
 
  {{< tabs >}}
-   {{% tab "MultiParty Payment" %}}
+   {{% tab "Data Attachment" %}}
 ```javascript
 // sends a transaction on behalf of the user
 module.exports.sendDataTransaction = async (req, res, next) => {
@@ -280,12 +280,12 @@ module.exports.sendDataTransaction = async (req, res, next) => {
     {{%/ tab %}}
 {{< /tabs >}}
 
-#### Encrypting Data
+#### Encrypt
 
 Encrypting data with user's encryption key
 
  {{< tabs >}}
-   {{% tab "MultiParty Payment" %}}
+   {{% tab "Encrypt Data" %}}
 ```javascript
 // sends a transaction on behalf of the user
 module.exports.postEncrypt = async (req, res, next) => {
@@ -326,12 +326,12 @@ module.exports.postEncrypt = async (req, res, next) => {
     {{%/ tab %}}
 {{< /tabs >}}
 
-#### Fetching Transaction
+#### FetchTX
 
 Fetching a payment that the user has previously made with your app.
 
  {{< tabs >}}
-   {{% tab "MultiParty Payment" %}}
+   {{% tab "Fetch Payment" %}}
 ```javascript
 // sends a transaction on behalf of the user
 module.exports.getTransaction = async (req, res, next) => {

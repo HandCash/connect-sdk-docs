@@ -1,7 +1,7 @@
 ---
 title: "Payments"
 date: 2018-12-27T11:02:05+06:00
-icon: "ti-money"
+icon: "ti-credit-card"
 description: "Execute instant payments"
 type : "docs"
 weight: 4

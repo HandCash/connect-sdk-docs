@@ -232,6 +232,10 @@
   content: "\e633";
 }
 
+.duro:before {
+  content: "\e634";
+}
+
 .ti-heart:before {
   content: "\e634";
 }
