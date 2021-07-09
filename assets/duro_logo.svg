@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.107" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#0cd190"/>
+      <stop offset="1" stop-color="#1daeec"/>
+    </linearGradient>
+    <clipPath id="clip-duro_logo">
+      <rect width="256" height="256"/>
+    </clipPath>
+  </defs>
+  <g id="duro_logo" clip-path="url(#clip-duro_logo)">
+    <path id="Trazado_113" data-name="Trazado 113" d="M84.643-109.92H24.8v66.65H6.56v32.352H24.8v68.11H84.643c56.19,0,96.083-34.785,96.083-83.677S140.833-109.92,84.643-109.92ZM89.265,24.6h-28.7V-10.918H98.508l.243-32.352H60.561V-77.325h28.7c31.866,0,54.488,21.163,54.488,50.839C143.752,3.434,121.13,24.6,89.265,24.6Z" transform="translate(34.357 154.364)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
