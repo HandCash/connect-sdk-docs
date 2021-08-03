@@ -211,14 +211,28 @@
 </div>
 
 
-<div class="notices note" ><p>For payments we recommend the Duro, or <code>DUR</code>. Duro is equal to 500 Satoshi, or 0.000005 BSV.<br><br />
+<div class="notices note" ><p><code>Description</code> must be 25 characters or less.</p></div>
+
+
+
+<div class="notices info" ><p>For payments we recommend the Duro, or <code>DUR</code>. Duro is equal to 500 Satoshi, or 0.000005 BSV.<br><br />
 <strong>Read more about duro <a href="../duro">here</a>.</strong></p></div>
 
+<h4 id="spending-limit">Spending Limit</h4>
+<p>HandCash users have a global limit for how much they&rsquo;re willing to spend on apps.</p>
+</br>
+<p><img src="connect-limit.png" alt="connect-limit" /></p>
+</br>
+<p>If an attempt is made to spend more than their limit allows, the SDK will throw an error with the message:</p>
+</br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{ <span style="color:#e6db74">&#34;message&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Request exceeds users global connect spend limit.&#34;</span> }
+</code></pre></div><p><em>See <a href="../errors">errors</a> for more details.</em></p>
+</br>
+<p>In this case, you may redirect the user to their limit settings using the following url:</p>
+<pre><code>https://app.handcash.io/#/settings/spendLimits?redirectUrl=
+</code></pre>
 
-
-<div class="notices info" ><p><p><strong>Note</strong> must be 25 characters or less.</p>
-<p><strong>appAction</strong> is used for transaction labeling and notification grouping. This way, HandCash can display more insightful information to users.</p>
-</p></div>
+<div class="notices tip" ><p>Make use of the <code>redirectUrl</code> query parameter to have the user redirect back to your app following their limit change.</p></div>
 
 <h4 id="recipient-types">Recipient Types</h4>
 <p>HandCash Connect supports three different recipient types:</p>
