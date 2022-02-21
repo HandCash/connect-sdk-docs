@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
   <meta charset="utf-8">
-  <title>Encrypt &amp; Decrypt</title>
+  <title>BSV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="generator" content="Hugo 0.68.3" />
   
@@ -147,67 +147,43 @@
               </a>
             </div>
             <div class='child inline-block-child-bottom'>
-              <h2 class="mb-5">Encrypt &amp; Decrypt</h2>
+              <h2 class="mb-5">BSV</h2>
             </div>
           </div>
           
-          <div class="content"><h4 id="encryption">Encryption</h4>
-<p>Each HandCash user-app relationship forms a unique keypair:</p>
-<blockquote>
-<p>User 1 + App 1 = Keypair 1 <br/> User 1 + App 2 = Keypair 2</p>
-</blockquote>
-<br/>
-This can be used by the developer to encrypt data, without requiring any custody of the encryption key.
-
-
-<div class="notices note" ><p>This feature requires the <code>Decrypt &amp; Encrypt</code> permission. Otherwise you will receive an error.</p></div>
-
-<hr>
+          <div class="content"><h4 id="welcome-to-bsv">Welcome to BSV</h4>
+<p>BSV is a new form of internet money that can be universally accessed across countries, boarders, and ecosystems.</p>
 <br>
-<h4 id="user-to-app">User-to-App</h4>
-<p>User-to-App is an schema that allows both the user and the app to decrypt messages.</p>
-<br/>
-<p>The below snippet shows how to encrypt and decrypt a message with the user encryption key:</p>
+<p><img src="bsvblockchain.jpg" alt="&ldquo;bsvblockchain.jpg&rdquo;" /></p>
+<br>
+<p>To learn more about BSV: <a href="https://bsvblockchain.org/">https://bsvblockchain.org/</a></p>
+<br>
+<h4 id="the-duro">The Duro</h4>
+<p>Duro is a smaller denomination of BSV, equivelant to <code>500 Satoshi</code> or <code>0.000005 BSV</code>.</p>
+<br>
 
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content">
-   
-
-<div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ECIES</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;electrum-ecies&#39;</span>);
-<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashConnect</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">accessKey</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>);
-
-(<span style="color:#a6e22e">async</span> () =&gt; {
-   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudAccount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handcashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">accessKey</span>);
-   <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">publicKey</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
-   <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">privateKey</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">cloudAccount</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getEncryptionKeypair</span>();
-   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encryption</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>.<span style="color:#a6e22e">encrypt</span>(<span style="color:#e6db74">&#39;Hello&#39;</span>, <span style="color:#a6e22e">publicKey</span>);
-   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decryptedResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ECIES</span>.<span style="color:#a6e22e">decrypt</span>(<span style="color:#a6e22e">encryption</span>, <span style="color:#a6e22e">privateKey</span>);
-   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">decryptedResult</span>.<span style="color:#a6e22e">toString</span>());
-})();
-</code></pre></div><head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/styles.css">
-  <style>
-  .output-paragraph {
-    background-color: var(--primary-color);
-    color: #f5f5f5 !important;
-    padding-left: 10px;
-  }
-  </style>
-</head>
-<body>
-   <p class="output-paragraph"><strong> Output:</strong></p> 
-</body>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Hello</span>
-</code></pre></div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/FyTJdmi3-u8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
-</div>
-</div>
+
+<br>
+<p>Duro is currently an optional setting for users and can be toggled within the HandCash app.</p>
+<br>
+<p>View <a href="../profile">Public Profile</a> for more details on this setting.</p>
+<br>
+<br>
+<h4 id="format">Format</h4>
+<h5 id="bsv">BSV</h5>
+<br>
+<p><code>&lt;amount&gt; BSV</code></p>
+<br>
+<p>ex: <code>0.01000000 BSV</code></p>
+<br>
+<h5 id="duro">Duro</h5>
+<br>
+<p><code>&lt;amount&gt; Đ</code></p>
+<br>
+<p>ex: <code>500 Đ</code></p>
 </div>
           
           <hr/>
@@ -304,22 +280,6 @@ This can be used by the developer to encrypt data, without requiring any custody
             
             
             
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
 
             
@@ -432,12 +392,28 @@ This can be used by the developer to encrypt data, without requiring any custody
             
             
             
+            
+            
+            
+            
 
             
-            <a class="nav nav-prev" href="https://docs.handcash.dev/bsv/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">BSV</span></a>
             
             
-            <a class="nav nav-next" href="https://docs.handcash.dev/assets/"> <span class="d-none d-md-block">Assets</span><i class="ti-arrow-right ml-2"></i></a>
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://docs.handcash.dev/payments/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Payments</span></a>
+            
+            
+            <a class="nav nav-next" href="https://docs.handcash.dev/encryption/"> <span class="d-none d-md-block">Encrypt &amp; Decrypt</span><i class="ti-arrow-right ml-2"></i></a>
             
           </nav>
         </div>
