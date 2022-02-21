@@ -152,58 +152,12 @@
           </div>
           
           <div class="content"><h4 id="registration">Registration</h4>
-<p>To get started with Connect, you will need to register your app through the HandCash <a href="https://dashboard.handcash.dev">developer dashboard</a>.</p>
+<p>To get started with Connect, register your app through the <a href="https://dashboard.handcash.dev">developer dashboard</a>.</p>
 <hr>
 <br>
 <h4 id="permissions">Permissions</h4>
-<p>During the registration, you will be asked to select permissions that will be required by your app. Below are all the available permissions:</p>
+<p>During the registration you will be asked to select permissions that will be required by your app. Below are the available permissions:</p>
 </br>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/styles.css">
-  <style>
-  .card {
-    border: 2px solid #e7e7e7;
-      
-    border-radius: 4px;
-      
-    padding: .5rem;
-    margin: 0.5rem 0 0.5rem 0;
-    
-  }
-  .card-header-permission img {
-    float: left;
-  }
-
-  .card-header-permission h4 {
-    position: relative;
-    top: 1px;
-    left: 10px;
-  }
-
-  hr.divider
-{ 
-   margin-top: 0em;
-   margin-bottom: 0em;
-   border-width: 2px;
-} 
-
-p.permission {
-  padding: 1rem 0 0.5rem 0;
-}
-
-  </style>
-</head>
-
-<body>
-  <div class="card">
-  <div class="card-header-permission">
-    <img src=credit-card-outline.png /><h4><b>Pay</b></h4> 
-  </div>
-  <hr class="divider" />
-  <p class="permission">Process user payments</p> 
-</div>
-</body>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/styles.css">
@@ -247,7 +201,57 @@ p.permission {
     <img src=account.png /><h4><b>Public Profile</b></h4> 
   </div>
   <hr class="divider" />
-  <p class="permission">View the user&#39;s public profile: &#39;handle&#39;, &#39;displayName&#39;, and &#39;avatarUrl&#39;.</p> 
+  <p class="permission">Fetch the user&#39;s public details: &lt;handle&gt; &lt;displayName&gt; &amp; &lt;avatarUrl&gt;</p> 
+</div>
+</body>
+
+
+<div class="notices note" ><p><code>PublicProfile</code> is enabled by default for all applications.</p></div>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .card {
+    border: 2px solid #e7e7e7;
+      
+    border-radius: 4px;
+      
+    padding: .5rem;
+    margin: 0.5rem 0 0.5rem 0;
+    
+  }
+  .card-header-permission img {
+    float: left;
+  }
+
+  .card-header-permission h4 {
+    position: relative;
+    top: 1px;
+    left: 10px;
+  }
+
+  hr.divider
+{ 
+   margin-top: 0em;
+   margin-bottom: 0em;
+   border-width: 2px;
+} 
+
+p.permission {
+  padding: 1rem 0 0.5rem 0;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="card">
+  <div class="card-header-permission">
+    <img src=credit-card-outline.png /><h4><b>Pay</b></h4> 
+  </div>
+  <hr class="divider" />
+  <p class="permission">Trigger user payments</p> 
 </div>
 </body>
 <head>
@@ -293,7 +297,7 @@ p.permission {
     <img src=shield-account-variant.png /><h4><b>Private Profile</b></h4> 
   </div>
   <hr class="divider" />
-  <p class="permission">Connect with the user&#39;s private profile: &#39;email&#39; and &#39;phoneNumber&#39;. </p> 
+  <p class="permission">Fetch the user&#39;s private details: &lt;email&gt; &amp; &lt;phoneNumber&gt;</p> 
 </div>
 </body>
 <head>
@@ -339,7 +343,7 @@ p.permission {
     <img src=account-multiple.png /><h4><b>Friends</b></h4> 
   </div>
   <hr class="divider" />
-  <p class="permission">Fetch the user&#39;s friends list.</p> 
+  <p class="permission">Fetch the user&#39;s friends list</p> 
 </div>
 </body>
 <head>
@@ -388,10 +392,10 @@ p.permission {
   <p class="permission">Generate an encryption/decryption keypair.</p> 
 </div>
 </body>
-
-
-<div class="notices note" ><p><code>PublicProfile</code> is enabled by default for all applications.</p></div>
-
+<hr>
+<br>
+<h4 id="app-id">App ID</h4>
+<p>Once you&rsquo;ve registered the app, be sure to copy down your <strong>App ID</strong>; also take special note of your <strong>Success URL</strong>.</p>
 <hr>
 <br>
 <h4 id="initialize-the-sdk">Initialize the SDK</h4>
@@ -411,7 +415,7 @@ p.permission {
 </div>
 <hr>
 </br>
-<p>Import the module and initialize:</p>
+<p>Import the module and initialize using the <strong>App ID</strong>:</p>
 
 
 <div class="code-tabs">
@@ -421,7 +425,7 @@ p.permission {
 
 <div class="tab-pane" title="NodeJS">
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">app</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span><span style="color:#f92672">&gt;</span>);
 </code></pre></div>
 </div>
 </div>
@@ -444,7 +448,7 @@ p.permission {
 </div>
 <hr>
 </br>
-<p>Initialize the user&rsquo;s cloud account:</p>
+<p>Initialize the user&rsquo;s cloud account using <strong>authToken</strong>:</p>
 
 
 <div class="code-tabs">
@@ -453,14 +457,14 @@ p.permission {
    
 
 <div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">authToken</span><span style="color:#f92672">&gt;</span>);
 </code></pre></div>
 </div>
 </div>
 </div>
 
 
-<div class="notices note" ><p>This must be initialized using the <strong>authToken</strong> from the earlier authorization. See our <a href="../authorization">authorization page</a> for a full walkthrough.</p></div>
+<div class="notices note" ><p>A user must be initialized using an <strong>authToken</strong> from earlier authorization. See our <a href="../authorization">authorization page</a> for a full walkthrough.</p></div>
 
 <hr>
 </br>
@@ -493,7 +497,7 @@ p.permission {
 
 <div class="tab-pane" title="NodeJS">
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payParameters</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;DUR&#39;</span>, <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">25</span> }]
+    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>, <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.10</span> }]
 };    
   
 <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">payParameters</span>);
@@ -502,12 +506,8 @@ p.permission {
 
 </div>
 </div></p>
-
-
-<div class="notices tip" ><p><a href="../">Explore our documentation</a> for more features!</p></div>
-
 </br>
-<p>In the next section, we&rsquo;ll be prompting the user for authorization.</p>
+<p>Next, let&rsquo;s see how to <a href="/authorization/">authenticate users</a>.</p>
 </div>
           
           <hr/>

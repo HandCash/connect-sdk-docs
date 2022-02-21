@@ -152,19 +152,15 @@
           </div>
           
           <div class="content"><h4 id="overview">Overview</h4>
-<p>Below are the steps each user will need to follow in order to connect with your app:</p>
+<p>The below diagram shows the HandCash-to-app authorization flow:</p>
 <br/>
 <p><img src="handcash-connect-auth-flow.png" alt="HandCash Authorization Flow" /></p>
 <ol>
-<li>The user will click a <strong>redirection url</strong> from within your app, redirecting them to the HandCash web app, or the HandCash native app.</li>
+<li>The user clicks a <strong>redirection url</strong> from your app, sending them to the HandCash.</li>
 </ol>
-
-
-<div class="notices tip" ><p>To generate the <strong>redirection url</strong> your <strong>App ID</strong> will be required. Find your <strong>App ID</strong> by viewing your application inside the HandCash <a href="https://dashboard.handcash.io">developer dashboard</a>:</br><br />
-<img src="dashboard-id.png" alt="app-id" /></p></div>
-
+<br>
 <ol start="2">
-<li>The user will sign in to HandCash. If they don&rsquo;t have an account already, they will be prompted to register.</li>
+<li>If the user is does not have handcash they will prompted to sign-up; then they will continue to step 3.</li>
 </ol>
 <br/>
 <ol start="3">
@@ -172,7 +168,7 @@
 </ol>
 <br/>
 <ol start="4">
-<li>The user can <strong>accept</strong> or <strong>decline</strong> access to the your app.</li>
+<li>The user can <strong>accept</strong> or <strong>decline</strong> access to the your app, and HandCash will redirect them back to the your app.</li>
 </ol>
 <br/>
 <blockquote>
@@ -180,17 +176,14 @@
 <p>Decline  →  Authorization Failed URL.</p>
 </blockquote>
 <br/>
-<ol start="5">
-<li>HandCash will then redirect the user back to the your app.</li>
-</ol>
 
 
-<div class="notices info" ><p>While redirecting, an <strong>authToken</strong> query parameter will be added to the request: <br/> <code>&lt;auth-success-url&gt;?authToken=&lt;token&gt;</code></p></div>
+<div class="notices info" ><p>While redirecting, an <strong>authToken</strong> query parameter will be added to the <strong>Success URL</strong>: <br/> <code>&lt;success-url&gt;?authToken=&lt;token&gt;</code></p></div>
 
 <hr>
 <br>
 <h4 id="your-app-authorization">Your App Authorization</h4>
-<p>To connect with a user, generate a <strong>redirection url</strong> using the SDK:<br />
+<p>To authenticate a user, generate a <strong>redirection url</strong> using the SDK:<br />
 
 
 <div class="code-tabs">

@@ -27,7 +27,7 @@
 }
 
 #connectButton:before {
-	background: url(https://handcash.io/resources/handcash_white_icon.svg) no-repeat scroll center center / 100% auto rgba(0, 0, 0, 0);
+	background: url(https://docs.handcash.dev/assets/ic_stat_handcash_notification.png) no-repeat scroll center center / 100% auto rgba(0, 0, 0, 0);
     content: "";
     display: inline-block;
     color: #fff;
