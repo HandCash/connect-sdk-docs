@@ -7,6 +7,10 @@ type : "docs"
 weight: 5
 ---
 
+{{< notice note >}}
+This feature requires the `Decrypt & Encrypt` permission. 
+{{</ notice >}}
+
 
 #### Encryption
 
@@ -15,10 +19,6 @@ Each HandCash user-app relationship forms a unique keypair:
 
 <br/>
 This can be used by the developer to encrypt data, without requiring any custody of the encryption key.
-
-{{< notice note >}}
-This feature requires the `Decrypt & Encrypt` permission. Otherwise you will receive an error.
-{{</ notice >}}
 
 #### User-to-App
 

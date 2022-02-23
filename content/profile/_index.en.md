@@ -91,7 +91,7 @@ console.log(balance);
 
 
 {{< notice note >}}
-This feature requires the `Pay` permission. Otherwise you will receive an error.
+This feature requires the `Pay` permission. 
 {{</ notice >}}
 
 You can also customize the currency conversion options by passing the currency code through the function (if not provided, it will return the user's prefered currency by default).
@@ -155,5 +155,5 @@ console.log(friends);
 
 
 {{< notice note >}}
-This feature requires the `Friends` permission. Otherwise you will receive an error.
+This feature requires the `Friends` permission. 
 {{</ notice >}}

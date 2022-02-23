@@ -155,8 +155,9 @@
 
 <div class="notices note" ><p>This feature requires the <strong><code>Pay</code></strong> permission.</p></div>
 
+<hr>
 <h4 id="make-a-payment">Make a payment</h4>
-<p>HandCash Connect enables you to construct and execute transactions on behalf of your connected users. This can be done by passing <strong>payment parameters</strong> through the <code>wallet.pay</code> function:</p>
+<p>Once you&rsquo;ve authorizated a user, you may use their credentials to push transactions on their behalf, as directed. This can be done by passing <strong>payment parameters</strong> through the <code>wallet.pay</code> function:</p>
 
 
 <div class="code-tabs">
@@ -169,7 +170,7 @@
     <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hold my beer!🍺&#34;</span>,
     <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;like&#34;</span>,
     <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [
-        { <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;DUR&#39;</span>, <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">25</span> },
+        { <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;BSV&#39;</span>, <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.001</span> },
     ]
 };
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">paymentParameters</span>);
@@ -219,21 +220,27 @@
 
 <hr>
 <br>
-<h4 id="spending-limit">Spending Limit</h4>
-<p>HandCash users have a global limit for how much they&rsquo;re willing to spend on apps.</p>
-</br>
-<p><img src="connect-limit.png" alt="connect-limit" /></p>
-</br>
-<p>If an attempt is made to spend more than their limit allows, the SDK will throw an error with this message:</p>
-<pre><code>{ &quot;message&quot;: &quot;Request exceeds users global connect spend limit.&quot; }
-</code></pre><p><em>See <strong><a href="../errors">errors</a></strong> for more details</em></p>
-</br>
-<p>In this case, you may redirect the user to their limit settings using the following url:</p>
-<pre><code>https://app.handcash.io/#/settings/spendLimits?redirectUrl=&lt;your-app&gt;
-</code></pre>
+<h4 id="pay-to-multiple-people">Pay to multiple people</h4>
+<p>The Connect SDK allows up to <code>1000</code> recipients per payment. To send to multiple people, add more recipients to the <code>payments</code> array while assigning your payment parameters:</p>
 
-<div class="notices tip" ><p>Make use of the <code>redirectUrl</code> query parameter to have the user redirect back to your app following their limit change.</p></div>
 
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content"><div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hold my beer!🍺&#34;</span>,
+    <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;like&#34;</span>,
+    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [
+        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;eyeone&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;BSV&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.004</span> },
+        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;BrandonC&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;BSV&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.0005</span> },
+        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;eyeone@moneybutton.com&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;EUR&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span> },
+        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;131xrWSKXHbhucFPTfZqnxF8ZhjpMxJH7K&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span> },
+    ]
+};
+</code></pre></div>
+</div>
+</div>
+</div>
 <hr>
 <br>
 <h4 id="recipient-types">Recipient Types</h4>
@@ -261,69 +268,33 @@
 </div>
 <hr>
 <br>
-<h4 id="pay-to-multiple-people">Pay to multiple people</h4>
-<p>The Connect SDK allows up to <code>200</code> recipients per payment. To send to multiple people, add more recipients to the <code>payments</code> array while constructing your app parameters:</p>
+<h4 id="spending-limit">Spending Limit</h4>
+<p>HandCash users have a global limit for how much they&rsquo;re willing to spend on apps.</p>
+</br>
+<p><img src="connect-limit.png" alt="connect-limit" /></p>
+</br>
+<p>If an attempt is made to spend more than their limit allows, the SDK will throw an error with this message:</p>
+<pre><code>{ &quot;message&quot;: &quot;Request exceeds users global connect spend limit.&quot; }
+</code></pre><p><em>See <strong><a href="../errors">errors</a></strong> for details</em></p>
+</br>
+<p>In this case, you may redirect the user to their limit settings using the following url:</p>
+<pre><code>https://app.handcash.io/#/settings/spendLimits?redirectUrl=&lt;your-app&gt;
+</code></pre>
 
+<div class="notices tip" ><p>Make use of the <code>redirectUrl</code> query parameter to have the user redirect back to your app following their limit change.<br />
+<code>e.g. redirectUrl=my.app</code></p></div>
 
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hold my beer!🍺&#34;</span>,
-    <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;like&#34;</span>,
-    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [
-        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;eyeone&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;DUR&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> },
-        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;eyeone@moneybutton.com&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;EUR&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span> },
-        { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;131xrWSKXHbhucFPTfZqnxF8ZhjpMxJH7K&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USD&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span> },
-    ]
-};
-</code></pre></div>
-</div>
-</div>
-</div>
 <hr>
 <br>
-<h4 id="attach-data">Attach Data</h4>
-<p>With the SDK, you can alse attach public data to payments. This data is uploaded to a public and immutable blockchain, meaning it cannot be modified or deleted. This can be used as a data timestamping service, and can lend transparency to your platform.</p>
-<br/>
-<p>You may attach data in the following formats:</p>
-
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="Base64">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;base64&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ABEiM0RVZneImQCqu8zd7v8=&#39;</span> }
-</code></pre></div>
-</div>
-<div class="tab-pane" title="HEX">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hex&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0011223344556677889900AABBCCDDEEFF&#39;</span> }
-</code></pre></div>
-</div>
-<div class="tab-pane" title="JSON">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#34;param1&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value1&#34;</span>, <span style="color:#e6db74">&#34;param2&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value2&#34;</span>} }
-</code></pre></div>
-</div>
-</div>
-</div>
-<p>To attach data, add an <code>attachment</code> field to your <strong>payment parameters</strong>:</p>
+<h4 id="fetch-a-payment">Fetch a Payment</h4>
+<p>You may use the SDK to fetch information about a transaction, using the <strong>transaction ID</strong> as reference.</p>
 
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>); 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hold my beer!🍺&#34;</span>,
-    <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;like&#34;</span>,
-    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [
-        { <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;DUR&#39;</span>, <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span> },
-    ]
-    <span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#34;param1&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value1&#34;</span>, <span style="color:#e6db74">&#34;param2&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value2&#34;</span>} },
-};
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">paymentParameters</span>);
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">paymentResult</span>);
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">getPayment</span>(<span style="color:#e6db74">&#34;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#34;</span>)
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">paymentResult</span>)
 </code></pre></div><head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/styles.css">
@@ -365,15 +336,47 @@
 </div>
 <hr>
 <br>
-<h4 id="fetch-a-payment">Fetch a Payment</h4>
-<p>You may use the SDK to fetch information about a transaction, using the <strong>transaction ID</strong> as reference.</p>
+<h4 id="attach-data">Attach Data</h4>
+<p>With the SDK, you can also attach public data to payments. This data is uploaded to a public blockchain, meaning it cannot be modified or deleted. This can be used as a data timestamping service, and can lend transparency to activity in your app.</p>
+<br/>
+<p>You may attach data in the following formats:</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content"><div class="tab-pane" title="Base64">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;base64&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ABEiM0RVZneImQCqu8zd7v8=&#39;</span> }
+</code></pre></div>
+</div>
+<div class="tab-pane" title="HEX">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hex&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0011223344556677889900AABBCCDDEEFF&#39;</span> }
+</code></pre></div>
+</div>
+<div class="tab-pane" title="JSON">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#34;param1&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value1&#34;</span>, <span style="color:#e6db74">&#34;param2&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value2&#34;</span>} }
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>To attach data, add an <code>attachment</code> field to your <strong>payment parameters</strong>:</p>
 
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
   <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">getPayment</span>(<span style="color:#e6db74">&#34;4c7b7cdc18702bb1a09c75a47bc2fa9630545761fbbd53b8c38735c73173e043&#34;</span>)
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">paymentResult</span>)
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>); 
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentParameters</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hold my beer!🍺&#34;</span>,
+    <span style="color:#a6e22e">appAction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;like&#34;</span>,
+    <span style="color:#a6e22e">payments</span><span style="color:#f92672">:</span> [
+        { <span style="color:#a6e22e">destination</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;nosetwo&#39;</span>, <span style="color:#a6e22e">currencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;DUR&#39;</span>, <span style="color:#a6e22e">sendAmount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span> },
+    ]
+    <span style="color:#a6e22e">attachment</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#34;param1&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value1&#34;</span>, <span style="color:#e6db74">&#34;param2&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value2&#34;</span>} },
+};
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">paymentResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">wallet</span>.<span style="color:#a6e22e">pay</span>(<span style="color:#a6e22e">paymentParameters</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">paymentResult</span>);
 </code></pre></div><head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/styles.css">
@@ -549,7 +552,7 @@
 </tbody>
 </table>
 <br/>
-<p>Additionally, Connect supports the following BitCoin SV currencies:</p>
+<p>Additionally, Connect supports the following BSV currencies:</p>
 <br/>
 <table>
 <thead>
@@ -567,8 +570,8 @@
 </tr>
 <tr>
 <td>BSV</td>
-<td>bitcoins</td>
-<td>1 bitcoin = 100000000 satoshis</td>
+<td>bsv</td>
+<td>1 BSV = 100000000 satoshis</td>
 </tr>
 </tbody>
 </table>
