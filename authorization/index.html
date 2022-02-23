@@ -152,37 +152,23 @@
           </div>
           
           <div class="content"><h4 id="overview">Overview</h4>
-<p>The below diagram shows the HandCash-to-app authorization flow:</p>
+<p>Here&rsquo;s how it works:</p>
 <br/>
 <p><img src="handcash-connect-auth-flow.png" alt="HandCash Authorization Flow" /></p>
+<br>
 <ol>
 <li>The user clicks a <strong>redirection url</strong> from your app, sending them to the HandCash.</li>
 </ol>
 <br>
 <ol start="2">
-<li>If the user is does not have handcash they will prompted to sign-up; then they will continue to step 3.</li>
+<li>HandCash will ask the user if they would like to grant permissions to your app; The user can <strong>accept</strong> or <strong>decline</strong> access.</li>
 </ol>
-<br/>
-<ol start="3">
-<li>HandCash will ask the user if they would like to grant permissions to your app.</li>
-</ol>
-<br/>
-<ol start="4">
-<li>The user can <strong>accept</strong> or <strong>decline</strong> access to the your app, and HandCash will redirect them back to the your app.</li>
-</ol>
-<br/>
-<blockquote>
-<p>Accept  →  Authorization Success URL.</p>
-<p>Decline  →  Authorization Failed URL.</p>
-</blockquote>
-<br/>
-
-
-<div class="notices info" ><p>While redirecting, an <strong>authToken</strong> query parameter will be added to the <strong>Success URL</strong>: <br/> <code>&lt;success-url&gt;?authToken=&lt;token&gt;</code></p></div>
-
-<hr>
 <br>
-<h4 id="your-app-authorization">Your App Authorization</h4>
+<ol start="3">
+<li>The user will then be redirected, from HandCash back to your app.</li>
+</ol>
+<br>
+<h4 id="code">Code</h4>
 <p>To authenticate a user, generate a <strong>redirection url</strong> using the SDK:<br />
 
 
@@ -201,8 +187,12 @@
 </div>
 </div>
 </div></p>
-<p>Users will recognize the HandCash brand if you attach the url to this button; full source code can be found in our <a href="../assets/">assets page</a>:</p>
-<br/>
+<p>If you need to pass any extra parameters, use the following syntax:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getRedirectionUrl</span>({<span style="color:#e6db74">&#39;state&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xyz&#39;</span>});
+</code></pre></div><br>
+<h4 id="appearance">Appearance</h4>
+<p>You may attach your <strong>Redirect url</strong> to this button; <em>see <strong><a href="../assets/">assets page</a></strong></em><br />
+<br></p>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/styles.css">
@@ -214,7 +204,8 @@
 </body>
 <br/>
 <br/>
-<p>The user will be redirected to the <strong>HandCash app</strong> and will be asked to grant your app permissions.</p>
+<h4 id="flow">Flow</h4>
+<p>Serving the URL will redirect the user to <strong>HandCash</strong>, who will then prompt the user to grant permissions for your app.</p>
 <br>
 <p>Once the user selects <strong>accept</strong> or <strong>decline</strong>, they will be redirected back your app&rsquo;s <strong>Authorization Success URL</strong> or <strong>Authorization Failed URL</strong>.</p>
 <br/>
@@ -222,10 +213,6 @@
 <blockquote>
 <p><code>&lt;auth-success-url&gt;?authToken=&lt;token&gt;</code></p>
 </blockquote>
-
-
-<div class="notices tip" ><p>Any extra query parameters provided will be added to the <code>&lt;auth-success-url&gt;</code>. <br/> Ex: <code>&lt;auth-success-url&gt;?authToken=&lt;token&gt;&amp;state='xyz'</code></p></div>
-
 <p>At this point, you may use the <strong>authToken</strong> to view and spend on behalf of the user.</p>
 <hr>
 <br>
