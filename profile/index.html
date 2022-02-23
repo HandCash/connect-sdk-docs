@@ -152,9 +152,7 @@
           </div>
           
           <div class="content"><h4 id="user-public--private-profile">User Public &amp; Private Profile</h4>
-<p>HandCash Connect provides default access to the user&rsquo;s <code>public profile</code>. The user&rsquo;s <code>private profile</code> can also be accessed, given that those permissions are granted.</p>
-<br/>
-<p>The <code>profile.getCurrentProfile</code> function will return both objects if applicable, again depending on the permissions granted by the user.</p>
+<p>The <code>profile.getCurrentProfile</code> function will return the user&rsquo;s <code>publicProfile</code>; and if permissioned, the <code>privateProfile</code> as well.</p>
 
 
 <div class="code-tabs">
@@ -168,12 +166,10 @@
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
 
-<span style="color:#75715e">// Fetch and log the entire profile
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentProfile</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getCurrentProfile</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentProfile</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getCurrentProfile</span>();
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">currentProfile</span>);
 
-<span style="color:#75715e">// Extract public or private profile from currentProfile;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">publicProfile</span>, <span style="color:#a6e22e">privateProfile</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">currentProfile</span>;
+<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">publicProfile</span>, <span style="color:#a6e22e">privateProfile</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">currentProfile</span>;
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">publicProfile</span>);
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">privateProfile</span>);
 </code></pre></div><head>
@@ -194,32 +190,32 @@
 </span><span style="color:#75715e"></span>{
    <span style="color:#a6e22e">publicProfile</span><span style="color:#f92672">:</span> {
       <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5f15c31c3c177d003028eb97&#34;</span>,
-      <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stuk_91&#34;</span>,
+      <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;BrandonC&#34;</span>,
       <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;BrandonC@handcash.io&#34;</span>,
-      <span style="color:#a6e22e">bitcoinUnit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;DUR&#34;</span>,
-      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Steven Urban K.&#34;</span>,
+      <span style="color:#a6e22e">bitcoinUnit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;BSV&#34;</span>,
+      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;DuroMane.&#34;</span>,
       <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
       <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;USD&#34;</span>,
    },
    <span style="color:#a6e22e">privateProfile</span><span style="color:#f92672">:</span> { 
       <span style="color:#a6e22e">phoneNumber</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;+11234567891&#34;</span>,
-      <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;StevenUrban1234@gmail.com&#34;</span> 
+      <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Brandon@gmail.com&#34;</span> 
    }
 }
 <span style="color:#75715e">// Public profile 
 </span><span style="color:#75715e"></span>{
    <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5f15c31c3c177d003028eb97&#34;</span>,
-   <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stuk_91&#34;</span>,
-   <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;BrandonC@handcash.io&#34;</span>,
+   <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eyeone&#34;</span>,
+   <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eyeone@handcash.io&#34;</span>,
    <span style="color:#a6e22e">bitcoinUnit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;DUR&#34;</span>,
-   <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Steven Urban K.&#34;</span>,
+   <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Ivan&#34;</span>,
    <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
    <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;USD&#34;</span>,
 },
 <span style="color:#75715e">// Private profile 
 </span><span style="color:#75715e"></span>{ 
    <span style="color:#a6e22e">phoneNumber</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;+11234567891&#34;</span>,
-   <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;StevenUrban1234@gmail.com&#34;</span> 
+   <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eyeone@gmail.com&#34;</span> 
 }
 
 </code></pre></div>
@@ -228,76 +224,13 @@
 </div>
 
 
-<div class="notices note" ><p>The field <code>bitcoinUnit</code> will denote whether the user has duro-mode enabled or not. Possible values are <code>DUR</code> and <code>SAT</code>.<br><br />
-<strong>Read more about duro <a href="../duro">here</a>.</strong></p></div>
+<div class="notices note" ><p>The field <code>bitcoinUnit</code> will denote whether the user has BSV or Duro as their preferred unit. Possible values are <code>'DUR'</code>, or <code>'SAT'</code> / <code>'BSV'</code>.<br><br />
+<strong>Read more about BSV &amp; Duro <a href="../BSV">here</a>.</strong></p></div>
 
 <hr>
 <br>
-<h4 id="fetch-public-profiles-of-other-users">Fetch Public Profiles of other users</h4>
-<p>Public user data can also be fetched using the function <code>account.profile.getPublicProfilesByHandle()</code>.</p>
-
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content">
-   
-
-<div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>); 
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
-
-<span style="color:#75715e">// Fetch and log user profiles by handle
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userProfiles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getPublicProfilesByHandle</span>([<span style="color:#e6db74">&#39;cryptokang&#39;</span>, <span style="color:#e6db74">&#39;eyeone&#39;</span>]);
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">currentProfile</span>);
-</code></pre></div><head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/styles.css">
-  <style>
-  .output-paragraph {
-    background-color: var(--primary-color);
-    color: #f5f5f5 !important;
-    padding-left: 10px;
-  }
-  </style>
-</head>
-<body>
-   <p class="output-paragraph"><strong> Output:</strong></p> 
-</body>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">[
-  {
-      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5f15c31c3c177d003028eb97&#34;</span>,
-      <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cryptokang&#34;</span>,
-      <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cryptokang@handcash.io&#34;</span>,
-      <span style="color:#a6e22e">bitcoinUnit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;DUR&#34;</span>,
-      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Brandon&#34;</span>,
-      <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
-      <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;USD&#34;</span>,
-   },
-  {
-      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5f14c41c3c188d003027eb77&#34;</span>,
-      <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eyeone&#34;</span>,
-      <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eyeone@handcash.io&#34;</span>,
-      <span style="color:#a6e22e">bitcoinUnit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;SAT&#34;</span>,
-      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Ivan&#34;</span>,
-      <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
-      <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;USD&#34;</span>,
-   },
-]
-
-</code></pre></div>
-</div>
-</div>
-</div>
-<hr>
-<br>
-<h4 id="spendable-balance">Spendable Balance</h4>
-
-
-<div class="notices note" ><p>This feature requires the <strong><code>Pay</code></strong> permission.</p></div>
-
-<p>You can fetch the user&rsquo;s <strong>spendable balance</strong> with the <code>getSpendableBalance</code> function.</p>
+<h4 id="check-the-users-balance">Check the user&rsquo;s balance</h4>
+<p>You can fetch the user&rsquo;s <strong>spendable balance</strong> with the <code>wallet.getSpendableBalance</code> function.</p>
 
 
 <div class="code-tabs">
@@ -336,14 +269,7 @@
 </div>
 </div>
 </div>
-
-
-<div class="notices info" ><p>HandCash users have a global limit for how much they&rsquo;re willing to spend on apps, <strong>&lsquo;spendable balance&rsquo;</strong> is the amount left before reaching that limit:<br />
-</br></br><br />
-<img src="connect-limit.png" alt="connect-limit" /><br />
-<em>The default limit is <code>10USD</code>.</em></p></div>
-
-<p>You can also customize the currency conversion options by passing the currency code through the function (if not provided, it will return the user&rsquo;s prefered currency by default).<br />
+<p>If you need to customize the local currency conversion, you can pass any currency code through the function:<br />
 
 
 <div class="code-tabs">
@@ -378,6 +304,10 @@
 </div>
 </div>
 </div></p>
+
+
+<div class="notices info" ><p>HandCash users have a global spend limit for how much they&rsquo;re willing to spend on apps, hence <strong>&lsquo;spendable balance&rsquo;</strong>.</p></div>
+
 <hr>
 <br>
 <h4 id="friends">Friends</h4>
@@ -385,7 +315,7 @@
 
 <div class="notices note" ><p>This feature requires the <code>Friends</code> permission. Otherwise you will receive an error.</p></div>
 
-<p>Return a list of friends, each including their own public profile.</p>
+<p>Return a list of the user&rsquo;s friends and their public profiles.</p>
 
 
 <div class="code-tabs">
@@ -437,6 +367,67 @@
 </div>
 </div>
 </div>
+<hr>
+<br>
+<h4 id="fetch-public-profiles-of-any-handcash-user">Fetch Public Profiles of ANY HandCash user</h4>
+<p>Public HandCash user-data can be accessed using the <code>account.profile.getPublicProfilesByHandle</code> function.</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>(<span style="color:#e6db74">&#39;&lt;app-id&gt;&#39;</span>); 
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;cryptokang&#39;</span>, <span style="color:#e6db74">&#39;eyeone&#39;</span>]
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userProfiles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">profile</span>.<span style="color:#a6e22e">getPublicProfilesByHandle</span>(<span style="color:#a6e22e">users</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">userProfiles</span>);
+</code></pre></div><head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+  <style>
+  .output-paragraph {
+    background-color: var(--primary-color);
+    color: #f5f5f5 !important;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+   <p class="output-paragraph"><strong> Output:</strong></p> 
+</body>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">[
+  {
+      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5f15c31c3c177d003028eb97&#34;</span>,
+      <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cryptokang&#34;</span>,
+      <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cryptokang@handcash.io&#34;</span>,
+      <span style="color:#a6e22e">bitcoinUnit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;DUR&#34;</span>,
+      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Brandon&#34;</span>,
+      <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
+      <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;USD&#34;</span>,
+   },
+  {
+      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5f14c41c3c188d003027eb77&#34;</span>,
+      <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eyeone&#34;</span>,
+      <span style="color:#a6e22e">paymail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eyeone@handcash.io&#34;</span>,
+      <span style="color:#a6e22e">bitcoinUnit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;SAT&#34;</span>,
+      <span style="color:#a6e22e">displayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Ivan&#34;</span>,
+      <span style="color:#a6e22e">avatarUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://handcash.io/avatar/7d399a0c-22cf-40cf-b162-f5511a4645db&#34;</span>,
+      <span style="color:#a6e22e">localCurrencyCode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;USD&#34;</span>,
+   },
+]
+
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr>
+<br>
 </div>
           
           <hr/>

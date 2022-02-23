@@ -151,7 +151,11 @@
             </div>
           </div>
           
-          <div class="content"><h4 id="simple-payments">Simple Payments</h4>
+          <div class="content">
+
+<div class="notices note" ><p>This feature requires the <strong><code>Pay</code></strong> permission.</p></div>
+
+<h4 id="make-a-payment">Make a payment</h4>
 <p>HandCash Connect enables you to construct and execute transactions on behalf of your connected users. This can be done by passing <strong>payment parameters</strong> through the <code>wallet.pay</code> function:</p>
 
 
@@ -213,27 +217,25 @@
 
 <div class="notices note" ><p><code>Description</code> must be 25 characters or less.</p></div>
 
-
-
-<div class="notices info" ><p>For payments we recommend the Duro, or <code>DUR</code>. Duro is equal to 500 Satoshi, or 0.000005 BSV.<br><br />
-<strong>Read more about duro <a href="../duro">here</a>.</strong></p></div>
-
+<hr>
+<br>
 <h4 id="spending-limit">Spending Limit</h4>
 <p>HandCash users have a global limit for how much they&rsquo;re willing to spend on apps.</p>
 </br>
 <p><img src="connect-limit.png" alt="connect-limit" /></p>
 </br>
-<p>If an attempt is made to spend more than their limit allows, the SDK will throw an error with the message:</p>
-</br>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{ <span style="color:#e6db74">&#34;message&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Request exceeds users global connect spend limit.&#34;</span> }
-</code></pre></div><p><em>See <a href="../errors">errors</a> for more details.</em></p>
+<p>If an attempt is made to spend more than their limit allows, the SDK will throw an error with this message:</p>
+<pre><code>{ &quot;message&quot;: &quot;Request exceeds users global connect spend limit.&quot; }
+</code></pre><p><em>See <strong><a href="../errors">errors</a></strong> for more details</em></p>
 </br>
 <p>In this case, you may redirect the user to their limit settings using the following url:</p>
-<pre><code>https://app.handcash.io/#/settings/spendLimits?redirectUrl=
+<pre><code>https://app.handcash.io/#/settings/spendLimits?redirectUrl=&lt;your-app&gt;
 </code></pre>
 
 <div class="notices tip" ><p>Make use of the <code>redirectUrl</code> query parameter to have the user redirect back to your app following their limit change.</p></div>
 
+<hr>
+<br>
 <h4 id="recipient-types">Recipient Types</h4>
 <p>HandCash Connect supports three different recipient types:</p>
 
@@ -257,6 +259,8 @@
 </div>
 </div>
 </div>
+<hr>
+<br>
 <h4 id="pay-to-multiple-people">Pay to multiple people</h4>
 <p>The Connect SDK allows up to <code>200</code> recipients per payment. To send to multiple people, add more recipients to the <code>payments</code> array while constructing your app parameters:</p>
 
@@ -277,23 +281,8 @@
 </div>
 </div>
 </div>
-<h4 id="video-walkthroug-simple-payments">Video Walkthroug: Simple Payments</h4>
-<p>Below is a video walkthrough illustrating a demo implementation of the simple payments and multi-recipient payments:</p>
-
-
-<div class="notices info" ><p>Some of the code in the video may be outdated, please refer to the documentation for up to date code.</p></div>
-
-
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/ZRrJZq2HfIw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-</div>
-</div>
-</div>
+<hr>
+<br>
 <h4 id="attach-data">Attach Data</h4>
 <p>With the SDK, you can alse attach public data to payments. This data is uploaded to a public and immutable blockchain, meaning it cannot be modified or deleted. This can be used as a data timestamping service, and can lend transparency to your platform.</p>
 <br/>
@@ -374,6 +363,8 @@
 </div>
 </div>
 </div>
+<hr>
+<br>
 <h4 id="fetch-a-payment">Fetch a Payment</h4>
 <p>You may use the SDK to fetch information about a transaction, using the <strong>transaction ID</strong> as reference.</p>
 
@@ -422,23 +413,8 @@
 </div>
 </div>
 </div>
-<h4 id="video-walkthrough-transactions-with-data">Video Walkthrough: Transactions with Data</h4>
-<p>Below is a video walkthrough illustrating a demo implementation of transactions with data attached:</p>
-<p>
-
-<div class="notices info" ><p>Some of the code in the video may be outdated, please refer to the documentation for up to date code.</p></div>
-<br />
-
-
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content"><div class="tab-pane" title="NodeJS">
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/CGiZc2kSDmk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-</div>
-</div>
-</div></p>
+<hr>
+<br>
 <h4 id="supported-currencies">Supported Currencies</h4>
 <p><a href="../bsv">BSV</a> is a universal money for apps and games:</p>
 <br/>
