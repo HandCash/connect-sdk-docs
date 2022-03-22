@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <title>RUN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="generator" content="Hugo 0.68.3" />
+  
+  <!-- ** CSS Plugins Needed for the Project ** -->
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://docs.handcash.dev/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://docs.handcash.dev/plugins/themify-icons/themify-icons.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://i.ibb.co/23X7r7j/logo.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <style>
+  :root{
+    --primary-color:#35469C;
+    --body-color:#f5f5f5;
+    --text-color:#57697a;
+    --text-color-dark:#193148;
+    --white-color:#f5f5f5;
+    --light-color:#f8f9fa;
+    --font-family:Roboto;
+  }
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://docs.handcash.dev/css/nav-links.css" />
+
+
+<!-- Main Stylesheet -->
+
+<link href="https://docs.handcash.dev/css/style.min.css" rel="stylesheet" media="screen"/>
+  
+<!-- ** JS Plugins Needed for the Project ** -->
+
+<!-- jquiry -->
+<script src="https://docs.handcash.dev/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://docs.handcash.dev/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://docs.handcash.dev/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://docs.handcash.dev/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+
+  
+
+  <!-- create /layouts/partials/overrides/header.html in your own theme or root directory to add your custom content here -->
+
+
+</head>
+
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/">
+      
+      
+      
+      
+      <img class="img-fluid" height="40" src="https://docs.handcash.dev/images/connect_logo_text.png" alt="Connect Docs">
+      
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://dashboard.handcash.dev">Developer login</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://docs.handcash.dev/contact">contact</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            docs
+          </a>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="https://docs.handcash.dev/installation">Installation</a>
+            
+            <a class="dropdown-item" href="https://docs.handcash.dev/authorization">Authorization</a>
+            
+            <a class="dropdown-item" href="https://docs.handcash.dev/user-profile">User Profile</a>
+            
+            <a class="dropdown-item" href="https://docs.handcash.dev/payments">Payments</a>
+            
+            <a class="dropdown-item" href="https://docs.handcash.dev/encryption">Encryption</a>
+            
+            <a class="dropdown-item" href="https://docs.handcash.dev/examples">Examples</a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section-sm pb-0">
+  <div class="container">
+    <div class="row">
+      
+      
+      </div>
+      <div class="col-lg-10 center">
+        <div class="p-lg-5 p-4 bg-white">
+          
+          <div class='parent sticky'>
+            <div class='child inline-block-child-top'>
+              <a href="/">
+                <img src="https://i.ibb.co/f0NdNKr/arrow-left-circle.png">
+              </a>
+            </div>
+            <div class='child inline-block-child-bottom'>
+              <h2 class="mb-5">RUN</h2>
+            </div>
+          </div>
+          
+          <div class="content"><img src="run.png" alt="drawing" width="200"/>
+<hr>
+<br>
+<h4 id="what-is-run">What is RUN?</h4>
+<p>RUN is a mid-level protocol commonly used for managing digital token and contract solutions ontop of BSV.</p>
+<br>
+
+
+<div class="notices note" ><p>You must be running your own RUN client <a href="../authorization"> placeholder </a></p></div>
+
+<h4 id="initialize-the-sdk">Initialize the SDK</h4>
+<p>Initialize the HandCashPurse, HandCashOwner, and Run.</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+   
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Run</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;run-sdk&#39;</span>);
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashPurse</span>, <span style="color:#a6e22e">HandCashOwner</span>, <span style="color:#a6e22e">Environments</span>, } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authToken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;authToken&gt;&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appSecret</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;appSecret&gt;&#39;</span>;
+
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashPurse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashPurse</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">authToken</span>, <span style="color:#a6e22e">Environments</span>.<span style="color:#a6e22e">prod</span>, <span style="color:#a6e22e">appSecret</span> );
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashOwner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashOwner</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">authToken</span>, <span style="color:#a6e22e">Environments</span>.<span style="color:#a6e22e">prod</span>, <span style="color:#a6e22e">appSecret</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">run</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Run</span>({
+  <span style="color:#a6e22e">purse</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handcashPurse</span>,
+  <span style="color:#a6e22e">owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handcashOwner</span>,
+});
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="create-an-item">Create an Item</h4>
+<p>Define and deploy an Item.</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+  
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Run</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;run-sdk&#39;</span>);
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashPurse</span>, <span style="color:#a6e22e">HandCashOwner</span>, <span style="color:#a6e22e">Environments</span>, } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appSecret</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;app-secret&gt;&#39;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authToken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;auth-token&gt;&#39;</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Weapon</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Run</span>.<span style="color:#a6e22e">Jig</span> {
+  <span style="color:#a6e22e">upgrade</span>() { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">upgrades</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">upgrades</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; }
+  <span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">address</span>) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">owner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">address</span>; }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Weapon</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">run</span>.<span style="color:#a6e22e">deploy</span>(<span style="color:#a6e22e">Weapon</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sword</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Weapon</span>();
+<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">run</span>.<span style="color:#a6e22e">sync</span>();
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sword</span>);
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="send-an-item">Send an Item</h4>
+<p>Send an item from one user to another.</p>
+
+
+<div class="code-tabs">
+  <ul class="nav nav-tabs"></ul>
+  <div class="tab-content">
+  
+
+<div class="tab-pane" title="NodeJS">
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Run</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;run-sdk&#39;</span>);
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashPurse</span>, <span style="color:#a6e22e">HandCashOwner</span>, <span style="color:#a6e22e">Environments</span>, } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appSecret</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;app-secret&gt;&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authToken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;auth-token&gt;&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authToken2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;auth-token2&gt;&#39;</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Weapon</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Run</span>.<span style="color:#a6e22e">Jig</span> {
+  <span style="color:#a6e22e">upgrade</span>() { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">upgrades</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">upgrades</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; }
+  <span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">address</span>) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">owner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">address</span>; }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashPurse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashPurse</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">authToken2</span>, <span style="color:#a6e22e">Environments</span>.<span style="color:#a6e22e">prod</span>, <span style="color:#a6e22e">appSecret</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashOwner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashOwner</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">authToken2</span>, <span style="color:#a6e22e">Environments</span>.<span style="color:#a6e22e">prod</span>, <span style="color:#a6e22e">appSecret</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">run2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Run</span>({
+  <span style="color:#a6e22e">purse</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handcashPurse</span>,
+  <span style="color:#a6e22e">owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handcashOwner</span>,
+});
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newOwner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">handcashOwner</span>.<span style="color:#a6e22e">nextOwner</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sword</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">run</span>.<span style="color:#a6e22e">load</span>(<span style="color:#a6e22e">weaponLocation</span>)
+
+<span style="color:#a6e22e">sword</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">newOwner</span>)
+<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">run2</span>.<span style="color:#a6e22e">sync</span>();
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sword</span>);
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+          
+          <hr/>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://docs.handcash.dev/encryption/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Encrypt &amp; Decrypt</span></a>
+            
+            
+            <a class="nav nav-next" href="https://docs.handcash.dev/assets/"> <span class="d-none d-md-block">Assets</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 text-md-left text-center">
+       <p class="mb-md-0 mb-4"></p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/handcashconnect"><i class="ti-twitter-alt"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://docs.handcash.dev/js/script.min.js"></script>
+  </body>
+
+</html>

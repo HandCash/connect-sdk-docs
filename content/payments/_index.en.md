@@ -27,7 +27,6 @@ const handCashConnect = new HandCashConnect('<app-id>');
 const account = handCashConnect.getAccountFromAuthToken(token);
 const paymentParameters = {
     description: "Hold my beer!🍺",
-    appAction: "like",
     payments: [
         { destination: 'nosetwo', currencyCode: 'DUR', sendAmount: 25 },
     ]
@@ -58,15 +57,11 @@ console.log(paymentResult);
     }
   ],
   attachments: [],
-  appAction: 'like'
 }
 ```
    {{% /tab %}}
 {{% /tabs %}}
 
-{{< notice info >}}
-**appAction** is used for transaction labeling and notification grouping. This way, HandCash can display more insightful information to users.
-{{</ notice >}}
 
 #### Recipient Types
 HandCash Connect supports three different recipient types:
@@ -93,7 +88,6 @@ The Connect SDK allows up to `200` recipients per payment. To send to multiple p
 ```javascript
 const paymentParameters = {
     description: "Hold my beer!🍺",
-    appAction: "like",
     payments: [
         { to: 'eyeone', currencyCode: 'DUR', amount: 1 },
         { to: 'eyeone@moneybutton.com', currencyCode: 'EUR', amount: 0.25 },
@@ -159,7 +153,6 @@ const handCashConnect = new HandCashConnect('<app-id>');
 const account = handCashConnect.getAccountFromAuthToken(token);
 const paymentParameters = {
     description: "Hold my beer!🍺",
-    appAction: "like",
     payments: [
         { destination: 'nosetwo', currencyCode: 'DUR', sendAmount: 200 },
     ]
@@ -191,7 +184,6 @@ console.log(paymentResult);
     }
   ],
   attachments: [ { value: [Object], format: 'json' } ],
-  appAction: 'like'
 }
 ```
 
@@ -231,8 +223,6 @@ console.log(paymentResult)
     }
   ],
   attachments: [ { value: [Object], format: 'json' } ],
-  appAction: 'like'
-}
 ```
     {{%/ tab %}}
 {{% /tabs %}}
