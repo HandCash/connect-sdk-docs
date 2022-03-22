@@ -151,18 +151,31 @@
             </div>
           </div>
           
-          <div class="content"><img src="run.png" alt="drawing" width="200"/>
+          <div class="content"><p><a href="https://run.network" rel="some text"><img src="run.png" alt="drawing" width="200"/></a></p>
 <hr>
 <br>
-<h4 id="what-is-run">What is RUN?</h4>
-<p>Run is a modular token protocol for which Handcash has implemented the Owner and Purse plugins to fund and sign Run transactions</p>
+<h4 id="what-is-run">What is Run?</h4>
+<p>Run is a modular token protocol for which Handcash has implemented the Owner and Purse plugins to fund and sign Run transactions.</p>
+<br>
+<p>To get a full understanding of Run, you will need to familiarize yourself with <a href="https://run.network">RUN</a> and it&rsquo;s <a href="https://run.network/docs/">documentation</a>.</p>
+<br>
+<hr>
+<br>
+<h4 id="how-to-use-run-with-the-handcash-sdk">How to use Run with the HandCash SDK</h4>
 
 
-<div class="notices note" ><p>To use RUN, you will need to familiarize yourself with [RUN] (<a href="https://run.network">https://run.network</a>) and it&rsquo;s <a href="https://run.network/docs/"> documentation </a></p></div>
+<div class="notices note" ><p>This feature requires the <strong>Jigs</strong> permission.<br />
+Please email our connect rep <a href="b.cryderman@handcash.io">b.cryderman@handcash.io</a> with your appId to have this permission enabled.</p></div>
 
 <br>
-<h4 id="initialize-the-sdk">Initialize the SDK</h4>
-<p>Initialize the HandCashPurse, HandCashOwner, and Run.</p>
+<p>The below example illustrates how to integrate HandCash with Run.</p>
+<ul>
+<li>Define a Jig</li>
+<li>Initialize HandCashPurse and HandCashOwner</li>
+<li>Initialize RUN using these two components</li>
+<li>Deploy a Jig</li>
+<li>Send a Jig from one user to another</li>
+</ul>
 
 
 <div class="code-tabs">
@@ -173,36 +186,41 @@
 <div class="tab-pane" title="NodeJS">
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Run</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;run-sdk&#39;</span>);
 <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashPurse</span>, <span style="color:#a6e22e">HandCashOwner</span>, <span style="color:#a6e22e">Environments</span>, } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appSecret</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">player1AuthToken</span>
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">player2AuthToken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appSecret</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;app-secret&gt;&#39;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">player1AuthToken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;player1-auth-token&gt;&#39;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">player2AuthToken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;player2-auth-token&gt;&#39;</span>;
 
 
- <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Weapon</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Run</span>.<span style="color:#a6e22e">Jig</span> {
-    <span style="color:#a6e22e">upgrade</span>() { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">upgrades</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">upgrades</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; }
-    <span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">address</span>) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">owner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">address</span>; }
- }
+<span style="color:#75715e">// Define a Jig
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Weapon</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Run</span>.<span style="color:#a6e22e">Jig</span> {
+  <span style="color:#a6e22e">upgrade</span>() { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">upgrades</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">upgrades</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; }
+  <span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">address</span>) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">owner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">address</span>; }
+}
 
- (<span style="color:#a6e22e">async</span> ()=&gt; {
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashPurse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashPurse</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">player2AuthToken</span>, <span style="color:#a6e22e">Environments</span>.<span style="color:#a6e22e">prod</span>, <span style="color:#a6e22e">appSecret</span> );
+(<span style="color:#a6e22e">async</span> ()=&gt; {
+
+  <span style="color:#75715e">// Initialize HandCashPurse and HandCashOwner
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashPurse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashPurse</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">player2AuthToken</span>, <span style="color:#a6e22e">Environments</span>.<span style="color:#a6e22e">prod</span>, <span style="color:#a6e22e">appSecret</span>);
   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handcashOwner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashOwner</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">player1AuthToken</span>, <span style="color:#a6e22e">Environments</span>.<span style="color:#a6e22e">prod</span>, <span style="color:#a6e22e">appSecret</span>);
 
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">run</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Run</span>({
+  <span style="color:#75715e">// Initialize RUN using these two components
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">run</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Run</span>({
     <span style="color:#a6e22e">purse</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handcashPurse</span>,
     <span style="color:#a6e22e">owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">handcashOwner</span>,
   });
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Weapon</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">run</span>.<span style="color:#a6e22e">deploy</span>(<span style="color:#a6e22e">Weapon</span>)
+
+  <span style="color:#75715e">// Deploy a Jig
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Weapon</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">run</span>.<span style="color:#a6e22e">deploy</span>(<span style="color:#a6e22e">Weapon</span>)
   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sword</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Weapon</span>();
   <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">run</span>.<span style="color:#a6e22e">sync</span>();
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sword</span>);
 
-  <span style="color:#75715e">// send to another player
+  <span style="color:#75715e">// Send a Jig from one user to another
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">player2Owner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HandCashOwner</span>.<span style="color:#a6e22e">fromAuthToken</span>(<span style="color:#a6e22e">player2AuthToken</span>, <span style="color:#a6e22e">Environments</span>.<span style="color:#a6e22e">prod</span>, <span style="color:#a6e22e">appSecret</span>);
   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">nextOwner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">play2Owner</span>.<span style="color:#a6e22e">nextOwner</span>()
   <span style="color:#a6e22e">run</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">nextOwner</span>)
   <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">run</span>.<span style="color:#a6e22e">sync</span>()
-
- })()
+})()
 </code></pre></div>
 </div>
 </div>
