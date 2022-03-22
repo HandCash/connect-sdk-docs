@@ -23,7 +23,10 @@ For payments we recommend the Duro, or `DUR`. As Duro is equal to 500 Satoshi, o
 
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
-const handCashConnect = new HandCashConnect('<app-id>'); 
+const handCashConnect = new HandCashConnect({ 
+   appId: '<app-id>', 
+   appSecret: '<app-secret>',
+}); 
 const account = handCashConnect.getAccountFromAuthToken(token);
 const paymentParameters = {
     description: "Hold my beer!🍺",
@@ -149,7 +152,10 @@ To attach data, add an `attachment` field to your **payment parameters**:
    {{% tab "NodeJS" %}}
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
-const handCashConnect = new HandCashConnect('<app-id>'); 
+const handCashConnect = new HandCashConnect({ 
+   appId: '<app-id>', 
+   appSecret: '<app-secret>',
+}); 
 const account = handCashConnect.getAccountFromAuthToken(token);
 const paymentParameters = {
     description: "Hold my beer!🍺",
