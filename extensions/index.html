@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
   <meta charset="utf-8">
-  <title>Authorization</title>
+  <title>Extensions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="generator" content="Hugo 0.68.3" />
   
@@ -147,139 +147,22 @@
               </a>
             </div>
             <div class='child inline-block-child-bottom'>
-              <h2 class="mb-5">Authorization</h2>
+              <h2 class="mb-5">Extensions</h2>
             </div>
           </div>
           
-          <div class="content"><h4 id="flow">Flow</h4>
-<p>Here&rsquo;s how it works:</p>
-<br/>
-<p><img src="handcash-connect-auth-flow.png" alt="HandCash Authorization Flow" /></p>
+          <div class="content"><hr>
 <br>
-<ol>
-<li>The user clicks a <strong>redirection url</strong> from your app, sending them to the HandCash.</li>
-</ol>
-<br>
-<ol start="2">
-<li>HandCash will ask the user if they would like to grant permissions to your app; The user can <strong>accept</strong> or <strong>decline</strong> access.</li>
-</ol>
-<br>
-<ol start="3">
-<li>The user will then be redirected, from HandCash back to your app.</li>
-</ol>
-<br>
-<h4 id="code">Code</h4>
-<p>To authenticate a user, generate a <strong>redirection url</strong> using the SDK:<br />
+<h4 id="what-are-handcash-extensions">What are HandCash extensions?</h4>
+<p>A HandCash extension is a developer tool used for cross-app communication. These can be used to leverage application layers across the metaverse.</p>
 
 
-<div class="code-tabs">
-  <ul class="nav nav-tabs"></ul>
-  <div class="tab-content">
-   
+<div class="notices note" ><p>Learn how to make your own HandCash extension <a href="/">here</a>.</p></div>
 
-<div class="tab-pane" title="NodeJS">
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">HandCashConnect</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>({ 
-   <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;id&gt;&#39;</span>, 
-   <span style="color:#a6e22e">appSecret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;secret&gt;&#39;</span>,
-});
-
-<span style="color:#75715e">// Use this field to redirect the user to the HandCash authorization screen.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">redirectionLoginUrl</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getRedirectionUrl</span>();
-</code></pre></div>
-</div>
-</div>
-</div></p>
-<p>If you need to pass any extra parameters, use the following syntax:<br />
-<br></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getRedirectionUrl</span>({<span style="color:#e6db74">&#39;state&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xyz&#39;</span>});
-</code></pre></div><br>
-<p>Any extra parameters will be passed back to your app upon redirect.</p>
-<br>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/styles.css">
-  <style>
-  .card {
-    border: 2px solid #e7e7e7;
-      
-    border-radius: 4px;
-      
-    padding: .5rem;
-    margin: 0.5rem 0 0.5rem 0;
-    
-  }
-  .card-header-permission img {
-    float: left;
-  }
-
-  .card-header-permission h4 {
-    position: relative;
-    top: 1px;
-    left: 10px;
-  }
-
-  hr.divider
-{ 
-   margin-top: 0em;
-   margin-bottom: 0em;
-   border-width: 2px;
-} 
-
-p.permission {
-  padding: 1rem 0 0.5rem 0;
-}
-
-  </style>
-</head>
-
-<body>
-  <div class="card">
-  <div class="card-header-permission">
-    <img src=money.png /><h4><b>Referrals</b></h4> 
-  </div>
-  <hr class="divider" />
-  <p class="permission">We encourage all devs to take advantage of new sign-ups! Just add the &#39;referrer&#39; param, and any new sign-up through your link will be attributed to you.</p> 
-</div>
-</body>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getRedirectionUrl</span>({<span style="color:#e6db74">&#39;referrer&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;handle&gt;&#39;</span>});
-</code></pre></div><br>
-<p>To learn more about referrals, please visit: <a href="https://app.handcash.io/legal/referralProgram/">https://app.handcash.io/legal/referralProgram/</a></p>
-<br>
-<h4 id="appearance">Appearance</h4>
-<p>You may attach your <strong>Redirect url</strong> to this button; <em>see <strong><a href="../assets/">assets page</a></strong></em><br />
-<br></p>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-	<div id="connectButton" id="123-456">Connect with HandCash</div>
-	<script type="text/javascript" src="js/connect_button.js"></script>
-</body>
-<br/>
-<br/>
-<h4 id="what-happens">What Happens?</h4>
-<p>Serving the url to the user will redirect them to <strong>HandCash</strong>, who will then prompt the user to grant permissions for your app.</p>
-<br>
-<p>Once the user selects <strong>accept</strong> or <strong>decline</strong>, they will be redirected back your app&rsquo;s <strong>Authorization Success URL</strong> or <strong>Authorization Failed URL</strong>.</p>
-<br/>
-<p>While redirecting, an <strong>authToken</strong> query parameter will be added to the request:</p>
-<blockquote>
-<p><code>&lt;auth-success-url&gt;?authToken=&lt;token&gt;*</code></p>
-</blockquote>
-<p>*<em>plus any extra params</em></p>
-<br>
-<p>Use the <strong>authToken</strong> to view and spend as directed by the user.</p>
 <hr>
 <br>
-<h4 id="video-walkthrough">Video Walkthrough</h4>
-<p>Below is a video walkthrough illustrating a demo implementation of the authentication process:</p>
-
-
-<div class="notices info" ><p>Some of the code in the video may be outdated, please refer to the documentation for up to date code.</p></div>
-
+<h4 id="how-to-use-extensions">How to use Extensions</h4>
+<p>The below example illustrates how to use HandCash extensions.</p>
 
 
 <div class="code-tabs">
@@ -288,10 +171,22 @@ p.permission {
    
 
 <div class="tab-pane" title="NodeJS">
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/Zk9-hqQFzic" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">HandCashConnect</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@handcash/handcash-connect&#39;</span>);
 
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appId</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;id&gt;&#39;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appSecret</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;secret&gt;&#39;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authToken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;token&gt;&#39;</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>({ 
+   <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">appId</span>, 
+   <span style="color:#a6e22e">appSecret</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">appSecret</span>,
+}); 
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
+
+<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">extensions</span>.<span style="color:#a6e22e">haste</span>.<span style="color:#a6e22e">init</span>(<span style="color:#e6db74">&#39;&lt;id&gt;&#39;</span>, <span style="color:#e6db74">&#39;&lt;secret&gt;&#39;</span>)
+<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">extensions</span>.<span style="color:#a6e22e">haste</span>.<span style="color:#a6e22e">submitPlay</span>({<span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>})
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -343,6 +238,86 @@ p.permission {
             
             
             
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
 
             
@@ -471,92 +446,12 @@ p.permission {
             
             
             
-            
-            
-            
-            
 
             
+            <a class="nav nav-prev" href="https://docs.handcash.dev/encryption/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Encrypt &amp; Decrypt</span></a>
             
             
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
-
-            
-            <a class="nav nav-prev" href="https://docs.handcash.dev/installation/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Installation</span></a>
-            
-            
-            <a class="nav nav-next" href="https://docs.handcash.dev/profile/"> <span class="d-none d-md-block">Profile</span><i class="ti-arrow-right ml-2"></i></a>
+            <a class="nav nav-next" href="https://docs.handcash.dev/run/"> <span class="d-none d-md-block">RUN</span><i class="ti-arrow-right ml-2"></i></a>
             
           </nav>
         </div>
