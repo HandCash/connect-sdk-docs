@@ -176,6 +176,7 @@
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appId</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;id&gt;&#39;</span>
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">appSecret</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;secret&gt;&#39;</span>
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authToken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;token&gt;&#39;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hasteConfig</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;id&gt;&#39;</span>, <span style="color:#a6e22e">appSecret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;secret&gt;&#39;</span>, <span style="color:#a6e22e">gameId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;id&gt;&#39;</span>}
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handCashConnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HandCashConnect</span>({ 
    <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">appId</span>, 
@@ -184,7 +185,7 @@
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handCashConnect</span>.<span style="color:#a6e22e">getAccountFromAuthToken</span>(<span style="color:#a6e22e">token</span>);
 
-<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">extensions</span>.<span style="color:#a6e22e">haste</span>.<span style="color:#a6e22e">init</span>(<span style="color:#e6db74">&#39;&lt;id&gt;&#39;</span>, <span style="color:#e6db74">&#39;&lt;secret&gt;&#39;</span>)
+<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">extensions</span>.<span style="color:#a6e22e">haste</span>.<span style="color:#a6e22e">init</span>(<span style="color:#a6e22e">hasteConfig</span>)
 <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">extensions</span>.<span style="color:#a6e22e">haste</span>.<span style="color:#a6e22e">submitPlay</span>({<span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>})
 </code></pre></div>
 </div>
