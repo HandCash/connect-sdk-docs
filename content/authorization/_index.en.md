@@ -47,7 +47,7 @@ To connect with a user, generate a **redirection url** using the SDK:
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect({ 
-   appId: '<id>', 
+   appId: '<app-id>', 
    appSecret: '<secret>',
 });
 

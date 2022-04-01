@@ -57,7 +57,7 @@ Then, import the module:
 ```javascript
 const {HandCashConnect} = require('@handcash/handcash-connect');
 const handCashConnect = new HandCashConnect({ 
-   appId: '<id>', 
+   appId: '<app-id>', 
    appSecret: '<secret>',
 }); 
 ```
